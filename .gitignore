@@ -1,0 +1,5 @@
+db/*.db
+*.iml
+.idea/*
+out/*
+build/*
