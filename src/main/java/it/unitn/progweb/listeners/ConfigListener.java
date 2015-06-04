@@ -1,7 +1,6 @@
 package it.unitn.progweb.listeners;
 
 import it.unitn.progweb.model.UserManager;
-import jdk.nashorn.internal.runtime.Logging;
 import org.sql2o.Sql2o;
 
 import javax.servlet.ServletContextEvent;
@@ -12,7 +11,7 @@ import java.util.logging.Logger;
 @WebListener()
 public class ConfigListener implements ServletContextListener {
 
-    private Logger logger = Logging.getLogger(getClass().getName());
+    private Logger logger = Logger.getLogger(getClass().getName());
     private Sql2o database;
 
     public void contextInitialized(ServletContextEvent sce) {

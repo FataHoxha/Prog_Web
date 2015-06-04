@@ -2,7 +2,6 @@ package it.unitn.progweb.controller;
 
 import it.unitn.progweb.model.User;
 import it.unitn.progweb.model.UserManager;
-import jdk.nashorn.internal.runtime.Logging;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ import java.util.logging.Logger;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
-    private final Logger logger = Logging.getLogger(getClass().getName());
+    private final Logger logger = Logger.getLogger(getClass().getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

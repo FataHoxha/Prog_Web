@@ -1,13 +1,11 @@
 package it.unitn.progweb;
 
-import jdk.nashorn.internal.runtime.Logging;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Logger;
 
 public class Utils {
-    final private static Logger logger = Logging.getLogger(Utils.class.getName());
+    final private static Logger logger = Logger.getLogger(Utils.class.getName());
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     public static final String bytesToHex(byte[] bytes) {
