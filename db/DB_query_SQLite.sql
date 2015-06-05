@@ -13,7 +13,7 @@ CREATE TABLE film
 	duration INTEGER,
 	plot TEXT,
 	uri_poster TEXT,
-	FOREIGN KEY (ID_genre) REFERENCES genere(ID_genre)
+	FOREIGN KEY (ID_genre) REFERENCES genre(ID_genre)
 );
 
 CREATE TABLE show
@@ -23,7 +23,7 @@ CREATE TABLE show
 	date_time TIMESTAMP,
 	ID_room INTEGER,
 	FOREIGN KEY (ID_film) REFERENCES film(ID_film),
-	FOREIGN KEY (ID_room) REFERENCES sala(ID_room)
+	FOREIGN KEY (ID_room) REFERENCES room(ID_room)
 );
 
 CREATE TABLE room
@@ -47,10 +47,10 @@ CREATE TABLE reservation
 	ID_price INTEGER,
 	ID_seat INTEGER,
 	date_time_operarion TIMESTAMP,
-	FOREIGN KEY (ID_user) REFERENCES utente(ID_user),
-	FOREIGN KEY (ID_show) REFERENCES spettacolo(ID_show),
-	FOREIGN KEY (ID_price) REFERENCES prezzo(ID_price),
-	FOREIGN KEY (ID_seat) REFERENCES posto(ID_seat)
+	FOREIGN KEY (ID_user) REFERENCES user(ID_user),
+	FOREIGN KEY (ID_show) REFERENCES show(ID_show),
+	FOREIGN KEY (ID_price) REFERENCES price(ID_price),
+	FOREIGN KEY (ID_seat) REFERENCES seat(ID_seat)
 );
 
 CREATE TABLE seat
@@ -60,7 +60,7 @@ CREATE TABLE seat
 	line INTEGER,
 	column INTEGER,
 	exist BOOLEAN,
-	FOREIGN KEY (ID_room) REFERENCES sala(ID_room)
+	FOREIGN KEY (ID_room) REFERENCES seat(ID_room)
 );
 
 CREATE TABLE user
@@ -71,7 +71,7 @@ CREATE TABLE user
 	password TEXT,
 	credit DOUBLE,
 	ID_role INTEGER,
-	FOREIGN KEY (ID_role) REFERENCES ruolo(ID_role)
+	FOREIGN KEY (ID_role) REFERENCES role(ID_role)
 );
 
 CREATE TABLE role
