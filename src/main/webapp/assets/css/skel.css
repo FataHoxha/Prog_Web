@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Limelight);
 body
 {
+    height:100%;
     margin:0px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -8,6 +9,19 @@ body
     background-color: #799696;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
+
+.wrapper
+{
+    position:relative;
+    height:100%;
+    width:100%;
+}
+
+.container
+{
+    padding:10%;
+}
+
 .main-logo
 {
     font-family: "Limelight",sans-serif;
