@@ -33,18 +33,21 @@ public class LoginServlet extends HttpServlet {
         User u;
         u = (User) session.getAttribute("user");
         // User is already authenticated, redirect to home
+        assert u != null: "user should never be null";
         if(u.isAuthenticated()) {
             response.sendRedirect("/");
             return;
         }
 
         u = manager.authenticateUser(name, password);
-        if(!u.isAuthenticated()){
+
+        if(u==null || !u.isAuthenticated()){
             response.sendRedirect("/login?error=1");
             return;
         }
 
         session.setAttribute("user", u);
+
         response.sendRedirect("/");
     }
 }
