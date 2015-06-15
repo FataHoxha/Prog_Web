@@ -2,11 +2,17 @@ package it.unitn.progweb.model;
 
 import it.unitn.progweb.Utils;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class User {
     private static final int ANONYMOUS_ID = -1;
 
+
     private Integer id;
-    private String name;
+    @NotNull
+    @Pattern(regexp = "[A-Za-z][A-Za-z0-9]*")
+    private String username;
     private String password;
 
     public User() {
@@ -17,7 +23,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
@@ -30,12 +36,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

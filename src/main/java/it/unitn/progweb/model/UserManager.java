@@ -4,22 +4,25 @@ import it.unitn.progweb.Utils;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import javax.validation.constraints.NotNull;
+
 public class UserManager {
 
     private Sql2o database;
 
-    private final String userQuery = "select * from users where name=:name";
+    private final String userQuery = "select ID_user,username,password from user where username=:name";
     private final User anonymousUser = new User();
 
     public UserManager(Sql2o manager) {
         this.database = manager;
     }
 
-    public User authenticateUser(final String name, final String password) {
+    public @NotNull User authenticateUser(final @NotNull String name, final @NotNull String password) {
         User u;
         try(Connection conn = database.open()) {
             u = conn.createQuery(userQuery)
                     .addParameter("name", name)
+                    .addColumnMapping("ID_user", "id")
                     .executeAndFetchFirst(User.class);
         }
         if(u == null){
@@ -27,7 +30,7 @@ public class UserManager {
         }
 
         final String hash = Utils.sha512(password);
-        if(u.getPassword().equals(hash)) {
+        if(u.getPassword().equalsIgnoreCase(hash)) {
             return u;
         }
 

@@ -16,7 +16,7 @@ public class UserSessionFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         User u = (User) request.getSession(true).getAttribute("user");
         if(u == null){
-            request.getSession().setAttribute("user", new User());
+            request.getSession(true).setAttribute("user", new User());
         }
         chain.doFilter(req, resp);
     }
