@@ -10,18 +10,18 @@ public class UserManager {
 
     private Sql2o database;
 
-    private final String userQuery = "select ID_user,username,password from user where username=:name";
+    private final String userQuery = "select ID_user,username,email,password from user where username=:username";
     private final User anonymousUser = new User();
 
     public UserManager(Sql2o manager) {
         this.database = manager;
     }
 
-    public @NotNull User authenticateUser(final @NotNull String name, final @NotNull String password) {
+    public @NotNull User authenticateUser(final @NotNull String username, final @NotNull String password) {
         User u;
         try(Connection conn = database.open()) {
             u = conn.createQuery(userQuery)
-                    .addParameter("name", name)
+                    .addParameter("username", username)
                     .addColumnMapping("ID_user", "id")
                     .executeAndFetchFirst(User.class);
         }

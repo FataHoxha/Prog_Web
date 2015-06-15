@@ -13,7 +13,7 @@
 <body>
     <form action="/registration" method="post">
         Email: <input name="email" type="text"/>
-        Name: <input name="name" type="text"/>
+        Name: <input name="username" type="text"/>
         Password: <input name="password" type="password"/>
         <button type="submit">Reg!</button>
     </form>
