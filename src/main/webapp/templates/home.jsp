@@ -9,6 +9,6 @@
     <title>Welcome </title>
 </head>
 <body>
-
+<%@ include file="../assets/temp_views/skel.html"%>
 </body>
 </html>

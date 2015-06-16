@@ -1,5 +1,10 @@
 db/*.db
+db/*.sqlite3
+db/*.sqlite
 *.iml
 .idea/*
 out/*
 build/*
+src/main/webapp/WEB-INF/web.xml
+.DS_Store
+.gradle

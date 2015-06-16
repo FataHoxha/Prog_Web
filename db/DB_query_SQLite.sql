@@ -18,18 +18,18 @@ CREATE TABLE film
 
 CREATE TABLE show
 (
-	ID_show INTEGER PRIMARY KEY,
+	ID_show INTEGER NOT NULL UNIQUE,
 	ID_film INTEGER,
 	date_time TIMESTAMP,
 	ID_room INTEGER,
+	PRIMARY KEY(ID_film, date_time, ID_room),
 	FOREIGN KEY (ID_film) REFERENCES film(ID_film),
 	FOREIGN KEY (ID_room) REFERENCES room(ID_room)
 );
 
 CREATE TABLE room
 (
-	ID_room INTEGER PRIMARY KEY,
-	descriprion TEXT
+	ID_room INTEGER PRIMARY KEY
 );
 
 CREATE TABLE price
@@ -55,11 +55,12 @@ CREATE TABLE reservation
 
 CREATE TABLE seat
 (
-	ID_seat INTEGER PRIMARY KEY,
+	ID_seat INTEGER NOT NULL UNIQUE,
 	ID_room INTEGER,
-	line INTEGER,
+	row INTEGER,
 	column INTEGER,
 	exist BOOLEAN,
+	PRIMARY KEY (ID_room, row, column),
 	FOREIGN KEY (ID_room) REFERENCES seat(ID_room)
 );
 
