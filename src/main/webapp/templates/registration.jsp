@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Reg</title>
+    <title>Registration</title>
 </head>
 <body>
     <form action="/registration" method="post">
         Email: <input name="email" type="text"/>
         Name: <input name="username" type="text"/>
         Password: <input name="password" type="password"/>
-        <button type="submit">Reg!</button>
+        <button type="submit">Registrati!</button>
     </form>
 </body>
 </html>
