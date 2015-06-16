@@ -1,6 +1,7 @@
 package it.unitn.progweb.controller;
 
 import it.unitn.progweb.lib.Mailer;
+import it.unitn.progweb.lib.Pdf;
 import it.unitn.progweb.model.User;
 import it.unitn.progweb.model.UserManager;
 import org.sql2o.Connection;
@@ -54,8 +55,10 @@ public class RegistrationServlet extends HttpServlet {
             return;
         }
 
+
+        Pdf pdfLOL = new Pdf();
         Mailer miaMail = new Mailer();
-        miaMail.sendMail(email, "Benvenuto su BOH","Benvenuto "+username+ ",\n\n testo della email ");
+        miaMail.sendMailAttachment(email, "Benvenuto su BOH", "Benvenuto " + username + ",\n\n testo della email ", pdfLOL.generaPDF("mailto:"+email));
 
         UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
         u = manager.authenticateUser(username, password);

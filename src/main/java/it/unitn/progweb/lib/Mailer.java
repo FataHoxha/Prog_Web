@@ -3,9 +3,15 @@ package it.unitn.progweb.lib;
 /**
  * Created by fabianozenatti on 16/06/15.
  */
+
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
 public class Mailer {
@@ -39,6 +45,12 @@ public class Mailer {
 
     public void sendMail(String recipient, String subject, String messageText){
 
+
+    }
+
+    public void sendMailAttachment(String recipient, String subject, String messageText, String filename){
+
+
         try {
 
             Message message = new MimeMessage(this.mailsession);
@@ -48,6 +60,22 @@ public class Mailer {
             message.setSubject(subject);
             message.setText(messageText);
 
+
+            //Create the multipart message
+            Multipart multipart = new MimeMultipart();
+            //Create the textual part of the message
+            BodyPart messageBodyPart1 = new MimeBodyPart();
+            messageBodyPart1.setText("Invio allegato");
+            //Create the Word part of the message
+            DataSource source =  new FileDataSource(filename);
+            BodyPart messageBodyPart2 = new MimeBodyPart();
+            messageBodyPart2.setDataHandler( new DataHandler(source) );
+            messageBodyPart2.setFileName( filename );
+            //Add the parts to the Multipart message
+            multipart.addBodyPart( messageBodyPart1 );
+            multipart.addBodyPart( messageBodyPart2 );
+            message.setContent(multipart);
+
             Transport.send(message);
 
         } catch (MessagingException e) {
@@ -56,6 +84,7 @@ public class Mailer {
         }
 
         return;
-    }
 
+
+    }
 }
