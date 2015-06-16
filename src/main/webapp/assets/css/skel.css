@@ -1,115 +1,17 @@
-@import url(http://fonts.googleapis.com/css?family=Limelight);
-body
-{
-    height:100%;
-    margin:0px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #799696;
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+/* label color */
+.input-field label {
+    color: #dddddd;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #ffffff;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.wrapper
-{
-    position:relative;
-    height:100%;
-    width:100%;
-}
-
-.container
-{
-    padding:10%;
-}
-
-.main-logo
-{
-    font-family: "Limelight",sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    text-shadow: #878686 1px 1px 1px, #6f694d 1px 1px 0, #6f694d 2px 2px 0, #6f694d 3px 3px 0,black 4px 4px 2px, #6f694d 4px 4px 0,black 5px 5px 2px,black 6px 6px 2px,black 7px 7px 2px;
-    font-size: 35px;
-    line-height: 20px;
-    letter-spacing: 3px;
-}
-header
-{
-    position:fixed;
-    top:0px;
-    background-color: #FFFFFF;
-    width: 100%;
-    height: 100px;
-}
-.left
-{
-    display: inline-block;
-    background-color: #00FF00;
-    width: 45%;
-    height:50%;
-}
-
-.right
-{
-    background-color: #0000FF;
-    display: inline-block;
-    width: 45%;
-    height:50%;
-}
-
-header div
-{
-    display: inline-block;
-    background-color: #FF0000;
-    width: 10%;
-    height:100%;
-}
-
-header nav ul
-{
-    margin: 10px 0;
-    padding: 0;
-    list-style-type: none;
-    text-align: center;
-}
-
-header nav ul li
-{
-    padding: 0px 20px;
-    display:inline;
-}
-
-/*---------------------------------------------------------------------------*/
-
-footer
-{
-    position:fixed;
-    bottom:0px;
-    background-color: #FFFFFF;
-    width: 100%;
-    height: 50px;
-}
-
-footer div
-{
-    padding: 10px 20px;
-}
-
-footer form
-{
-    display:inline;
-    width:50%;
-    margin: auto;
-    padding: auto;
-}
-
-footer input
-{
-    margin-right:20px;
-}
-
-footer button
-{
-    display:inline;
-    position: absolute;
-    right: 20px;
+main {
+    flex: 1 0 auto;
 }
