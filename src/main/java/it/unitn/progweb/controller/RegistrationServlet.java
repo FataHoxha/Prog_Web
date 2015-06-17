@@ -49,7 +49,7 @@ public class RegistrationServlet extends HttpServlet {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> violations = validator.validate(u);
-        errors = violations.stream().map(v -> v.getMessage()).collect(Collectors.toList());
+        errors = violations.stream().map(v -> v.getPropertyPath()+" is wrong.").collect(Collectors.toList());
         if(errors.size() > 0) {
             request.getServletContext().setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");

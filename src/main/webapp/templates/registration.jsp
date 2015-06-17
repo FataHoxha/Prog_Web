@@ -22,7 +22,7 @@
             </div>
 
             <div class="input-field col s4">
-                <input name="mail" id="email" type="email" class="validate">
+                <input name="email" id="email" type="email" class="validate">
                 <label for="email">Email</label>
             </div>
 
