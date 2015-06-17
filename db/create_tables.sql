@@ -29,8 +29,8 @@ CREATE TABLE "price"
 CREATE TABLE "user"
 (
   uid BIGSERIAL PRIMARY KEY,
-  username TEXT,
-  email TEXT,
+  username TEXT UNIQUE,
+  email TEXT UNIQUE,
   password TEXT,
   credit FLOAT DEFAULT 0.0,
   is_admin BOOLEAN DEFAULT FALSE
