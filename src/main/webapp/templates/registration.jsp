@@ -13,27 +13,27 @@
             <blockquote>${error}</blockquote>
         </c:forEach>
 
-        <h1 class="center">Registrati</h1>
+        <h1>Registrati</h1>
 
-        <form action="/registration" class="center col s12" method="post">
-            <div class="input-field col s4">
-                <input name="username" id="username" type="text" class="validate">
-                <label for="username">Username</label>
+        <form action="/registration" class="horizontal" method="post">
+            <div class="form-group">
+                <input name="username" id="username" type="text">
+                <label class="col-sm-2 control-label" for="username">Username</label>
             </div>
 
-            <div class="input-field col s4">
-                <input name="email" id="email" type="email" class="validate">
-                <label for="email">Email</label>
+            <div class="form-group">
+                <input name="email" id="email" type="email">
+                <label class="col-sm-2 control-label" for="email">Email</label>
             </div>
 
-            <div class="input-field col s4">
-                <input name="password" id="password" type="password" class="validate">
-                <label for="password">Password</label>
+            <div class="form-group">
+                <input name="password" id="password" type="password">
+                <label class="col-sm-2 control-label" for="password">Password</label>
             </div>
 
-            <div class="input-field col s4">
-                <input name="passwordcheck" id="passwordcheck" type="password" class="validate">
-                <label for="passwordcheck">Check Password</label>
+            <div class="form-group">
+                <input name="passwordcheck" id="passwordcheck" type="password" >
+                <label class="col-sm-2 control-label" for="passwordcheck">Check Password</label>
             </div>
 
             <div class="row">
