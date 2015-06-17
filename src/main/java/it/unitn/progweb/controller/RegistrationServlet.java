@@ -1,9 +1,6 @@
 package it.unitn.progweb.controller;
 
-import it.unitn.progweb.lib.Mailer;
-import it.unitn.progweb.lib.Pdf;
 import it.unitn.progweb.model.User;
-import it.unitn.progweb.model.UserManager;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -19,7 +16,10 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @WebServlet(name = "RegistrationServlet", urlPatterns = {"/registration"})
 public class RegistrationServlet extends HttpServlet {
@@ -28,7 +28,18 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final String username = request.getParameter("username");
         final String password = request.getParameter("password");
+        final String passwordcheck = request.getParameter("passwordcheck");
         final String email = request.getParameter("email");
+        List<String> errors;
+
+        if(!password.equals(passwordcheck)) {
+            errors = new ArrayList<>();
+            errors.add("Le password non corrispondono");
+            request.getServletContext().setAttribute("errors", errors);
+            RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
+            rd.forward(request, response);
+            return;
+        }
 
         User u = new User();
         u.setUsername(username);
@@ -37,14 +48,12 @@ public class RegistrationServlet extends HttpServlet {
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
-        Set<ConstraintViolation<User>> errors = validator.validate(u);
+        Set<ConstraintViolation<User>> violations = validator.validate(u);
+        errors = violations.stream().map(v -> v.getMessage()).collect(Collectors.toList());
         if(errors.size() > 0) {
-            // TODO: change this
-            response.setHeader("Content-Type", "text/plain");
-            for(ConstraintViolation<User> e: errors) {
-                response.getWriter().write(e + "\n");
-            }
-            response.setStatus(404);
+            request.getServletContext().setAttribute("errors", errors);
+            RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
+            rd.forward(request, response);
             return;
         }
 
@@ -52,19 +61,23 @@ public class RegistrationServlet extends HttpServlet {
         try (Connection con = database.open()) {
             con.createQuery(newUserQuery).bind(u).executeUpdate();
         } catch (Sql2oException exc) {
-            //
+            //Il database non ha accettato l'utente
+
+            RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
+            rd.forward(request, response);
             return;
         }
 
 
-        Pdf pdfLOL = new Pdf();
+        /*Pdf pdfLOL = new Pdf();
         Mailer miaMail = new Mailer();
         miaMail.sendMailAttachment(email, "Benvenuto su BOH", "Benvenuto " + username + ",\n\n testo della email ", pdfLOL.generaPDF("mailto:"+email));
 
         UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
         u = manager.authenticateUser(email, password);
         response.setHeader("Content-Type", "text/plain");
-        response.getWriter().write(u.toString());
+        response.getWriter().write(u.toString());*/
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
