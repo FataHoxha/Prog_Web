@@ -63,7 +63,7 @@ public class RegistrationServlet extends HttpServlet {
         } catch (Sql2oException exc) {
             //Il database non ha accettato l'utente
             errors = new ArrayList<>();
-            errors.add("Utente gia esistente");
+            errors.add("Utente già esistente");
             request.getServletContext().setAttribute("errors", errors);
 
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
