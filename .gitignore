@@ -5,6 +5,5 @@ db/*.sqlite
 .idea/*
 out/*
 build/*
-src/main/webapp/WEB-INF/web.xml
 .DS_Store
 .gradle

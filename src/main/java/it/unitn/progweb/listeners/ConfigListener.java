@@ -16,13 +16,15 @@ public class ConfigListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
         try{
-            Class.forName("org.sqlite.JDBC");
+            Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException exc) {
             logger.severe(exc.getMessage());
         }
-        String dbpath = sce.getServletContext().getInitParameter("dbpath");
-        logger.info("path is " + dbpath);
-        database = new Sql2o("jdbc:sqlite:" + dbpath, null, null);
+        String db_url = sce.getServletContext().getInitParameter("db_url");
+        String db_user = "movies";
+        String db_pass = "movies";
+        logger.info("going to connect to " + db_url);
+        database = new Sql2o(db_url, db_user, db_pass);
         sce.getServletContext().setAttribute("database", database);
         sce.getServletContext().setAttribute("user_manager", new UserManager(database));
     }

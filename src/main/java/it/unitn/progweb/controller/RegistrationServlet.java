@@ -24,7 +24,7 @@ import java.util.Set;
 @WebServlet(name = "RegistrationServlet", urlPatterns = {"/registration"})
 public class RegistrationServlet extends HttpServlet {
     private static final String newUserQuery =
-            "insert into user (username, email, password) values (:username, :email, :password)";
+            "insert into \"user\"(username, email, password) values (:username, :email, :password)";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final String username = request.getParameter("username");
         final String password = request.getParameter("password");
@@ -39,6 +39,7 @@ public class RegistrationServlet extends HttpServlet {
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> errors = validator.validate(u);
         if(errors.size() > 0) {
+            // TODO: change this
             response.setHeader("Content-Type", "text/plain");
             for(ConstraintViolation<User> e: errors) {
                 response.getWriter().write(e + "\n");

@@ -1,9 +1,5 @@
 package it.unitn.progweb.lib;
 
-/**
- * Created by fabianozenatti on 16/06/15.
- */
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;

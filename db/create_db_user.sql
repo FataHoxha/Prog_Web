@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS movies;
+DROP ROLE IF EXISTS movies;
+
+CREATE USER movies WITH PASSWORD 'movies';
+CREATE DATABASE movies OWNER movies;

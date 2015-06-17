@@ -9,8 +9,8 @@ import javax.validation.constraints.Size;
 public class User {
     private static final int ANONYMOUS_ID = -1;
 
-
     private Integer id;
+
     @NotNull
     @Pattern(regexp = "[A-Za-z][A-Za-z0-9]+")
     @Size(min=2, max=100)
@@ -23,18 +23,20 @@ public class User {
     @Pattern(regexp = "^[\\w-\\.]{1,}\\@([\\da-zA-Z-]{1,}\\.){1,}[\\da-zA-Z-]{2,4}$")
     private String email;
 
+    private Float credit;
+    private Boolean is_admin;
+
     public User() {
         this.id = ANONYMOUS_ID;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public void setAndHashPassword(final String password) {
+        final String hash = Utils.sha512(password);
+        this.password = hash;
+    }
+
+    public boolean isAuthenticated() {
+        return id != ANONYMOUS_ID;
     }
 
     public Integer getId() {
@@ -43,14 +45,6 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getUsername() {
@@ -69,12 +63,39 @@ public class User {
         this.password = password;
     }
 
-    public void setAndHashPassword(final String password) {
-        final String hash = Utils.sha512(password);
-        this.password = hash;
+    public String getEmail() {
+        return email;
     }
 
-    public boolean isAuthenticated() {
-        return id != ANONYMOUS_ID;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Float getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Float credit) {
+        this.credit = credit;
+    }
+
+    public Boolean getIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(Boolean is_admin) {
+        this.is_admin = is_admin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", credit=" + credit +
+                ", is_admin=" + is_admin +
+                '}';
     }
 }

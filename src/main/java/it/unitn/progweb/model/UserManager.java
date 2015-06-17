@@ -10,7 +10,7 @@ public class UserManager {
 
     private Sql2o database;
 
-    private final String userQuery = "select ID_user,username,email,password from user where email=:email";
+    private final String userQuery = "select uid,username,email,password from \"user\" where email=:email";
     private final User anonymousUser = new User();
 
     public UserManager(Sql2o manager) {
@@ -22,7 +22,7 @@ public class UserManager {
         try(Connection conn = database.open()) {
             u = conn.createQuery(userQuery)
                     .addParameter("email", email)
-                    .addColumnMapping("ID_user", "id")
+                    .addColumnMapping("uid", "id")
                     .executeAndFetchFirst(User.class);
         }
         if(u == null){
