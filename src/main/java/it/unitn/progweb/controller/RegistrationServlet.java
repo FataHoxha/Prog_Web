@@ -61,7 +61,7 @@ public class RegistrationServlet extends HttpServlet {
         miaMail.sendMailAttachment(email, "Benvenuto su BOH", "Benvenuto " + username + ",\n\n testo della email ", pdfLOL.generaPDF("mailto:"+email));
 
         UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
-        u = manager.authenticateUser(username, password);
+        u = manager.authenticateUser(email, password);
         response.setHeader("Content-Type", "text/plain");
         response.getWriter().write(u.toString());
     }

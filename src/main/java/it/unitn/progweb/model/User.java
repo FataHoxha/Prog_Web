@@ -20,6 +20,7 @@ public class User {
     private String password;
 
     @NotNull
+    @Pattern(regexp = "^[\\w-\\.]{1,}\\@([\\da-zA-Z-]{1,}\\.){1,}[\\da-zA-Z-]{2,4}$")
     private String email;
 
     public User() {
