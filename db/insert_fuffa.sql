@@ -1,5 +1,18 @@
 INSERT INTO user (username, email, password, credit, ID_role) VALUES ("fuffa", "fz@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "2.0", NULL );
-
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("mario", "mario.rossi@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "10.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("luca", "luca@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "15.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("roby", "roberto@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "20.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("dallag", "marco@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "5.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("David93", "davide.pizzolotto@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "7.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("erFabyTunz", "faby.zen@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "150.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("Matteo", "Matteo.martella@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "35.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("Dante99", "Alighieri.dante@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "1.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("Serious", "serious.sam@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "47.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("Menethil", "Arthas@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "250.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("pippiZ", "pippicalzelunghe@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "15.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("UtontoStd", "utonto@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "16.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("fhahthbhahrhdhah", "fatbardha.Hoxha@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "85.0", NULL );
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("TheKing", "tullo_ostilio@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "31.0", NULL );
 
 INSERT INTO genre (description) VALUES ("Action");
 INSERT INTO genre (description) VALUES ("Adventure");
@@ -14,9 +27,8 @@ INSERT INTO genre (description) VALUES ("Western");
 
 INSERT INTO price (kind, price) VALUES ("3D","10.0");
 INSERT INTO price (kind, price) VALUES ("2D","8.0");
-INSERT INTO price (kind, price) VALUES ("Disabili","5.0");
-INSERT INTO price (kind, price) VALUES ("Reduci","5.0");
-
+INSERT INTO price (kind, price) VALUES ("Disabile","5.0");
+INSERT INTO price (kind, price) VALUES ("Reduce","5.0");
 
 INSERT INTO room (ID_room) VALUES ("1");
 INSERT INTO room (ID_room) VALUES ("2");
