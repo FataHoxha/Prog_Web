@@ -1,4 +1,16 @@
+-- insert tappabuchi
+
 insert into "user"(username, email, password) values ('fabiano', 'fz@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980');
+
+insert into "movie" (title, genre_id, trailer_url) VALUES ('King Kong', '1','www.google.it');
+
+insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', current_timestamp);
+
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','1');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','2');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','3');
+
+-- INSERT SENSATE
 
 INSERT INTO "user" (username, email, password, credit) VALUES ('mario', 'mario.rossi@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980', '10.0' );
 INSERT INTO "user" (username, email, password, credit) VALUES ('luca', 'luca@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980', '15.0' );
