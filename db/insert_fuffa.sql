@@ -1,0 +1,1 @@
+INSERT INTO user (username, email, password, credit, ID_role) VALUES ("fuffa", "fz@fabianozenatti.it", "b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980", "2.0", NULL );

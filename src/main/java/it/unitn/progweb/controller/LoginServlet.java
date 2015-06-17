@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -20,8 +21,24 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(true);
+        User u = (User) session.getAttribute("user");
+        // User is already authenticated, redirect to home
+        assert u != null: "user should never be null";
+        if(u.isAuthenticated()) {
+            response.sendRedirect(getNext(request));
+            return;
+        }
         RequestDispatcher rd = request.getRequestDispatcher("templates/login.jsp");
         rd.forward(request, response);
+    }
+
+    private @NotNull String getNext(HttpServletRequest request){
+        String next = request.getParameter("next");
+        if(next == null){
+            next = "/";
+        }
+        return next;
     }
 
     @Override
@@ -30,21 +47,22 @@ public class LoginServlet extends HttpServlet {
         final String name = request.getParameter("name");
         final String password = request.getParameter("password");
         HttpSession session = request.getSession(true);
-        User u;
-        u = (User) session.getAttribute("user");
+        User u = (User) session.getAttribute("user");
         // User is already authenticated, redirect to home
+        assert u != null: "user should never be null";
         if(u.isAuthenticated()) {
-            response.sendRedirect("/");
+            response.sendRedirect(getNext(request));
             return;
         }
 
         u = manager.authenticateUser(name, password);
+
         if(!u.isAuthenticated()){
-            response.sendRedirect("/login?error=1");
+            response.sendRedirect("/login?error=1&next=" + getNext(request));
             return;
         }
 
         session.setAttribute("user", u);
-        response.sendRedirect("/");
+        response.sendRedirect(getNext(request));
     }
 }

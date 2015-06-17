@@ -5,7 +5,7 @@
 </head>
 <body>
     <form action="/login" method="post">
-        <input name="name" type="text"/>
+        <input name="username" type="text"/>
         <input name="password" type="password"/>
         <button type="submit">login!</button>
     </form>
