@@ -25,6 +25,7 @@
 <%@ include file="../assets/temp_views/header.html"%>
 <%@ include file="../assets/temp_views/index.html"%>
 <%@ include file="../assets/temp_views/footer.html"%>
+<%= u.getUsername() %>
 </body>
 
 

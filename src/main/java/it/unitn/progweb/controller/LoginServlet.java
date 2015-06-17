@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
-        final String name = request.getParameter("name");
+        final String email = request.getParameter("email");
         final String password = request.getParameter("password");
         HttpSession session = request.getSession(true);
         User u = (User) session.getAttribute("user");
@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        u = manager.authenticateUser(name, password);
+        u = manager.authenticateUser(email, password);
 
         if(!u.isAuthenticated()){
             response.sendRedirect("/login?error=1&next=" + getNext(request));
