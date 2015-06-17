@@ -1,6 +1,6 @@
 <h1 class="center">Listino Prezzi</h1>
 
-<table class="responsive-table hoverable">
+<table class="table table-hover">
     <thead>
     <tr>
         <th></th>

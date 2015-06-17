@@ -3,10 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@attribute name="extrahead" fragment="true" %>
 
-<%
-    User u = (User) session.getAttribute("user");
-%>
-
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,17 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
-    <link rel="stylesheet" href="../css/skel.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
 
     <!-- scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $(".button-collapse").sideNav();
-        })
+        // TODO: collassare navbar
     </script>
 
     <jsp:invoke fragment="extrahead"/>
@@ -36,12 +31,8 @@
     <%@ include file="/assets/fragments/header.html"%>
 
     <!-- body -->
-    <div id="body">
-        <main>
-            <div class="container">
-                <jsp:doBody/>
-            </div>
-        </main>
+    <div class="container">
+        <jsp:doBody/>
     </div>
 
     <!-- footer -->
