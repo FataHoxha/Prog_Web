@@ -1,32 +1,66 @@
-<%@ page import="it.unitn.progweb.model.User" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    User u = (User) session.getAttribute("user");
-%>
-<html>
-<head>
-    <meta charset="utf8">
-    <script src="../js/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
-    <link rel="stylesheet" href="../css/skel.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <script>
-        $(document).ready()
-        {
-            $(".button-collapse").sideNav();
-        }
-    </script>
-</head>
-<title>Welcome</title>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<body>
-<%@ include file="../assets/temp_views/header.html"%>
-<%@ include file="../assets/temp_views/index.html"%>
-<%@ include file="../assets/temp_views/footer.html"%>
-<%= u.getUsername() %>
-</body>
+<t:basepage>
+    <jsp:body>
 
+        <div class="col s12">
+            <div class="row">
+                <h2 class="header">Una bella home page</h2>
 
-</html>
+                <!-- cards -->
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+                            <span class="card-title">Fury</span>
+                        </div>
+                        <div class="card-content">
+                            <p>April, 1945. As the Allies make their final push in the European Theatre, a
+                                battle-hardened Army sergeant named Wardaddy commands a Sherman tank and his
+                                five-man
+                                crew on a deadly mission behind enemy lines.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Prenota</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="http://ia.media-imdb.com/images/M/MV5BMTQ4OTgzNTkwNF5BMl5BanBnXkFtZTgwMzI3MDE3NDE@._V1_SX214_AL_.jpg">
+                            <span class="card-title">Tomorrowland</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Bound by a shared destiny, a teen bursting with scientific curiosity and a former
+                                boy-genius inventor embark on a mission to unearth the secrets of a place
+                                somewhere in
+                                time and space that exists in their collective memory.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Prenota</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="http://ia.media-imdb.com/images/M/MV5BNjI4MTgyOTAxOV5BMl5BanBnXkFtZTgwMjQwOTA4NTE@._V1_SX640_SY720_.jpg">
+                            <span class="card-title">San Andreas</span>
+                        </div>
+                        <div class="card-content">
+                            <p>In the aftermath of a massive earthquake in California, a rescue-chopper pilot
+                                makes a
+                                dangerous journey across the state in order to rescue his daughter.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Prenota</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </jsp:body>
+</t:basepage>
