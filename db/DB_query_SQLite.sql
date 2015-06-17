@@ -60,6 +60,7 @@ CREATE TABLE seat
 	row INTEGER,
 	column INTEGER,
 	exist BOOLEAN,
+	reservation_count INTEGER,
 	PRIMARY KEY (ID_room, row, column),
 	FOREIGN KEY (ID_room) REFERENCES seat(ID_room)
 );
