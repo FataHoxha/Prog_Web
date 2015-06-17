@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/skel.css">
 
     <!-- scripts -->
-    <script src="../js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 
     <script>
