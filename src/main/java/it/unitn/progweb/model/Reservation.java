@@ -9,6 +9,14 @@ public class Reservation {
     private Integer seat_id;
     private Integer created; // TIMESTAMP
 
+    public Reservation(){ return;}
+
+    public String toString(){
+        //TODO se serve per riempire i qr e le mail
+        //"SELECT U.username AS username, U.email AS email, M.title AS title, P.amount AS amount, P.kind AS kind, SW.date_time AS date_time, T.description AS description, ST.row AS row, ST.column AS column FROM ((((((\"user\" U JOIN \"reservation\" R ON U.uid = R.user_id) JOIN \"seat\" ST ON R.seat_id = ST.id) JOIN \"show\" SW ON R.show_id = SW.id) JOIN \"movie\" M ON SW.movie_id = M.id) JOIN \"price\" P ON R.price_id = P.id) JOIN \"theater\" T ON SW.theater_id = T.id);"
+
+        return "";
+    }
 
     public Integer getId() {
         return id;
