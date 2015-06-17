@@ -23,6 +23,9 @@
 <title>Registrazione</title>
 
 <body>
+<c:forEach items="${errors}" var="error">
+    <blockquote>${error}</blockquote>
+</c:forEach>
 <%@ include file="../assets/temp_views/header.html" %>
 <%@ include file="../assets/temp_views/registration.html" %>
 </body>
