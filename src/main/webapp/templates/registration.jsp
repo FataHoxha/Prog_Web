@@ -1,32 +1,48 @@
-<%@ page import="it.unitn.progweb.model.User" %>
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<html>
-<head>
-  <meta charset="utf8">
-  <script src="../js/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
-  <link rel="stylesheet" href="../css/skel.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <script>
-    $(document).ready()
-    {
-      $(".button-collapse").sideNav({
-      });
-    }
-  </script>
-</head>
+<t:basepage>
+    <jsp:attribute name="extrahead">
+        <title>Registrazione</title>
+    </jsp:attribute>
 
-<title>Registrazione</title>
+    <jsp:body>
 
-<body>
-<c:forEach items="${errors}" var="error">
-    <blockquote>${error}</blockquote>
-</c:forEach>
-<%@ include file="../assets/temp_views/header.html" %>
-<%@ include file="../assets/temp_views/registration.html" %>
-</body>
-</html>
+        <c:forEach items="${errors}" var="error">
+            <blockquote>${error}</blockquote>
+        </c:forEach>
+
+        <h1 class="center">Registrati</h1>
+
+        <form action="/registration" class="center col s12" method="post">
+            <div class="input-field col s4">
+                <input name="username" id="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+
+            <div class="input-field col s4">
+                <input name="mail" id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+
+            <div class="input-field col s4">
+                <input name="password" id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+
+            <div class="input-field col s4">
+                <input name="passwordcheck" id="passwordcheck" type="password" class="validate">
+                <label for="passwordcheck">Check Password</label>
+            </div>
+
+            <div class="row">
+                <div class="col s3">
+                    <button class=" input-field btn waves-effect waves-light" type="submit" name="action">Registrati
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </jsp:body>
+</t:basepage>
