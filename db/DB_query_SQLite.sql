@@ -36,7 +36,7 @@ CREATE TABLE price
 (
 	ID_price INTEGER PRIMARY KEY,
 	kind TEXT,
-	prezzo DOUBLE
+	price DOUBLE
 );
 
 CREATE TABLE reservation
