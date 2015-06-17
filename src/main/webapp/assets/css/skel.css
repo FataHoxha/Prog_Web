@@ -1,8 +1,8 @@
-/* label color */
+/* label color
 .input-field label {
     color: #dddddd;
 }
-/* label focus color */
+/* label focus color
 .input-field input[type=text]:focus + label {
     color: #ffffff;
 }
@@ -12,3 +12,4 @@ footer
     bottom:0px;
     width:100%;
 }
+*/
