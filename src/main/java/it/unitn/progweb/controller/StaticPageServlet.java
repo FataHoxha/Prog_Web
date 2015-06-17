@@ -8,16 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Fatbardha on 17/06/15.
- */
-@WebServlet(name = "PricesServlet", urlPatterns = {"/prices"})
-public class PricesServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    }
-
+@WebServlet(name="StaticPageServlet", urlPatterns = {"/dovesiamo", "/prices"})
+public class StaticPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("templates/prices.jsp");
+        String page = request.getServletPath();
+
+        request.getServletContext().setAttribute("include", page);
+
+        RequestDispatcher rd = request.getRequestDispatcher("templates/staticpage.jsp");
         rd.forward(request, response);
     }
 }
+
