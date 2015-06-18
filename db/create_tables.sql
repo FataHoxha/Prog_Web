@@ -7,6 +7,8 @@ DROP TABLE IF EXISTS "seat" CASCADE;
 DROP TABLE IF EXISTS "reservation" CASCADE;
 DROP TABLE IF EXISTS "user" CASCADE;
 
+DROP VIEW "reservation_complete" CASCADE;
+
 CREATE TABLE "genre"
 (
   id BIGSERIAL PRIMARY KEY,
@@ -89,5 +91,21 @@ CREATE TABLE "reservation"
   FOREIGN KEY(seat_id) REFERENCES seat(id)
 );
 
-
-
+CREATE VIEW "reservation_complete" AS
+  SELECT
+    r.id AS id,
+    u.username AS username,
+    u.email AS email,
+    m.title AS title,
+    p.amount AS amount,
+    p.kind AS kind,
+    "show".date_time AS date_time,
+    t.description AS description,
+    seat."row" AS "row",
+    seat."column" AS "column"
+  FROM reservation r JOIN "user" u ON r.user_id = u.uid
+  JOIN "show" ON r.show_id = "show".id
+  JOIN price p ON r.price_id = p.id
+  JOIN seat ON r.seat_id = seat.id
+  JOIN theater t ON seat.theater_id = t.id
+  JOIN movie m ON m.id = "show".movie_id;

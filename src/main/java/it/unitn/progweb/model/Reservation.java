@@ -1,7 +1,12 @@
 package it.unitn.progweb.model;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,79 +19,47 @@ public class Reservation {
     private Integer seat_id;
     private Integer created; // TIMESTAMP
 
+    private static final List<String> order = ImmutableList.of(
+            "username", "email", "title", "date_time", "kind", "amount", "description", "row", "column"
+    );
 
-    private Sql2o database;
+    private static final Map<String, String> mapping = new ImmutableMap.Builder<String, String>()
+            .put("username", "Nome utente")
+            .put("email", "Email")
+            .put("title", "Film")
+            .put("date_time", "Data e ora")
+            .put("kind", "Tipo biglietto")
+            .put("amount", "Prezzo")
+            .put("description", "Sala")
+            .put("row", "Fila")
+            .put("column", "Posto")
+            .build();
 
-    public Reservation(Sql2o database){ this.database= database; }
+    public String details(Sql2o database){
+        ArrayList<String> frags = new ArrayList<>();
+        List<Map<String,Object>> reports;
+        String sql = "select * from reservation_complete where id=:id";
 
-    @Override
-    public String toString(){
-        //TODO se serve per riempire i qr e le mail
-        //"SELECT U.username AS username, U.email AS email, M.title AS title, P.amount AS amount, P.kind AS kind, SW.date_time AS date_time, T.description AS description, ST.row AS row, ST.column AS column FROM ((((((\"user\" U JOIN \"reservation\" R ON U.uid = R.user_id) JOIN \"seat\" ST ON R.seat_id = ST.id) JOIN \"show\" SW ON R.show_id = SW.id) JOIN \"movie\" M ON SW.movie_id = M.id) JOIN \"price\" P ON R.price_id = P.id) JOIN \"theater\" T ON SW.theater_id = T.id);"
-        String res="Dati prenotazione\n";
-        List<Map<String,Object>> getReportData;
-
-        String complexSql = "SELECT U.username AS username, U.email AS email, M.title AS title, P.amount AS amount, P.kind AS kind, SW.date_time AS date_time, T.description AS description, ST.row AS row, ST.column AS column FROM ((((((\"user\" U JOIN \"reservation\" R ON U.uid = R.user_id) JOIN \"seat\" ST ON R.seat_id = ST.id) JOIN \"show\" SW ON R.show_id = SW.id) JOIN \"movie\" M ON SW.movie_id = M.id) JOIN \"price\" P ON R.price_id = P.id) JOIN \"theater\" T ON SW.theater_id = T.id) WHERE R.id= :reservationId;";
-
-        try (Connection con = this.database.open()) {
-
-            getReportData = con.createQuery(complexSql).addParameter("reservationId", this.id).executeAndFetchTable().asList();
+        try (Connection con = database.open()) {
+            reports = con.createQuery(sql).addParameter("id", id).executeAndFetchTable().asList();
+        }
+        for(Map<String, Object> report: reports) {
+            for(String field: order) {
+                String readable = mapping.get(field);
+                assert report.containsKey(field): "the row from database should contain " + field + " but it doesnt";
+                Object value = report.get(field);
+                frags.add(readable + ": " + (value == null? "": value.toString()));
+            }
         }
 
-        for(int i=0; i < getReportData.size(); i++){
-
-            res+="\n Nome utente: " + getReportData.get(i).get("username").toString();
-            res+="\n Email: " + getReportData.get(i).get("email").toString();
-            res+="\n Film: " + getReportData.get(i).get("title").toString();
-            res+="\n Data e ora: " + getReportData.get(i).get("date_time").toString();
-            res+="\n Tipologia biglietto: " + getReportData.get(i).get("kind").toString();
-            res+="\n Prezzo: " + getReportData.get(i).get("amount").toString();
-            //res+="\n Sala: " + getReportData.get(i).get("description").toString();
-            res+="\n Posto: fila " + getReportData.get(i).get("row").toString()+
-                    " colonna " + getReportData.get(i).get("column").toString();
-        }
-        return res;
-
+        return Joiner.on("\n").join(frags);
     }
 
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public Integer getUser_id() {
-        return user_id;
-    }
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
-
-    public Integer getShow_id() {
-        return show_id;
-    }
-    public void setShow_id(Integer show_id) {
-        this.show_id = show_id;
-    }
-
-    public Integer getPrice_id() { return price_id; }
-    public void setPrice_id(Integer price_id) {
-        this.price_id = price_id;
-    }
-
-    public Integer getSeat_id() {
-        return seat_id;
-    }
-    public void setSeat_id(Integer seat_id) {
-        this.seat_id = seat_id;
-    }
-
-    public Integer getCreated() {
-        return created;
-    }
-    public void setCreated(Integer created) {
-        this.created = created;
-    }
-
 }
