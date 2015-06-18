@@ -19,24 +19,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script>
-        // TODO: collassare navbar
-    </script>
-
     <jsp:invoke fragment="extrahead"/>
 </head>
 
 <body>
-    <!-- header -->
-    <%@ include file="/assets/fragments/header.html"%>
+<!-- header -->
+<%@ include file="/assets/fragments/header.html"%>
 
+<div class="container">
     <!-- body -->
-    <div class="container">
-        <jsp:doBody/>
-    </div>
+    <jsp:doBody/>
 
     <!-- footer -->
     <%@ include file="/assets/fragments/footer.html"%>
+
+</div>
 
 </body>
 
