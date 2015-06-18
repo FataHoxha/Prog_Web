@@ -241,6 +241,12 @@ INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('200','4','5
 
 insert into "movie" (title, genre_id, trailer_url) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk');
 insert into "movie" (title, genre_id, trailer_url) VALUES ('Cars', '3','https://www.youtube.com/watch?v=SbXIj2T-_uk');
+insert into "movie" (title, genre_id, trailer_url) VALUES ('Jurassic World', '2','https://www.youtube.com/watch?v=RFinNxS5KN4');
+insert into "movie" (title, genre_id, trailer_url) VALUES ('American Sniper', '10','https://www.youtube.com/watch?v=99k3u9ay1gs');
+insert into "movie" (title, genre_id, trailer_url) VALUES ('The Hangover', '4','https://www.youtube.com/watch?v=tcdUhdOlz9M');
+insert into "movie" (title, genre_id, trailer_url) VALUES ('The Godfather', '6','https://www.youtube.com/watch?v=sY1S34973zA');
+insert into "movie" (title, genre_id, trailer_url) VALUES ('Django Unchained', '11','https://www.youtube.com/watch?v=eUdM9vrCbow');
+
 
 insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 15:30:00'); -- sala 1  show 1
 insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 18:30:00'); --         show 2
@@ -248,6 +254,15 @@ insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-1
 insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-18 15:30:00'); -- sala 2  show 4
 insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-18 18:30:00'); --         show 5
 insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-18 21:30:00'); --         show 6
+insert into "show" (movie_id, theater_id, date_time) VALUES('3', '3', '2015-06-18 15:30:00'); -- sala 3  show 7
+insert into "show" (movie_id, theater_id, date_time) VALUES('3', '3', '2015-06-18 18:30:00'); --         show 8
+insert into "show" (movie_id, theater_id, date_time) VALUES('3', '3', '2015-06-18 21:30:00'); --         show 9
+insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-18 15:30:00'); -- sala 4  show 10
+insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-18 18:30:00'); --         show 11
+insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-18 21:30:00'); --         show 12
+insert into "show" (movie_id, theater_id, date_time) VALUES('7', '3', '2015-06-19 15:30:00'); -- sala 3  show 13
+insert into "show" (movie_id, theater_id, date_time) VALUES('7', '3', '2015-06-19 18:30:00'); --         show 14
+insert into "show" (movie_id, theater_id, date_time) VALUES('7', '3', '2015-06-19 21:30:00'); --         show 15
 
 
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','24'); --sala 1
@@ -259,4 +274,12 @@ insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6',
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','65');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','66');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','67');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','112'); --sala 3
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','113');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','114');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','112'); --sala 3
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','114');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','116');
+
+
 
