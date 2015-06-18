@@ -7,9 +7,11 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h1 class="center">Listino Prezzi</h1>
+        <div class="page-header">
+            <h1 class="center">Listino Prezzi</h1>
+        </div>
 
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th></th>

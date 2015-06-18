@@ -7,7 +7,9 @@
     </jsp:attribute>
     <jsp:body>
         <div class="col-md-6">
-        <h1>Accedi</h1>
+        <div class="page-header">
+            <h1>Accedi</h1>
+        </div>
 
         <form action="/login" method="post">
             <div class="form-group">
@@ -19,7 +21,7 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Password" id="password">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </jsp:body>
 </t:basepage>

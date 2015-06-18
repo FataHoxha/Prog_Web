@@ -49,21 +49,21 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="col-xs-6 col-sm-4">
+                <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Inidirizzo</h2><br>
                         <p>Via Sommarive n 5</p>
                         <p>Trento, TN 94107</p>
                     </address>
                 </div>
-                <div class="col-xs-6 col-sm-4">
+                <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Email</h2><br>
                         <a href="mailto:#">first.last@cinema.com</a>
                     </address>
                 </div>
                 <!-- Optional: clear the XS cols if their content doesn't match in height -->
-                <div class="col-xs-6 col-sm-4">
+                <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Telefono</h2><br>
                         <p>0464 654312</p>
