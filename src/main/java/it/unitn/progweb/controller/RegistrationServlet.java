@@ -72,15 +72,6 @@ public class RegistrationServlet extends HttpServlet {
         }
 
 
-        /*Pdf pdfLOL = new Pdf();
-        Mailer miaMail = new Mailer();
-        miaMail.sendMailAttachment(email, "Benvenuto su BOH", "Benvenuto " + username + ",\n\n testo della email ", pdfLOL.generaPDF("mailto:"+email));
-
-        UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
-        u = manager.authenticateUser(email, password);
-        response.setHeader("Content-Type", "text/plain");
-        response.getWriter().write(u.toString());*/
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

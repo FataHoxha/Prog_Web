@@ -1,5 +1,6 @@
 package it.unitn.progweb.listeners;
 
+import it.unitn.progweb.lib.Mailer;
 import it.unitn.progweb.model.UserManager;
 import org.sql2o.Sql2o;
 
@@ -14,6 +15,7 @@ public class ConfigListener implements ServletContextListener {
     private Logger logger = Logger.getLogger(getClass().getName());
     private Sql2o database;
 
+
     public void contextInitialized(ServletContextEvent sce) {
         try{
             Class.forName("org.postgresql.Driver");
@@ -25,11 +27,15 @@ public class ConfigListener implements ServletContextListener {
         String db_pass = "movies";
         logger.info("going to connect to " + db_url);
         database = new Sql2o(db_url, db_user, db_pass);
+
         sce.getServletContext().setAttribute("database", database);
         sce.getServletContext().setAttribute("user_manager", new UserManager(database));
+        sce.getServletContext().setAttribute("email_manager", new Mailer());
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+
+
     }
 }
