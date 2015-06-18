@@ -1,5 +1,6 @@
 package it.unitn.progweb.controller;
 
+import it.unitn.progweb.lib.Mailer;
 import it.unitn.progweb.model.Order;
 import it.unitn.progweb.model.Reservation;
 import it.unitn.progweb.model.User;
@@ -27,7 +28,8 @@ public class TestServlet extends HttpServlet {
         reservations.add(r);
 
         Order o =new Order(new User(),reservations, database);
-        o.toPdfOrderDetails();
+        Mailer m=new Mailer();
+        m.sendMailAttachment("fabiano.zenatti@gmail.com","tickets","ciao", o.toPdfOrderDetails());
 
         response.getWriter().write(r.details(database));
     }

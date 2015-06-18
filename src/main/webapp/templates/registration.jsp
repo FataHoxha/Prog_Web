@@ -13,7 +13,9 @@
                 <div class="alert alert-danger">${error}</div>
             </c:forEach>
 
-            <h1>Registrati</h1>
+            <div class="page-header">
+                <h1>Registrati</h1>
+            </div>
 
             <form action="/registration" method="post">
                 <div class="form-group">
@@ -32,7 +34,7 @@
                     <label for="passwordcheck">Confirm password</label>
                     <input type="password" class="form-control" id="passwordcheck" placeholder="Confirm password" name="passwordcheck">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </jsp:body>
