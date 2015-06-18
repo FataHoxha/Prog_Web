@@ -32,10 +32,10 @@ INSERT INTO "price" (kind, amount) VALUES ('2D','8.0');
 INSERT INTO "price" (kind, amount) VALUES ('Disabile','5.0');
 INSERT INTO "price" (kind, amount) VALUES ('Reduce','5.0');
 
-INSERT INTO "theater" (id) VALUES ('1');
-INSERT INTO "theater" (id) VALUES ('2');
-INSERT INTO "theater" (id) VALUES ('3');
-INSERT INTO "theater" (id) VALUES ('4');
+INSERT INTO "theater" (id, description) VALUES ('1','Sala 1: Comoda e spaziosa');
+INSERT INTO "theater" (id, description) VALUES ('2','Sala 2: Pratica e con proiettore di ultima generazione');
+INSERT INTO "theater" (id, description) VALUES ('3','Sala 3: Piccolo schermo per grandi serate');
+INSERT INTO "theater" (id, description) VALUES ('4','Sala 4: La minore delle quattro vanta una disposizion strategica dei posti');
 
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('1','1','1','1','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('2','1','1','2','true');
