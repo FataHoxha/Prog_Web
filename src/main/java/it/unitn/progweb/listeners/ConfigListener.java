@@ -1,6 +1,7 @@
 package it.unitn.progweb.listeners;
 
 import it.unitn.progweb.lib.Mailer;
+import it.unitn.progweb.model.MovieManager;
 import it.unitn.progweb.model.UserManager;
 import org.sql2o.Sql2o;
 
@@ -31,6 +32,7 @@ public class ConfigListener implements ServletContextListener {
         sce.getServletContext().setAttribute("database", database);
         sce.getServletContext().setAttribute("user_manager", new UserManager(database));
         sce.getServletContext().setAttribute("email_manager", new Mailer());
+        sce.getServletContext().setAttribute("movie_manager", new MovieManager(database));
     }
 
     @Override

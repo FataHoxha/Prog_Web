@@ -13,8 +13,8 @@ public class UserManager {
     private final String userQuery = "select uid,username,email,password from \"user\" where email=:email";
     private final User anonymousUser = new User();
 
-    public UserManager(Sql2o manager) {
-        this.database = manager;
+    public UserManager(Sql2o database) {
+        this.database = database;
     }
 
     public @NotNull User authenticateUser(final @NotNull String email, final @NotNull String password) {
