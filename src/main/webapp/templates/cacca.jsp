@@ -4,7 +4,6 @@
 
 <t:basepage>
     <jsp:body>
-        <c:forEach items="${movies}" var="movie">
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-heading">${movie.title}</div>
@@ -55,6 +54,5 @@
                     </div>
                 </div>
             </div>
-        </c:forEach>
     </jsp:body>
 </t:basepage>
