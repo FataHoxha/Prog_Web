@@ -15,7 +15,7 @@ public class StaticPageServlet extends HttpServlet {
 
         request.getServletContext().setAttribute("include", page);
 
-        RequestDispatcher rd = request.getRequestDispatcher("templates/staticpage.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher(String.format("templates/staticpages%s.jsp", page));
         rd.forward(request, response);
     }
 }
