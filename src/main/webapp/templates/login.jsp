@@ -6,6 +6,7 @@
         <title>Il mio login</title>
     </jsp:attribute>
     <jsp:body>
+        <h1>Fai il login:  </h1>
         <form action="/login" class="horizontal" method="post">
 
             <div class=form-group" class="center">
