@@ -7,16 +7,99 @@
     </jsp:attribute>
   <jsp:body>
     <h1>Cosa c'è al cinema:</h1>
-
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4">Ora</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
         <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
-        <div class="caption">
-          <h3>Fury</h3>
-          <p>April, 1945. As the Allies make their final push in the European Theatre, a
-            battle-hardened Army sergeant named Wardaddy commands a Sherman tank and his
-            five-man
-            crew on a deadly mission behind enemy lines.</p>
+        <div class="row">
+          <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+          <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+          <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+        <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+        <div class="row">
+          <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+          <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+          <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><a href="#">Trailer</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Prenota</a></div>
+            <div class="col-xs-6 col-md-4"><a href="#">Ora</a></div>
+          </div>
         </div>
       </div>
     </div>
