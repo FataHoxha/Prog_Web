@@ -1,12 +1,12 @@
 package it.unitn.progweb.lib;
 
-import com.sun.mail.iap.ByteArray;
-
+import javax.activation.DataHandler;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.ByteArrayOutputStream;
 import java.util.Properties;
 
 public class Mailer {
@@ -43,7 +43,7 @@ public class Mailer {
 
     }
 
-    public void sendMailAttachment(String recipient, String subject, String messageText, ByteArray file){
+    public void sendMailAttachment(String recipient, String subject, String messageText, ByteArrayOutputStream file){
 
 
         try {
@@ -63,11 +63,10 @@ public class Mailer {
             messageBodyPart1.setText("Invio allegato");
             //Create the Word part of the message
             BodyPart messageBodyPart2 = new MimeBodyPart();
-            //InputStream is = new ByteArrayInputStream(file);
-            //messageBodyPart2.setDataHandler( new DataHandler(new FileDataSource()));
-            messageBodyPart2.setFileName("Tickets");
+            messageBodyPart2.setDataHandler(new DataHandler(file.toByteArray(), "application/pdf"));
+            messageBodyPart2.setFileName("Tickets.pdf");
             //Add the parts to the Multipart message
-            multipart.addBodyPart( messageBodyPart1 );
+            multipart.addBodyPart(messageBodyPart1 );
             multipart.addBodyPart( messageBodyPart2 );
             message.setContent(multipart);
 
