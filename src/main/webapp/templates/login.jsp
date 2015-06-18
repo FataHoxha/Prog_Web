@@ -6,10 +6,22 @@
         <title>Il mio login</title>
     </jsp:attribute>
     <jsp:body>
-        <form action="/login" method="post">
-            email:<input name="email" type="text"/>
-            password:<input name="password" type="password"/>
-            <button type="submit">login!</button>
+        <form action="/login" class="horizontal" method="post">
+
+            <div class=form-group" class="center">
+                <input name="username" id="username" type="text">
+                <label class="col-sm-2 control-label" for="username">Username</label>
+            </div>
+
+            <div class="form-group">
+                    <input name="password" id="password" type="password">
+                    <label class="col-sm-2 control-label" for="password">Password</label>
+            </div>
+
+
+            <button class=" input-field btn waves-effect waves-light" type="submit" name="action"> Login
+                <i class="mdi-content-send right"></i>
+            </button>
         </form>
     </jsp:body>
 </t:basepage>
