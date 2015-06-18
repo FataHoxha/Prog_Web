@@ -246,9 +246,9 @@ insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('American
 insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('The Hangover', '4','https://www.youtube.com/watch?v=tcdUhdOlz9M','http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX214_AL_.jpg');
 insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('The Godfather', '6','https://www.youtube.com/watch?v=sY1S34973zA','http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg');
 insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Django Unchained', '11','https://www.youtube.com/watch?v=eUdM9vrCbow','http://ia.media-imdb.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Shining', '7','https://www.youtube.com/watch?v=S014oGZiSdI');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Grease', '8','https://www.youtube.com/watch?v=wzWmxjYNfz4');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Avatar', '9','https://www.youtube.com/watch?v=d1_JBMrrYw8');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Shining', '7','https://www.youtube.com/watch?v=S014oGZiSdI','http://ia.media-imdb.com/images/M/MV5BODMxMjE3NTA4Ml5BMl5BanBnXkFtZTgwNDc0NTIxMDE@._V1_SY317_CR1,0,214,317_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Grease', '8','https://www.youtube.com/watch?v=wzWmxjYNfz4','http://ia.media-imdb.com/images/M/MV5BMTcyMTA5MTY3MF5BMl5BanBnXkFtZTgwMTMwNzAxMDE@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Avatar', '9','https://www.youtube.com/watch?v=d1_JBMrrYw8','http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SY317_CR0,0,214,317_AL_.jpg');
 
 
 insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 15:30:00'); -- sala 1  show 1
