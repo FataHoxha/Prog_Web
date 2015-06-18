@@ -1,19 +1,4 @@
--- insert tappabuchi (da ESEGUIRE DOPO)
-
 insert into "user"(username, email, password) values ('fabiano', 'fz@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980');
-
-insert into "movie" (title, genre_id, trailer_url) VALUES ('King Kong', '1','www.google.it');
-
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', current_timestamp);
-
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','1');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','1');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','1');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','2');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','2');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','1','1','3');
-
--- INSERT SENSATE
 
 INSERT INTO "user" (username, email, password, credit) VALUES ('mario', 'mario.rossi@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980', '10.0' );
 INSERT INTO "user" (username, email, password, credit) VALUES ('luca', 'luca@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980', '15.0' );
@@ -32,6 +17,7 @@ INSERT INTO "user" (username, email, password, credit) VALUES ('TheKing', 'tullo
 
 INSERT INTO "genre" (description) VALUES ('Action');
 INSERT INTO "genre" (description) VALUES ('Adventure');
+INSERT INTO "genre" (description) VALUES ('Animation');
 INSERT INTO "genre" (description) VALUES ('Comedy');
 INSERT INTO "genre" (description) VALUES ('Crime');
 INSERT INTO "genre" (description) VALUES ('Drama');
@@ -251,3 +237,26 @@ INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('197','4','5
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('198','4','5','8','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('199','4','5','9','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('200','4','5','10','true');
+
+
+insert into "movie" (title, genre_id, trailer_url) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk');
+insert into "movie" (title, genre_id, trailer_url) VALUES ('Cars', '3','https://www.youtube.com/watch?v=SbXIj2T-_uk');
+
+insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 15:30:00'); -- sala 1  show 1
+insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 18:30:00'); --         show 2
+insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 21:30:00'); --         show 3
+insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-18 15:30:00'); -- sala 2  show 4
+insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-18 18:30:00'); --         show 5
+insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-18 21:30:00'); --         show 6
+
+
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','24'); --sala 1
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','25');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','26');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','27');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','63'); --sala 2
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','64');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','65');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','66');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','67');
+
