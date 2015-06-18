@@ -1,0 +1,12 @@
+body {
+    background-color: #fafafa;
+    padding-top: 70px;
+}
+
+div#body {
+    box-shadow: 0 0 10px #eeeeee;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 80px;
+}
