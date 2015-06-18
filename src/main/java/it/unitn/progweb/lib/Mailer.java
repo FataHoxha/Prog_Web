@@ -1,20 +1,34 @@
 package it.unitn.progweb.lib;
 
 import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.ByteArrayOutputStream;
 import java.util.Properties;
+
+/**
+ * uso:
+ * Regola 1: non farti domande su come è implementato... è grezzissimo ma funziona ;)
+ *
+ * //beccati il mailer dal context della servlet
+ * Mailer m = (Mailer) request.getServletContext().getAttribute("email_manager");
+ *
+ * //invia una semplice email
+ * m.sendMail("destinatario","oggetto","messaggio");
+ *
+ * //invia una mail con allegato
+ * m.sendMailAttachment("destinatario","oggetto","messaggio", ByteArrayOutputStream --orrido ma lasciatelo così--);
+ *
+ */
 
 public class Mailer {
 
     final String username = "movieswebprog2015@gmail.com";
     final String password = "birdwatching";
-    final String sender = "movieswebprog2015@gmail.com";
+    final String sender = "Movies <movieswebprog2015@gmail.com>";
     Properties props;
     Session mailsession;
 
@@ -42,9 +56,26 @@ public class Mailer {
     public void sendMail(String recipient, String subject, String messageText){
 
 
+        try {
+            Message message = new MimeMessage(this.mailsession);
+            message.setFrom(new InternetAddress(this.sender));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(recipient));
+            message.setSubject(subject);
+            message.setText(messageText);
+
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+
+        }
+
+        return;
+
     }
 
-    public void sendMailAttachment(String recipient, String subject, String messageText, String filename){
+    public void sendMailAttachment(String recipient, String subject, String messageText, ByteArrayOutputStream file){
 
 
         try {
@@ -61,14 +92,13 @@ public class Mailer {
             Multipart multipart = new MimeMultipart();
             //Create the textual part of the message
             BodyPart messageBodyPart1 = new MimeBodyPart();
-            messageBodyPart1.setText("Invio allegato");
+            messageBodyPart1.setText(messageText);
             //Create the Word part of the message
-            DataSource source =  new FileDataSource(filename);
             BodyPart messageBodyPart2 = new MimeBodyPart();
-            messageBodyPart2.setDataHandler( new DataHandler(source) );
-            messageBodyPart2.setFileName( filename );
+            messageBodyPart2.setDataHandler(new DataHandler(file.toByteArray(), "application/pdf"));
+            messageBodyPart2.setFileName("Tickets.pdf");
             //Add the parts to the Multipart message
-            multipart.addBodyPart( messageBodyPart1 );
+            multipart.addBodyPart(messageBodyPart1 );
             multipart.addBodyPart( messageBodyPart2 );
             message.setContent(multipart);
 

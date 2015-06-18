@@ -35,7 +35,7 @@ public class RegistrationServlet extends HttpServlet {
         if(!password.equals(passwordcheck)) {
             errors = new ArrayList<>();
             errors.add("Le password non corrispondono");
-            request.getServletContext().setAttribute("errors", errors);
+            request.setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
             return;
@@ -49,9 +49,9 @@ public class RegistrationServlet extends HttpServlet {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> violations = validator.validate(u);
-        errors = violations.stream().map(v -> v.getPropertyPath()+" is wrong.").collect(Collectors.toList());
+        errors = violations.stream().map(v -> v.getPropertyPath() + " è errata.").collect(Collectors.toList());
         if(errors.size() > 0) {
-            request.getServletContext().setAttribute("errors", errors);
+            request.setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
             return;
@@ -64,22 +64,13 @@ public class RegistrationServlet extends HttpServlet {
             //Il database non ha accettato l'utente
             errors = new ArrayList<>();
             errors.add("Utente già esistente");
-            request.getServletContext().setAttribute("errors", errors);
+            request.setAttribute("errors", errors);
 
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
             return;
         }
 
-
-        /*Pdf pdfLOL = new Pdf();
-        Mailer miaMail = new Mailer();
-        miaMail.sendMailAttachment(email, "Benvenuto su BOH", "Benvenuto " + username + ",\n\n testo della email ", pdfLOL.generaPDF("mailto:"+email));
-
-        UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
-        u = manager.authenticateUser(email, password);
-        response.setHeader("Content-Type", "text/plain");
-        response.getWriter().write(u.toString());*/
 
     }
 

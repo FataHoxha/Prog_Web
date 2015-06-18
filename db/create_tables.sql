@@ -7,7 +7,10 @@ DROP TABLE IF EXISTS "seat" CASCADE;
 DROP TABLE IF EXISTS "reservation" CASCADE;
 DROP TABLE IF EXISTS "user" CASCADE;
 
-DROP VIEW "reservation_complete" CASCADE;
+DROP VIEW IF EXISTS "current_movies" CASCADE;
+DROP VIEW IF EXISTS "movie_genre" CASCADE;
+DROP VIEW IF EXISTS "show_theater" CASCADE;
+DROP VIEW IF EXISTS "reservation_complete" CASCADE;
 
 CREATE TABLE "genre"
 (
@@ -109,3 +112,32 @@ CREATE VIEW "reservation_complete" AS
   JOIN seat ON r.seat_id = seat.id
   JOIN theater t ON seat.theater_id = t.id
   JOIN movie m ON m.id = "show".movie_id;
+
+CREATE VIEW "movie_genre" AS
+  SELECT
+    m.id as id,
+    m.title as title,
+    g.description as genre,
+    m.trailer_url as trailer_url,
+    m.duration as duration,
+    m.plot as plot,
+    m.poster_uri as poster_uri
+  FROM
+    movie m JOIN genre g ON m.genre_id=g.id;
+
+CREATE VIEW "current_movies" AS
+  SELECT
+    *
+  FROM
+    "movie_genre"
+  WHERE
+    id IN (SELECT DISTINCT movie_id FROM "show" WHERE date_time < current_timestamp);
+
+CREATE VIEW "show_theater" AS
+  SELECT
+    s.id as id,
+    s.date_time as date_time,
+    t.description as theater,
+    s.movie_id as movie_id
+  FROM
+    "show" s join theater t on s.theater_id=t.id;

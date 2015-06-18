@@ -13,6 +13,9 @@
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-simplex-min.css">
+
+    <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
 
     <!-- scripts -->
@@ -26,14 +29,14 @@
 <!-- header -->
 <%@ include file="/assets/fragments/header.html"%>
 
-<div class="container">
+<div class="container" id="body">
     <!-- body -->
     <jsp:doBody/>
 
-    <!-- footer -->
-    <%@ include file="/assets/fragments/footer.html"%>
-
 </div>
+
+<!-- footer -->
+<%@ include file="/assets/fragments/footer.html"%>
 
 </body>
 

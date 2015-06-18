@@ -5,8 +5,9 @@
     <jsp:body>
 
         <div class="row">
-            <h1>Una bella home page</h1>
-
+            <div class="page-header">
+                <h1>Una bella home page</h1>
+            </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <img src="http://ia.media-imdb.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_SX640_SY720_.jpg">

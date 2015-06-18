@@ -11,14 +11,14 @@ import java.io.IOException;
 /**
  * Created by Fatbardha on 18/06/15.
  */
-@WebServlet(name = "ProgrammazioneServlet", urlPatterns = {"/programmazione"})
-public class ProgrammazioneServlet extends HttpServlet {
+@WebServlet(name = "UtenteServlet", urlPatterns ="/utente" )
+public class UtenteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("templates/cacca.jsp");
-        rd.forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    RequestDispatcher rd = request.getRequestDispatcher("templates/utente.jsp");
+    rd.forward(request, response);
     }
 }

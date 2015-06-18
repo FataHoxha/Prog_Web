@@ -8,42 +8,34 @@
     </jsp:attribute>
 
     <jsp:body>
+        <div class="col-md-6">
+            <c:forEach items="${errors}" var="error">
+                <div class="alert alert-danger">${error}</div>
+            </c:forEach>
 
-        <c:forEach items="${errors}" var="error">
-            <blockquote>${error}</blockquote>
-        </c:forEach>
-
-        <h1>Registrati</h1>
-
-        <form action="/registration" class="horizontal" method="post">
-            <div class="form-group">
-                <input name="username" id="username" type="text">
-                <label class="col-sm-2 control-label" for="username">Username</label>
+            <div class="page-header">
+                <h1>Registrati</h1>
             </div>
 
-            <div class="form-group">
-                <input name="email" id="email" type="email">
-                <label class="col-sm-2 control-label" for="email">Email</label>
-            </div>
-
-            <div class="form-group">
-                <input name="password" id="password" type="password">
-                <label class="col-sm-2 control-label" for="password">Password</label>
-            </div>
-
-            <div class="form-group">
-                <input name="passwordcheck" id="passwordcheck" type="password" >
-                <label class="col-sm-2 control-label" for="passwordcheck">Check Password</label>
-            </div>
-
-            <div class="row">
-                <div class="col s3">
-                    <button class=" input-field btn waves-effect waves-light" type="submit" name="action">Registrati
-                        <i class="mdi-content-send right"></i>
-                    </button>
+            <form action="/registration" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
                 </div>
-            </div>
-        </form>
-
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="passwordcheck">Confirm password</label>
+                    <input type="password" class="form-control" id="passwordcheck" placeholder="Confirm password" name="passwordcheck">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </jsp:body>
 </t:basepage>
