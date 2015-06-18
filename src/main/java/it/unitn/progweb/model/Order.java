@@ -1,11 +1,15 @@
 package it.unitn.progweb.model;
 
 
-import com.lowagie.text.Image;
-import com.sun.mail.iap.ByteArray;
+import com.lowagie.text.*;
+import com.lowagie.text.pdf.PdfWriter;
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 import org.sql2o.Sql2o;
 
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,17 +28,50 @@ public class Order {
     }
 
     public String toStringOrderDetails(){
-        //TODO questo dovrebbe restituire informazioni testuali relative all'ordin da inviare via email +:)
+        //TODO questo dovrebbe restituire informazioni testuali relative all'ordine da inviare via email +:)
         return "";
     }
 
-    public ByteArray toPdfOrderDetails(){
+    public ByteArrayOutputStream toPdfOrderDetails(){
         //TODO questo deve restituire il pdf con le info dell'ordine +:)
-        return null;
-    }
 
-    private Image toQrReservationDetails(){
-        //TODO questo dovrebbe restituire il QR di una singola reservation +:)
-        return null;
+        Document document = new Document();
+        ByteArrayOutputStream fileBiteArray = new ByteArrayOutputStream();
+
+        try {
+
+            PdfWriter.getInstance(document, fileBiteArray);
+            //PdfWriter.getInstance(document, new FileOutputStream("/tmp/my.pdf"));
+            document.open();
+
+            Iterator<Reservation> it = this.reservations.iterator();
+            String reservationDetails;
+            Font fontTitle = FontFactory.getFont("Helvetica", 20);
+            Font font = FontFactory.getFont("Helvetica", 12);
+
+            while (it.hasNext()) {
+
+                reservationDetails = it.next().details(this.database);
+
+                document.add(new Paragraph("Biglietto Movies", fontTitle));
+                ByteArrayOutputStream qrout = QRCode.from(reservationDetails).to(ImageType.JPG).stream();
+                Image jpg = Image.getInstance(qrout.toByteArray());
+                document.add(jpg);
+
+                document.add(new Paragraph(reservationDetails, font));
+                document.newPage();
+            }
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+
+        // step 5: we close the document
+        document.close();
+
+        return fileBiteArray;
     }
 }
