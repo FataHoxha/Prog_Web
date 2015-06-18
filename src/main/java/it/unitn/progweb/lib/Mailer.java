@@ -9,6 +9,21 @@ import javax.mail.internet.MimeMultipart;
 import java.io.ByteArrayOutputStream;
 import java.util.Properties;
 
+/**
+ * uso:
+ * Regola 1: non farti domande su come è implementato... è grezzissimo ma funziona ;)
+ *
+ * //beccati il mailer dal context della servlet
+ * Mailer m = (Mailer) request.getServletContext().getAttribute("email_manager");
+ *
+ * //invia una semplice email
+ * m.sendMail("destinatario","oggetto","messaggio");
+ *
+ * //invia una mail con allegato
+ * m.sendMailAttachment("destinatario","oggetto","messaggio", ByteArrayOutputStream --orrido ma lasciatelo così--);
+ *
+ */
+
 public class Mailer {
 
     final String username = "movieswebprog2015@gmail.com";
