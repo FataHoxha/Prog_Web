@@ -18,8 +18,7 @@ public class ProgrammazioneServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("templates/programmazione.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("templates/cacca.jsp");
         rd.forward(request, response);
-
     }
 }
