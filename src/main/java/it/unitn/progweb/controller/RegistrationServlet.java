@@ -35,7 +35,7 @@ public class RegistrationServlet extends HttpServlet {
         if(!password.equals(passwordcheck)) {
             errors = new ArrayList<>();
             errors.add("Le password non corrispondono");
-            request.getServletContext().setAttribute("errors", errors);
+            request.setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
             return;
@@ -51,7 +51,7 @@ public class RegistrationServlet extends HttpServlet {
         Set<ConstraintViolation<User>> violations = validator.validate(u);
         errors = violations.stream().map(v -> v.getPropertyPath()+" is wrong.").collect(Collectors.toList());
         if(errors.size() > 0) {
-            request.getServletContext().setAttribute("errors", errors);
+            request.setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
             return;
@@ -64,7 +64,7 @@ public class RegistrationServlet extends HttpServlet {
             //Il database non ha accettato l'utente
             errors = new ArrayList<>();
             errors.add("Utente già esistente");
-            request.getServletContext().setAttribute("errors", errors);
+            request.setAttribute("errors", errors);
 
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
