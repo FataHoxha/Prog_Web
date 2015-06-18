@@ -239,16 +239,16 @@ INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('199','4','5
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('200','4','5','10','true');
 
 
-insert into "movie" (title, genre_id, trailer_url) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('Cars', '3','https://www.youtube.com/watch?v=SbXIj2T-_uk');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('Jurassic World', '2','https://www.youtube.com/watch?v=RFinNxS5KN4');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('American Sniper', '10','https://www.youtube.com/watch?v=99k3u9ay1gs');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('The Hangover', '4','https://www.youtube.com/watch?v=tcdUhdOlz9M');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('The Godfather', '6','https://www.youtube.com/watch?v=sY1S34973zA');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('Django Unchained', '11','https://www.youtube.com/watch?v=eUdM9vrCbow');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('Shining', '7','https://www.youtube.com/watch?v=S014oGZiSdI');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('Grease', '8','https://www.youtube.com/watch?v=wzWmxjYNfz4');
-insert into "movie" (title, genre_id, trailer_url) VALUES ('Avatar', '9','https://www.youtube.com/watch?v=d1_JBMrrYw8');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk', 'http://ia.media-imdb.com/images/M/MV5BMTgzODQwNjAwOV5BMl5BanBnXkFtZTcwMDA4MDA0MQ@@._V1_SY317_CR0,0,214,317_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Cars', '3','https://www.youtube.com/watch?v=SbXIj2T-_uk','http://ia.media-imdb.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Jurassic World', '2','https://www.youtube.com/watch?v=RFinNxS5KN4','http://ia.media-imdb.com/images/M/MV5BMTQ5MTE0MTk3Nl5BMl5BanBnXkFtZTgwMjczMzk2NTE@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('American Sniper', '10','https://www.youtube.com/watch?v=99k3u9ay1gs','http://ia.media-imdb.com/images/M/MV5BMTkxNzI3ODI4Nl5BMl5BanBnXkFtZTgwMjkwMjY4MjE@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('The Hangover', '4','https://www.youtube.com/watch?v=tcdUhdOlz9M','http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('The Godfather', '6','https://www.youtube.com/watch?v=sY1S34973zA','http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Django Unchained', '11','https://www.youtube.com/watch?v=eUdM9vrCbow','http://ia.media-imdb.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Shining', '7','https://www.youtube.com/watch?v=S014oGZiSdI');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Grease', '8','https://www.youtube.com/watch?v=wzWmxjYNfz4');
+insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Avatar', '9','https://www.youtube.com/watch?v=d1_JBMrrYw8');
 
 
 insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 15:30:00'); -- sala 1  show 1
@@ -327,3 +327,6 @@ insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8',
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','112'); --sala 3
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','114');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','116');
+
+
+
