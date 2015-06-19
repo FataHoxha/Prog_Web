@@ -1,15 +1,11 @@
 package it.unitn.progweb.model;
 
 public class Seat {
-
+    
     private Integer id;
-    private Integer theater_id;
     private Integer row;
     private Integer column;
-    private boolean exist;
-    private int available;
-
-    public Seat(){}
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -17,14 +13,6 @@ public class Seat {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getTheater_id() {
-        return theater_id;
-    }
-
-    public void setTheater_id(Integer theater_id) {
-        this.theater_id = theater_id;
     }
 
     public Integer getRow() {
@@ -43,13 +31,11 @@ public class Seat {
         this.column = column;
     }
 
-    public boolean getExist() {
-        return exist;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setExist(boolean exist) {
-        this.exist = exist;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
-
-
 }

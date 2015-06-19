@@ -7,6 +7,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class Reservation {
     private Integer show_id;
     private Integer price_id;
     private Integer seat_id;
-    private Integer created; // TIMESTAMP
+    private Date created; // TIMESTAMP
 
     private static final List<String> order = ImmutableList.of(
             "username", "email", "title", "date_time", "kind", "amount", "description", "row", "column"

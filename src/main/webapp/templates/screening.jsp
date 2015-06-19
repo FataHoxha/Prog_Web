@@ -24,7 +24,7 @@
                             <div class="list-group">
                                 <c:forEach items="${movie.shows}" var="show">
                                     <fmt:formatDate var="date" value="${show.date_time}" pattern="H:m d/M/y"/>
-                                    <a href="/prenota" class="list-group-item">
+                                    <a href="/prenota?show_id=${show.id}" class="list-group-item">
                                         <h4 class="list-group-item-heading">Sala ${show.theater}</h4>
                                         <p class="list-group-item-text">${date}</p>
                                         <p class="list-group-item-text">Durata: ${movie.duration} minuti</p>
