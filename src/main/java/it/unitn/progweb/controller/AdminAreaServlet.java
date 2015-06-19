@@ -12,8 +12,8 @@ import java.io.IOException;
  * Created by fabianozenatti on 17/06/15.
  */
 
-@WebServlet(name = "AdminArea", urlPatterns = {"/adminarea"})
-public class AdminArea extends HttpServlet {
+@WebServlet(name = "AdminAreaServlet", urlPatterns = {"/adminarea"})
+public class AdminAreaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
