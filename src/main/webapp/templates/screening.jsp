@@ -27,7 +27,7 @@
                                     <a href="/prenota" class="list-group-item">
                                         <h4 class="list-group-item-heading">Sala ${show.theater}</h4>
                                         <p class="list-group-item-text">${date}</p>
-                                        <p class="list-group-item-text">Durata: ${show.duration} minuti</p>
+                                        <p class="list-group-item-text">Durata: ${movie.duration} minuti</p>
                                     </a>
                                 </c:forEach>
                             </div>
