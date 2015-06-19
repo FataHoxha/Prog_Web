@@ -11,6 +11,8 @@ DROP VIEW IF EXISTS "current_movies" CASCADE;
 DROP VIEW IF EXISTS "movie_genre" CASCADE;
 DROP VIEW IF EXISTS "show_theater" CASCADE;
 DROP VIEW IF EXISTS "reservation_complete" CASCADE;
+DROP VIEW IF EXISTS "theater_size" CASCADE;
+DROP VIEW IF EXISTS "seat_status" CASCADE;
 
 CREATE TABLE "genre"
 (
@@ -141,3 +143,50 @@ CREATE VIEW "show_theater" AS
     s.movie_id as movie_id
   FROM
     "show" s join theater t on s.theater_id=t.id;
+
+CREATE VIEW "theater_size" AS
+  SELECT
+    t.id as id,
+    t.description as theater,
+    max(s."row") as "rows",
+    max(s."column") as "columns"
+  FROM
+    seat s JOIN theater t ON s.theater_id=t.id
+  GROUP BY
+    t.id;
+
+-- status
+-- 0 rotto
+-- 1 libero
+-- 2 occupato
+CREATE VIEW "seat_status" AS
+  WITH "seat_show" AS (
+    SELECT
+      s.id AS "show_id",
+      r.id as "reservation_id",
+      ss.*
+    FROM
+      "show" s JOIN theater t ON s.theater_id=t.id
+      JOIN "seat" ss ON ss.theater_id=t.id
+      LEFT JOIN "reservation" r ON (r.show_id=s.id AND ss.id=r.seat_id)
+  )
+  SELECT
+    s."id",
+    s."row",
+    s."column",
+    s."show_id",
+    2 as "status"
+  FROM
+    "seat_show" s
+  WHERE
+    s.reservation_id IS NOT NULL
+  UNION SELECT
+    s."id",
+    s."row",
+    s."column",
+    s."show_id",
+    s."exist"::integer as "status"
+  FROM
+    "seat_show" s
+  WHERE
+    s.reservation_id IS NULL;
