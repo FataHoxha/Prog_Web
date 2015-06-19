@@ -1,6 +1,5 @@
 package it.unitn.progweb.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Movie {
@@ -15,9 +14,6 @@ public class Movie {
     private List<Show> shows;
     private Integer duration;
 
-    public Movie(){
-        shows = new ArrayList<>();
-    }
 
     public List<Show> getShows() {
         return shows;

@@ -26,75 +26,90 @@
                         <a href="#" onclick="show(2);">Clienti top</a>
                     </li>
                     <li>
-                        <a href="#" onclick="show(3);">Prenotazioni</a>
+                        <a href="#" onclick="show(3);">Incassi</a>
                     </li>
                     <li>
-                        <a href="#" onclick="show(4);">Best film</a>
+                        <a href="#" onclick="show(4);">Prenotazioni</a>
                     </li>
                 </ul>
             </div>
-            <!-- /#sidebar-wrapper -->
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div id="page0">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1>Pannello Amministrazione</h1>
-                        </div>
-                    </div>
-                </div>
-                </div>
+        <div id="page-content-wrapper">
+            <div id="page0">
+                <h1>Benvenuto, nomeutente!</h1>
+                <p>Da questa pagina puoi verificare alcuni aspetti amministrativi del sito</p>
+                <p>e cancellare le prenotazioni degli utenti</p>
+            </div>
+        </div>
 
-                <div id="page1">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1>Riepilogo</h1>
-                            </div>
-                        </div>
+
+
+            <div id="page1">
+                <h1>Riepilogo</h1>
+                <p>Riepilogo di ogni film, con numero di posti venduto e prezzo</p>
+                <div id="row">
+                    <table class="table table-hover center-block">
+                        <thead>
+                        <tr>
+                            <th>Film</th>
+                            <th>Posti venduti</th>
+                            <th>Incasso totale</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>King Kong</td>
+                            <td>346</td>
+                            <td>3245</td>
+                        </tr>
+                        <tr>
+                            <td>Cars</td>
+                            <td>565</td>
+                            <td>5567</td>
+                        </tr>
+                        <tr>
+                            <td>Jurassic World</td>
+                            <td>876</td>
+                            <td>8235</td>
+                        </tr>
+                        <tr>
+                            <td>American Sniper</td>
+                            <td>345</td>
+                            <td>4789</td>
+                        </tr>
+                        </tbody>
+                    </table>
                     </div>
-                </div>
+            </div>
+
+
 
                 <div id="page2">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1>Clienti top</h1>
-                                <canvas id="clientiChart" width="500" height="500"></canvas>
-                            </div>
+                <h1>Clienti Top</h1>
+                    <p> Numero biglietti acquistati dai clienti nelle ultime n settimane </p>
+                    <div class="row">
+                <canvas id="clientiChart" width="700" height="500" class="center-block"></canvas>
                         </div>
                     </div>
-                </div>
 
-                <div id="page3">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1>Prenotazioni</h1>
-                            </div>
-                        </div>
+
+
+            <div id="page3">
+                <h1>Incassi</h1>
+                <p> Incassi per ogni film nelle ultime n settimane</p>
+                <div class="row">
+                <canvas id="incassiChart" width="700" height="500" class="center-block"></canvas>
                     </div>
-                </div>
-
-                <div id="page4">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1>Best film</h1>
-                            </div>
+                    <div class="row">
+                <canvas id="incassiChart2" width="300" height="300" class="center-block"></canvas>
                         </div>
-                    </div>
-                </div>
-
             </div>
-            <!-- /#page-content-wrapper -->
 
-        </div>
+
+
         <script>
-
-            var datas = {
+            var current_page = 0;
+            var datac = {
                 labels: ["Fabiano", "Io", "Bampi", "Gaspa", "Dalla", "Fhathbhardha"],
                 datasets: [
                     {
@@ -108,19 +123,63 @@
                 ]
             };
 
+            var datai = {
+                labels: ["King Kong", "Cars", "Jurassic World", "American Sniper"],
+                datasets: [
+                    {
+                        label: "Vendite",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: [3245, 5567, 8235, 4789]
+                    }
+                ]
+            };
 
-                var ctx = $("#clientiChart").get(0).getContext("2d");
-                var myNewChart = new Chart(ctx).Bar(datas);
-
-
+            var datap = [
+                {
+                    value: 3245,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "King Kong"
+                },
+                {
+                    value: 5567,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Cars"
+                },
+                {
+                    value: 8235,
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "Jurassic World"
+                },
+                {
+                    value: 4789,
+                    color: "#F7364A",
+                    highlight: "#FF3A5E",
+                    label: "American Sniper"
+                }
+            ];
 
 function show(id)
 {
-    for(var i=0;i<5;i++)
+    $('#page'+current_page).hide();
+    current_page=id;
+    $('#page'+current_page).fadeIn();
+    switch(id)
     {
-        $('#page'+i).hide();
+        case(1):break;
+        case(2):var ctx = $("#clientiChart").get(0).getContext("2d");
+            var myNewChart = new Chart(ctx).Bar(datac);break;
+        case(3):var ctx = $("#incassiChart").get(0).getContext("2d");
+            var myNewChart = new Chart(ctx).Bar(datai);
+             ctx = $("#incassiChart2").get(0).getContext("2d");
+             myNewChart = new Chart(ctx).Doughnut(datap);break;
+        case(4):break;
     }
-    $('#page'+id).fadeIn();
 }
         </script>
     </jsp:body>

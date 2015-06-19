@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:basepage>
     <jsp:attribute name="extrahead">
@@ -145,10 +146,10 @@
                     <form>
                         <label>Seleziona la tua categoria (no bugie pls):</label>
                         <select id="category_selector" class="form-control">
-                            <option value="0">Intero</option>
-                            <option value="1">Ridotto</option>
-                            <option value="2">Mutilato</option>
-                            <option value="3">Disabile</option>
+                           
+                            <c:forEach items="${prices}" var="price">
+                                <option value="${price.id}">${price.kind}</option>
+                            </c:forEach>
                         </select>
                     </form>
                 </div>
