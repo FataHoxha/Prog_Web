@@ -27,15 +27,16 @@
                     var pid = "p" + pad(a[i].row, 2) + pad(a[i].column, 2);
                     var pclass = (a[i].status == 1) ? "available" : (a[i].status == 0) ? "disabled" : "unavailable";
                     pclass += " cell";
-                    $('#board').append('<div id="' + pid + '"class="' + pclass + '" onclick="process(\'' + pid + '\');"></div>');
+                    $('#board').append('<div data-seatid="'+a[i].seatid+'" id="' + pid + '"class="' + pclass + '" onclick="process(\'' + pid + '\');"></div>');
                 }
 
-                $('head').append('<style>.board{width:' + 29 * max_col + 'px;height:' + 32 * max_row + 'px;display:inline-block;margin:auto;}</style>');
+                $('head').append('<style>#theatre-screen{width:'+29 * max_col + 'px;margin-bottom: 25px;border:2px dotted slategray;text-align:center;}' +
+                        '.board{width:' + 29 * max_col + 'px;height:' + 32 * max_row + 'px;display:inline-block;margin:auto;}</style>');
             });
 
             function deleteReservation(id) {
                 $('#d' + id).remove();
-                $('#p' + id).removeClass('unavailable');
+                $('#p' + id).removeClass('checked');
                 $('#p' + id).addClass('available');
             }
 
@@ -43,11 +44,11 @@
 
                 if ($('#' + pid).hasClass('available')) {
                     $('#' + pid).removeClass('available');
-                    $('#' + pid).addClass('unavailable');
+                    $('#' + pid).addClass('checked');
 
                     var did = pid.substr(1, 4);
                     var value;
-                    $('#done').append('<div id="d' + did + '" data-cat="' + $('#category_selector').val() + '">Fila ' +
+                    $('#done').append('<div id="d' + did + '" data-seatid="'+$('#'+pid).data('seatid')+'" data-cat="' + $('#category_selector').val() + '">Fila ' +
                             pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text() + ' <span onclick ="deleteReservation(\'' + did + '\');" style="cursor:pointer;"' +
                             ' class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>');
                 }
@@ -69,8 +70,7 @@
                 var res = [];
                 $('#done > div').each(function () {
                     res.push({
-                        row: parseInt(this.id.substr(1, 2)),
-                        column: parseInt(this.id.substr(3, 4)),
+                        seat_id: parseInt($('#' + this.id).data('seatid')),
                         type: parseInt($('#' + this.id).data('cat'))
                     });
                 });
@@ -79,6 +79,7 @@
             }
         </script>
         <style>
+
             .cell {
                 float: left;
                 border-radius: 3px;
@@ -86,27 +87,35 @@
                 width: 25px;
                 margin:2px;
                 padding-bottom: 25px;
-                border: 1px dashed black;
+                border: 1px dashed slategray;
                 border-sizing: border-box;
                 cursor: pointer;
             }
 
             .available:hover {
-                border: 1px dashed white;
+                border: 1px solid midnightblue;
             }
 
             .disabled {
-                background-color: slategrey;
+                background-color: white;
+                border:none;
                 cursor: auto;
             }
 
             .available {
-                background-color: mediumseagreen;
+                background-color: whitesmoke;
             }
 
             .unavailable {
-                background-color: crimson;
                 cursor: auto;
+                background-color: lightslategray;
+            }
+
+            .checked
+            {
+                background-color: crimson;
+                border:none;
+                cursor:auto;
             }
 
             #dimmer {
@@ -138,14 +147,15 @@
         <div id="dimmer"></div>
         <div id="pay">
             <div class="container">
-                <div class="row">
-                    <p>Inserisci il numero della carta di credito:</p>
-                </div>
-                <div class="row">
-                    <form>
+                <form>
+                    <div class="form-group">
+                        <label>Inserisci il numero della carta di credito:</label>
+                        <div>
                         <input type="text">
-                    </form>
-                </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
+                </form>
             </div>
         </div>
 
@@ -167,12 +177,13 @@
             </div>
             <div class="row">
                 <div class="col-sm-8">
+                    <div id="theatre-screen">Schermo</div>
                     <div id="board" class="board">
                     </div>
                 </div>
                 <div id="done" class="col-sm-4">
                     <br>
-                    <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
+                    <button class="btn btn-default" type="submit" onclick="submit();">Paga</button>
                 </div>
             </div>
         </div>
