@@ -2,9 +2,6 @@ package it.unitn.progweb.controller;
 
 import it.unitn.progweb.model.Movie;
 import it.unitn.progweb.model.MovieManager;
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
-import org.sql2o.Sql2oException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +25,7 @@ public class ScreeningServlet extends HttpServlet {
             manager.setShows(m);
         }
 
-        request.getServletContext().setAttribute("movies", movies);
+        request.setAttribute("movies", movies);
         RequestDispatcher rd = request.getRequestDispatcher("templates/screening.jsp");
         rd.forward(request, response);
     }

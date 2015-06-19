@@ -32,10 +32,10 @@ INSERT INTO "price" (kind, amount) VALUES ('2D','8.0');
 INSERT INTO "price" (kind, amount) VALUES ('Disabile','5.0');
 INSERT INTO "price" (kind, amount) VALUES ('Reduce','5.0');
 
-INSERT INTO "theater" (id, description) VALUES ('1','Sala 1: Comoda e spaziosa');
-INSERT INTO "theater" (id, description) VALUES ('2','Sala 2: Pratica e con proiettore di ultima generazione');
-INSERT INTO "theater" (id, description) VALUES ('3','Sala 3: Piccolo schermo per grandi serate');
-INSERT INTO "theater" (id, description) VALUES ('4','Sala 4: La minore delle quattro vanta una disposizion strategica dei posti');
+INSERT INTO "theater" (id, description) VALUES ('1','Blu');
+INSERT INTO "theater" (id, description) VALUES ('2','Verde');
+INSERT INTO "theater" (id, description) VALUES ('3','Rossa');
+INSERT INTO "theater" (id, description) VALUES ('4','Gialla');
 
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('1','1','1','1','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('2','1','1','2','true');
@@ -239,16 +239,17 @@ INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('199','4','5
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('200','4','5','10','true');
 
 
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk', 'http://ia.media-imdb.com/images/M/MV5BMTgzODQwNjAwOV5BMl5BanBnXkFtZTcwMDA4MDA0MQ@@._V1_SY317_CR0,0,214,317_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Cars', '3','https://www.youtube.com/watch?v=SbXIj2T-_uk','http://ia.media-imdb.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Jurassic World', '2','https://www.youtube.com/watch?v=RFinNxS5KN4','http://ia.media-imdb.com/images/M/MV5BMTQ5MTE0MTk3Nl5BMl5BanBnXkFtZTgwMjczMzk2NTE@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('American Sniper', '10','https://www.youtube.com/watch?v=99k3u9ay1gs','http://ia.media-imdb.com/images/M/MV5BMTkxNzI3ODI4Nl5BMl5BanBnXkFtZTgwMjkwMjY4MjE@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('The Hangover', '4','https://www.youtube.com/watch?v=tcdUhdOlz9M','http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('The Godfather', '6','https://www.youtube.com/watch?v=sY1S34973zA','http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Django Unchained', '11','https://www.youtube.com/watch?v=eUdM9vrCbow','http://ia.media-imdb.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Shining', '7','https://www.youtube.com/watch?v=S014oGZiSdI','http://ia.media-imdb.com/images/M/MV5BODMxMjE3NTA4Ml5BMl5BanBnXkFtZTgwNDc0NTIxMDE@._V1_SY317_CR1,0,214,317_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Grease', '8','https://www.youtube.com/watch?v=wzWmxjYNfz4','http://ia.media-imdb.com/images/M/MV5BMTcyMTA5MTY3MF5BMl5BanBnXkFtZTgwMTMwNzAxMDE@._V1_SX214_AL_.jpg');
-insert into "movie" (title, genre_id, trailer_url, poster_uri) VALUES ('Avatar', '9','https://www.youtube.com/watch?v=d1_JBMrrYw8','http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SY317_CR0,0,214,317_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk', '187', 'In 1933 New York, an overly ambitious movie producer coerces his cast and hired ship crew to travel to mysterious Skull Island, where they encounter Kong, a giant ape who is immediately smitten with leading lady Ann Darrow.', 'http://ia.media-imdb.com/images/M/MV5BMTgzODQwNjAwOV5BMl5BanBnXkFtZTcwMDA4MDA0MQ@@._V1_SY317_CR0,0,214,317_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('Cars', '3','https://www.youtube.com/watch?v=SbXIj2T-_uk', '117', 'A hot-shot race-car named Lightning McQueen gets waylaid in Radiator Springs, where he finds the true meaning of friendship and family.', 'http://ia.media-imdb.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('Jurassic World', '2','https://www.youtube.com/watch?v=RFinNxS5KN4', '124', 'Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond. After 10 years of operation and visitor rates declining, in order to fulfill a corporate mandate, a new attraction is created to re-spark visitors'' interest, which backfires horribly.', 'http://ia.media-imdb.com/images/M/MV5BMTQ5MTE0MTk3Nl5BMl5BanBnXkFtZTgwMjczMzk2NTE@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('American Sniper', '10','https://www.youtube.com/watch?v=99k3u9ay1gs', '132', 'Navy SEAL sniper Chris Kyle''s pinpoint accuracy saves countless lives on the battlefield and turns him into a legend. Back home to his wife and kids after four tours of duty, however, Chris finds that it is the war he can''t leave behind.', 'http://ia.media-imdb.com/images/M/MV5BMTkxNzI3ODI4Nl5BMl5BanBnXkFtZTgwMjkwMjY4MjE@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('The Hangover', '4','https://www.youtube.com/watch?v=tcdUhdOlz9M', '100', 'Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.', 'http://ia.media-imdb.com/images/M/MV5BMTU1MDA1MTYwMF5BMl5BanBnXkFtZTcwMDcxMzA1Mg@@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('The Godfather', '6','https://www.youtube.com/watch?v=sY1S34973zA', '175', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 'http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('Django Unchained', '11','https://www.youtube.com/watch?v=eUdM9vrCbow', '165', 'With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.', 'http://ia.media-imdb.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('Shining', '7','https://www.youtube.com/watch?v=S014oGZiSdI', '146', 'A family heads to an isolated hotel for the winter where an evil and spiritual presence influences the father into violence, while his psychic son sees horrific forebodings from the past and of the future.', 'http://ia.media-imdb.com/images/M/MV5BODMxMjE3NTA4Ml5BMl5BanBnXkFtZTgwNDc0NTIxMDE@._V1_SY317_CR1,0,214,317_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('Grease', '8','https://www.youtube.com/watch?v=wzWmxjYNfz4', '110', 'Good girl Sandy and greaser Danny fell in love over the summer. But when they unexpectedly discover they''re now in the same high school, will they be able to rekindle their romance?', 'http://ia.media-imdb.com/images/M/MV5BMTcyMTA5MTY3MF5BMl5BanBnXkFtZTgwMTMwNzAxMDE@._V1_SX214_AL_.jpg');
+insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('Avatar', '9','https://www.youtube.com/watch?v=d1_JBMrrYw8', '162', 'A Paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home..', 'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SY317_CR0,0,214,317_AL_.jpg');
+
 
 
 insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-18 15:30:00'); -- sala 1  show 1

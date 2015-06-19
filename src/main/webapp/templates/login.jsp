@@ -23,8 +23,8 @@
         <form action="/login${next}" method="post">
 
             <div class="form-group">
-                <label for="username">Email</label>
-                <input type="text" class="form-control" id="username" placeholder="Email" name="email">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" name="email">
             </div>
 
             <div class="form-group">
