@@ -1,6 +1,8 @@
 package it.unitn.progweb.controller;
 
+import com.google.gson.Gson;
 import it.unitn.progweb.model.Price;
+import it.unitn.progweb.model.Reservation;
 import it.unitn.progweb.model.Seat;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -13,24 +15,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ReservationServlet",urlPatterns = {"/prenota"})
 public class ReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        Gson gson = new Gson();
+        Integer show_id = Integer.parseInt(request.getParameter("show_id"));
+        List<Reservation> res = new ArrayList<>();
+        res = gson.fromJson(request.getReader(), res.getClass());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Sql2o database = (Sql2o) getServletContext().getAttribute("database");
         final Integer show_id = Integer.parseInt(request.getParameter("show_id"));
 
-        List<Price> prices;
-        try(Connection conn = database.open()){
-            prices = conn.createQuery("select * from price;").executeAndFetch(Price.class);
-        } catch (Sql2oException exc) {
-            throw exc;
-        }
 
 
         String showSeats = "select * from \"seat_status\" where show_id=:show_id";
@@ -40,6 +40,13 @@ public class ReservationServlet extends HttpServlet {
                     .addParameter("show_id", show_id)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(Seat.class);
+        } catch (Sql2oException exc) {
+            throw exc;
+        }
+
+        List<Price> prices;
+        try(Connection conn = database.open()){
+            prices = conn.createQuery("select * from price;").executeAndFetch(Price.class);
         } catch (Sql2oException exc) {
             throw exc;
         }

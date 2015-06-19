@@ -12,7 +12,7 @@
 
             var a = [
             <c:forEach items="${seats}" var="seat">
-                {row:${seat.row},column:${seat.column},status:"${seat.status}"},
+                {row:${seat.row},column:${seat.column},status:${seat.status}},
             </c:forEach>
                 ];
 
@@ -25,7 +25,7 @@
             $(document).ready(function () {
                 for (var i = 0; i < a.length; i++) {
                     var pid = "p" + pad(a[i].row, 2) + pad(a[i].column, 2);
-                    var pclass = (a[i].status == "true") ? "available" : (a[i].status == "false") ? "disabled" : "unavailable";
+                    var pclass = (a[i].status == 1) ? "available" : (a[i].status == 0) ? "disabled" : "unavailable";
                     pclass += " cell";
                     $('#board').append('<div id="' + pid + '"class="' + pclass + '" onclick="process(\'' + pid + '\');"></div>');
                 }
@@ -75,6 +75,7 @@
                     });
                 });
                 console.log(res);
+                return res;
             }
         </script>
         <style>
@@ -154,7 +155,7 @@
             <div class="row">
                 <div class="well">
                     <form>
-                        <label>Seleziona la tua categoria (no bugie pls):</label>
+                        <label>Seleziona la tua categoria:</label>
                         <select id="category_selector" class="form-control">
 
                             <c:forEach items="${prices}" var="price">
