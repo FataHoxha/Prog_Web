@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @WebServlet(name = "AdminAreaServlet", urlPatterns = {"/adminarea"})
 public class AdminAreaServlet extends HttpServlet {
@@ -48,8 +47,39 @@ public class AdminAreaServlet extends HttpServlet {
         request.setAttribute("topmovie", reportTopIncassiFilm);
 
 
+        String sqlUserRes = "select distinct u.uid, u.username from (reservation r join \"user\" u on r.user_id=u.uid) order by u.uid;";
+        List<Map<String,Object>> reportUserRes;
+        try (Connection con = database.open()) {
+            reportUserRes = con.createQuery(sqlUserRes).executeAndFetchTable().asList();
+        }
 
-        RequestDispatcher rd = request.getRequestDispatcher("templates/admin.jsp");
+        request.setAttribute("userres", reportUserRes);
+
+        Map<String, Object> userreservation = new HashMap<>();
+
+        Iterator iterator = reportUserRes.iterator();
+        Map<String,Object> temp;
+/*
+        while (iterator.hasNext()) {
+            temp =(Map<String,Object>) iterator.next();
+            userreservation.put(temp.get("username").toString(), new HashMap<String, Object>());
+        }
+
+        String sqlUserReservation = "select distinct u.uid, u.username,  from ((reservation r join \"user\" u on r.user_id=u.uid) join show s on s.id=r.show_id) join seat st on st.id = s.seat_id   order by u.uid;";
+        List<Map<String,Object>> reportUserReservation;
+        try (Connection con = database.open()) {
+            reportUserReservation = con.createQuery(sqlUserReservation).executeAndFetchTable().asList();
+        }
+
+
+
+        for(Map<String, Object> field: reportUserRes) {
+
+            //reportAllreservation.put(field, );
+        }
+*/
+
+            RequestDispatcher rd = request.getRequestDispatcher("templates/admin.jsp");
         rd.forward(request, response);
     }
 

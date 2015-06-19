@@ -135,7 +135,7 @@ CREATE VIEW "current_movies" AS
   FROM
     "movie_genre"
   WHERE
-    id IN (SELECT DISTINCT movie_id FROM "show" WHERE date_time < current_timestamp);
+    id IN (SELECT DISTINCT movie_id FROM "show" WHERE date_time > current_timestamp);
 
 CREATE VIEW "show_theater" AS
   SELECT

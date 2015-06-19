@@ -12,7 +12,7 @@
 
             var a = [
             <c:forEach items="${seats}" var="seat">
-                {row:${seat.row},column:${seat.column},status:${seat.status}},
+                { seatid:${seat.id}, row:${seat.row},column:${seat.column},status:${seat.status}},
             </c:forEach>
                 ];
 
