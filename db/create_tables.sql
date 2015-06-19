@@ -38,7 +38,9 @@ CREATE TABLE "user"
   email TEXT UNIQUE,
   password TEXT,
   credit FLOAT DEFAULT 0.0,
-  is_admin BOOLEAN DEFAULT FALSE
+  is_admin BOOLEAN DEFAULT FALSE,
+  password_reset_token TEXT,
+  token_expiration TIMESTAMP
 );
 
 CREATE TABLE "movie"
