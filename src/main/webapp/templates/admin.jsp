@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:basepage>
     <jsp:attribute name="extrahead">
@@ -50,7 +51,7 @@
                 <div id="page1">
                     <h1>Riepilogo</h1>
 
-                    <p>Riepilogo di ogni film, con numero di posti venduto e prezzo</p>
+                    <p>Riepilogo di ogni proiezione, con numero di posti venduto e prezzo</p>
 
                     <div id="row">
                         <table class="table table-hover center-block">
@@ -63,30 +64,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>King Kong</td>
-                                <td>00:00</td>
-                                <td>346</td>
-                                <td>3245</td>
-                            </tr>
-                            <tr>
-                                <td>Cars</td>
-                                <td>00:00</td>
-                                <td>565</td>
-                                <td>5567</td>
-                            </tr>
-                            <tr>
-                                <td>Jurassic World</td>
-                                <td>00:00</td>
-                                <td>876</td>
-                                <td>8235</td>
-                            </tr>
-                            <tr>
-                                <td>American Sniper</td>
-                                <td>00:00</td>
-                                <td>345</td>
-                                <td>4789</td>
-                            </tr>
+
+                            <c:forEach items="${showstats}" var="showstat">
+                                <tr>
+                                    <td>${showstat.title}</td>
+                                    <td>${showstat.data}</td>
+                                    <td>${showstat.postivenduti}</td>
+                                    <td>${showstat.amount}</td>
+                                </tr>
+                            </c:forEach>
+
                             </tbody>
                         </table>
                     </div>
@@ -232,7 +219,13 @@
         <script>
             var current_page = 0;
             var datac = {
-                labels: ["Fabiano", "Io", "Bampi", "Gaspa", "Dalla", "Fhathbhardha"], //inserire utenti top 10
+                labels: [
+
+                <c:forEach items="${topusers}" var="user">
+                        "${user.username}",
+                </c:forEach>
+                ],
+
                 datasets: [
                     {
                         label: "Acquisti",
@@ -240,13 +233,24 @@
                         strokeColor: "rgba(220,220,220,0.8)",
                         highlightFill: "rgba(220,220,220,0.75)",
                         highlightStroke: "rgba(220,220,220,1)",
-                        data: [3, 5, 8, 4, 9, 5] //inser
+                        data: [
+
+                            <c:forEach items="${topusers}" var="user">
+                            ${user.numeroreservation},
+                            </c:forEach>
+
+                            ] //inser
                     }
                 ]
             };
 
             var datai = {
-                labels: ["King Kong", "Cars", "Jurassic World", "American Sniper"],
+                labels: [
+                    <c:forEach items="${topmovie}" var="movie">
+                    "${movie.title}",
+                    </c:forEach>
+                ],
+
                 datasets: [
                     {
                         label: "Vendite",
@@ -254,7 +258,11 @@
                         strokeColor: "rgba(220,220,220,0.8)",
                         highlightFill: "rgba(220,220,220,0.75)",
                         highlightStroke: "rgba(220,220,220,1)",
-                        data: [3245, 5567, 8235, 4789]
+                        data: [
+                            <c:forEach items="${topmovie}" var="movie">
+                            ${movie.incasso},
+                            </c:forEach>
+                        ]
                     }
                 ]
             };

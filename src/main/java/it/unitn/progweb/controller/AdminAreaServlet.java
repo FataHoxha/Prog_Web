@@ -24,23 +24,22 @@ public class AdminAreaServlet extends HttpServlet {
         Sql2o database = (Sql2o) getServletContext().getAttribute("database");
 
 
-        String sqlshow = "select s.id, COUNT(r.id), SUM(p.amount) from ((reservation r join show s on s.id=r.show_id) join price p on r.price_id=p.id) GROUP BY s.id;";
+        String sqlshow = "WITH showprice AS (SELECT s.id, COUNT(r.id) as postivenduti, SUM(p.amount) as amount FROM ((reservation r join show s on s.id = r.show_id) join price p on r.price_id=p.id) GROUP BY s.id) SELECT sp.postivenduti as postivenduti, sp.amount, m.title, s.date_time as data FROM ((showprice sp JOIN show s ON sp.id= s.id) JOIN movie m on m.id=s.movie_id);";
+
         List<Map<String,Object>> reportsShowStats;
         try (Connection con = database.open()) {
             reportsShowStats = con.createQuery(sqlshow).executeAndFetchTable().asList();
         }
-
         request.setAttribute("showstats", reportsShowStats);
 
-        String sqlTopUsers = "select u.uid, COUNT(r.id) as numeroreservation from (\"user\" u join reservation r on u.uid = r.user_id) group by u.uid ORDER BY numeroreservation DESC LIMIT 10;";
+        String sqlTopUsers = "select u.uid, u.username as username, COUNT(r.id) as numeroreservation from (\"user\" u join reservation r on u.uid = r.user_id) group by u.uid ORDER BY numeroreservation DESC LIMIT 10;";
         List<Map<String,Object>> reportsTopUsers;
         try (Connection con = database.open()) {
             reportsTopUsers = con.createQuery(sqlTopUsers).executeAndFetchTable().asList();
         }
-
         request.setAttribute("topusers", reportsTopUsers);
 
-        String sqlTopIncassiFilm = "";
+        String sqlTopIncassiFilm = "select m.id, m.title, sum(p.amount) as incasso from (((movie m join show sh on m.id=sh.movie_id) join reservation r on sh.id=r.show_id) join price p on p.id=r.price_id) group by m.id order by incasso desc limit 10;";
         List<Map<String,Object>> reportTopIncassiFilm;
         try (Connection con = database.open()) {
             reportTopIncassiFilm = con.createQuery(sqlTopIncassiFilm).executeAndFetchTable().asList();
