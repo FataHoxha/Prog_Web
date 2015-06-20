@@ -40,7 +40,7 @@
 
             <div id="page-content-wrapper">
                 <div id="page0">
-                    <h1>Benvenuto, nomeutente!</h1>
+                    <h1>Benvenuto, ${sessionScope.user.getUsername()}!</h1>
 
                     <p>Da questa pagina puoi verificare alcuni aspetti amministrativi del sito</p>
 
