@@ -239,6 +239,15 @@
             function showTheatre(id)
             {
                 $('#select_theatre').remove();
+                $.ajax({
+                            type: "POST",
+                            url: '',
+                            data: {"id":id.toString()},
+                            contentType: "text/html",
+                            success: function(data){
+                                console.log(data);
+                            }
+                });
             }
 
             function requestDelete(id) {
