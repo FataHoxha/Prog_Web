@@ -123,7 +123,7 @@
             .checked
             {
                 background-color: crimson;
-                border:none;
+                border:1px solid transparent;
                 cursor:auto;
             }
 
@@ -134,7 +134,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.8);
                 z-index: 1500;
             }
 
