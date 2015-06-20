@@ -69,13 +69,22 @@
                 $('#pay').hide();
                 var res = [];
                 $('#done > div').each(function () {
-                    res.push({
-                        seat_id: parseInt($('#' + this.id).data('seatid')),
-                        type: parseInt($('#' + this.id).data('cat'))
+                    var val = {};
+                    val["seat_id"] = parseInt($('#' + this.id).data('seatid'));
+                    val["price_id"] = parseInt($('#' + this.id).data('cat'));
+                    res.push(val);
                     });
+                jsonString = JSON.stringify(res);
+                $.ajax({
+                    type: "POST",
+                    data: jsonString,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function()
+                    {
+                        document.location.href = '/';
+                    }
                 });
-                console.log(res);
-                return res;
             }
         </script>
         <style>
@@ -114,7 +123,7 @@
             .checked
             {
                 background-color: crimson;
-                border:none;
+                border:1px solid transparent;
                 cursor:auto;
             }
 
@@ -125,7 +134,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.8);
                 z-index: 1500;
             }
 
@@ -154,8 +163,8 @@
                         <input type="text">
                         </div>
                     </div>
+                    </form>
                     <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
-                </form>
             </div>
         </div>
 

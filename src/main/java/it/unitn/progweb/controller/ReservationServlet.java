@@ -21,10 +21,7 @@ import java.util.List;
 @WebServlet(name = "ReservationServlet",urlPatterns = {"/prenota"})
 public class ReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Gson gson = new Gson();
-        Integer show_id = Integer.parseInt(request.getParameter("show_id"));
-        List<Reservation> res = new ArrayList<>();
-        res = gson.fromJson(request.getReader(), res.getClass());
+        response.getWriter().write(request.getReader().readLine());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

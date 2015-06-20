@@ -87,156 +87,173 @@ INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('47','1','5'
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('48','1','5','8','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('49','1','5','9','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('50','1','5','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('51','2','1','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('52','2','1','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('51','2','1','1','false'); -- sala 2
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('52','2','1','2','false');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('53','2','1','3','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('54','2','1','4','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('55','2','1','5','true');
 INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('56','2','1','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('57','2','1','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('58','2','1','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('59','2','1','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('60','2','1','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('61','2','2','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('62','2','2','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('63','2','2','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('64','2','2','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('65','2','2','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('66','2','2','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('67','2','2','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('68','2','2','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('69','2','2','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('70','2','2','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('71','2','3','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('72','2','3','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('73','2','3','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('74','2','3','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('75','2','3','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('76','2','3','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('77','2','3','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('78','2','3','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('79','2','3','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('80','2','3','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('81','2','4','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('82','2','4','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('83','2','4','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('84','2','4','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('85','2','4','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('86','2','4','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('87','2','4','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('88','2','4','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('89','2','4','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('90','2','4','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('91','2','5','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('92','2','5','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('93','2','5','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('94','2','5','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('95','2','5','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('96','2','5','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('97','2','5','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('98','2','5','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('99','2','5','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('100','2','5','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('101','3','1','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('102','3','1','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('103','3','1','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('104','3','1','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('105','3','1','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('106','3','1','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('107','3','1','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('108','3','1','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('109','3','1','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('110','3','1','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('111','3','2','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('112','3','2','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('113','3','2','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('114','3','2','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('115','3','2','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('116','3','2','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('117','3','2','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('118','3','2','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('119','3','2','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('120','3','2','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('121','3','3','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('122','3','3','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('123','3','3','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('124','3','3','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('125','3','3','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('126','3','3','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('127','3','3','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('128','3','3','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('129','3','3','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('130','3','3','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('131','3','4','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('132','3','4','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('133','3','4','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('134','3','4','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('135','3','4','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('136','3','4','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('137','3','4','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('138','3','4','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('139','3','4','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('140','3','4','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('141','3','5','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('142','3','5','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('143','3','5','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('144','3','5','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('145','3','5','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('146','3','5','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('147','3','5','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('148','3','5','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('149','3','5','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('150','3','5','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('151','4','1','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('152','4','1','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('153','4','1','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('154','4','1','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('155','4','1','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('156','4','1','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('157','4','1','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('158','4','1','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('159','4','1','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('160','4','1','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('161','4','2','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('162','4','2','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('163','4','2','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('164','4','2','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('165','4','2','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('166','4','2','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('167','4','2','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('168','4','2','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('169','4','2','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('170','4','2','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('171','4','3','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('172','4','3','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('173','4','3','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('174','4','3','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('175','4','3','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('176','4','3','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('177','4','3','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('178','4','3','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('179','4','3','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('180','4','3','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('181','4','4','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('182','4','4','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('183','4','4','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('184','4','4','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('185','4','4','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('186','4','4','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('187','4','4','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('188','4','4','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('189','4','4','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('190','4','4','10','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('191','4','5','1','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('192','4','5','2','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('193','4','5','3','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('194','4','5','4','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('195','4','5','5','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('196','4','5','6','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('197','4','5','7','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('198','4','5','8','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('199','4','5','9','true');
-INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('200','4','5','10','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('57','2','1','7','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('58','2','1','8','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('59','2','2','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('60','2','2','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('61','2','2','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('62','2','2','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('63','2','2','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('64','2','2','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('65','2','2','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('66','2','2','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('67','2','3','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('68','2','3','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('69','2','3','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('70','2','3','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('71','2','3','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('72','2','3','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('73','2','3','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('74','2','3','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('75','2','4','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('76','2','4','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('77','2','4','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('78','2','4','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('79','2','4','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('80','2','4','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('81','2','4','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('82','2','4','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('83','2','5','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('84','2','5','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('85','2','5','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('86','2','5','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('87','2','5','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('88','2','5','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('89','2','5','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('90','2','5','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('91','2','6','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('92','2','6','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('93','2','6','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('94','2','6','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('95','2','6','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('96','2','6','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('97','2','6','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('98','2','6','8','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('99','2','7','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('100','2','7','2','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('101','2','7','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('102','2','7','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('103','2','7','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('104','2','7','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('105','2','7','7','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('106','2','7','8','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('107','3','1','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('108','3','1','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('109','3','1','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('110','3','1','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('111','3','1','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('112','3','1','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('113','3','1','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('114','3','1','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('115','3','1','9','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('116','3','2','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('117','3','2','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('118','3','2','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('119','3','2','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('120','3','2','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('121','3','2','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('122','3','2','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('123','3','2','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('124','3','2','9','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('125','3','3','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('126','3','3','2','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('127','3','3','3','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('128','3','3','4','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('129','3','3','5','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('130','3','3','6','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('131','3','3','7','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('132','3','3','8','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('133','3','3','9','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('134','3','4','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('135','3','4','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('136','3','4','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('137','3','4','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('138','3','4','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('139','3','4','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('140','3','4','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('141','3','4','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('142','3','4','9','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('143','3','5','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('144','3','5','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('145','3','5','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('146','3','5','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('147','3','5','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('148','3','5','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('149','3','5','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('150','3','5','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('151','3','5','9','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('152','3','6','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('153','3','6','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('154','3','6','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('155','3','6','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('156','3','6','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('157','3','6','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('158','3','6','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('159','3','6','8','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('160','3','6','9','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('161','4','1','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('162','4','1','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('163','4','1','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('164','4','1','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('165','4','1','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('166','4','1','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('167','4','1','7','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('168','4','2','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('169','4','2','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('170','4','2','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('171','4','2','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('172','4','2','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('173','4','2','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('174','4','2','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('175','4','3','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('176','4','3','2','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('177','4','3','3','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('178','4','3','4','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('179','4','3','5','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('180','4','3','6','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('181','4','3','7','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('182','4','4','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('183','4','4','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('184','4','4','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('185','4','4','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('186','4','4','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('187','4','4','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('188','4','4','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('189','4','5','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('190','4','5','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('191','4','5','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('192','4','5','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('193','4','5','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('194','4','5','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('195','4','5','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('196','4','6','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('197','4','6','2','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('198','4','6','3','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('199','4','6','4','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('200','4','6','5','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('201','4','6','6','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('202','4','6','7','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('203','4','7','1','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('204','4','7','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('205','4','7','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('206','4','7','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('207','4','7','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('208','4','7','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('209','4','7','7','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('210','4','8','1','false');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('211','4','8','2','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('212','4','8','3','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('213','4','8','4','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('214','4','8','5','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('215','4','8','6','true');
+INSERT INTO "seat" (id, theater_id, "row", "column", exist) VALUES ('216','4','8','7','false');
+
 
 
 insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) VALUES ('King Kong', '1','https://www.youtube.com/watch?v=AYaTCPbYGdk', '187', 'In 1933 New York, an overly ambitious movie producer coerces his cast and hired ship crew to travel to mysterious Skull Island, where they encounter Kong, a giant ape who is immediately smitten with leading lady Ann Darrow.', 'http://ia.media-imdb.com/images/M/MV5BMTgzODQwNjAwOV5BMl5BanBnXkFtZTcwMDA4MDA0MQ@@._V1_SY317_CR0,0,214,317_AL_.jpg');
@@ -252,82 +269,90 @@ insert into "movie" (title, genre_id, trailer_url, duration, plot, poster_uri) V
 
 
 
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-22 15:30:00'); -- sala 1  show 1
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-22 18:30:00'); --         show 2
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-22 21:30:00'); --         show 3
-insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-22 15:30:00'); -- sala 2  show 4
-insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-22 18:30:00'); --         show 5
-insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-22 21:30:00'); --         show 6
-insert into "show" (movie_id, theater_id, date_time) VALUES('3', '3', '2015-06-22 15:30:00'); -- sala 3  show 7
-insert into "show" (movie_id, theater_id, date_time) VALUES('3', '3', '2015-06-22 18:30:00'); --         show 8
-insert into "show" (movie_id, theater_id, date_time) VALUES('3', '3', '2015-06-22 21:30:00'); --         show 9
-insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-22 15:30:00'); -- sala 4  show 10
-insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-22 18:30:00'); --         show 11
-insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-22 21:30:00'); --         show 12
-insert into "show" (movie_id, theater_id, date_time) VALUES('7', '3', '2015-06-23 15:30:00'); -- sala 3  show 13
-insert into "show" (movie_id, theater_id, date_time) VALUES('7', '3', '2015-06-23 18:30:00'); --         show 14
-insert into "show" (movie_id, theater_id, date_time) VALUES('7', '3', '2015-06-23 21:30:00'); --         show 15
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-23 15:30:00'); -- sala 1  show 16
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-23 18:30:00'); --         show 17
-insert into "show" (movie_id, theater_id, date_time) VALUES('1', '1', '2015-06-23 21:30:00'); --         show 18
-insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-23 15:30:00'); -- sala 2  show 19
-insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-23 18:30:00'); --         show 20
-insert into "show" (movie_id, theater_id, date_time) VALUES('2', '2', '2015-06-23 21:30:00'); --         show 21
-insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-23 15:30:00'); -- sala 4  show 22
-insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-23 18:30:00'); --         show 23
-insert into "show" (movie_id, theater_id, date_time) VALUES('4', '4', '2015-06-23 21:30:00'); --         show 24
-insert into "show" (movie_id, theater_id, date_time) VALUES('3', '1', '2015-06-24 15:30:00'); -- sala 1  show 25
-insert into "show" (movie_id, theater_id, date_time) VALUES('3', '1', '2015-06-24 18:30:00'); --         show 26
-insert into "show" (movie_id, theater_id, date_time) VALUES('3', '1', '2015-06-24 21:30:00'); --         show 27
-insert into "show" (movie_id, theater_id, date_time) VALUES('7', '2', '2015-06-24 15:30:00'); -- sala 2  show 28
-insert into "show" (movie_id, theater_id, date_time) VALUES('7', '2', '2015-06-24 18:30:00'); --         show 29
-insert into "show" (movie_id, theater_id, date_time) VALUES('7', '2', '2015-06-24 21:30:00'); --         show 30
-insert into "show" (movie_id, theater_id, date_time) VALUES('5', '3', '2015-06-24 15:30:00'); -- sala 3  show 31
-insert into "show" (movie_id, theater_id, date_time) VALUES('5', '3', '2015-06-24 18:30:00'); --         show 32
-insert into "show" (movie_id, theater_id, date_time) VALUES('5', '3', '2015-06-24 21:30:00'); --         show 33
-insert into "show" (movie_id, theater_id, date_time) VALUES('6', '4', '2015-06-24 15:30:00'); -- sala 4  show 34
-insert into "show" (movie_id, theater_id, date_time) VALUES('6', '4', '2015-06-24 18:30:00'); --         show 35
-insert into "show" (movie_id, theater_id, date_time) VALUES('6', '4', '2015-06-24 21:30:00'); --         show 36
-insert into "show" (movie_id, theater_id, date_time) VALUES('5', '1', '2015-06-25 15:30:00'); -- sala 1  show 37
-insert into "show" (movie_id, theater_id, date_time) VALUES('5', '1', '2015-06-25 18:30:00'); --         show 38
-insert into "show" (movie_id, theater_id, date_time) VALUES('5', '1', '2015-06-25 21:30:00'); --         show 39
-insert into "show" (movie_id, theater_id, date_time) VALUES('6', '2', '2015-06-25 15:30:00'); -- sala 2  show 40
-insert into "show" (movie_id, theater_id, date_time) VALUES('6', '2', '2015-06-25 18:30:00'); --         show 41
-insert into "show" (movie_id, theater_id, date_time) VALUES('6', '2', '2015-06-25 21:30:00'); --         show 42
-insert into "show" (movie_id, theater_id, date_time) VALUES('8', '3', '2015-06-25 15:30:00'); -- sala 3  show 43
-insert into "show" (movie_id, theater_id, date_time) VALUES('8', '3', '2015-06-25 18:30:00'); --         show 44
-insert into "show" (movie_id, theater_id, date_time) VALUES('10', '3', '2015-06-25 21:30:00');--         show 45
-insert into "show" (movie_id, theater_id, date_time) VALUES('9', '4', '2015-06-25 15:30:00'); -- sala 4  show 46
-insert into "show" (movie_id, theater_id, date_time) VALUES('9', '4', '2015-06-25 18:30:00'); --         show 47
-insert into "show" (movie_id, theater_id, date_time) VALUES('9', '4', '2015-06-25 21:30:00'); --         show 48
-insert into "show" (movie_id, theater_id, date_time) VALUES('10', '1', '2015-06-26 15:30:00');-- sala 1  show 49
-insert into "show" (movie_id, theater_id, date_time) VALUES('10', '1', '2015-06-26 18:30:00');--         show 50
-insert into "show" (movie_id, theater_id, date_time) VALUES('8', '1', '2015-06-26 21:30:00'); --         show 51
-insert into "show" (movie_id, theater_id, date_time) VALUES('9', '2', '2015-06-26 15:30:00'); -- sala 2  show 52
-insert into "show" (movie_id, theater_id, date_time) VALUES('9', '2', '2015-06-26 18:30:00'); --         show 53
-insert into "show" (movie_id, theater_id, date_time) VALUES('9', '2', '2015-06-26 21:30:00'); --         show 54
-insert into "show" (movie_id, theater_id, date_time) VALUES('8', '1', '2015-06-27 15:30:00'); -- sala 1  show 55
-insert into "show" (movie_id, theater_id, date_time) VALUES('8', '1', '2015-06-27 18:30:00'); --         show 56
-insert into "show" (movie_id, theater_id, date_time) VALUES('8', '1', '2015-06-27 21:30:00'); --         show 57
-insert into "show" (movie_id, theater_id, date_time) VALUES('10', '2', '2015-06-27 15:30:00');-- sala 2  show 58
-insert into "show" (movie_id, theater_id, date_time) VALUES('10', '2', '2015-06-27 21:30:00');--         show 59
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('1', '1', '1', '2015-06-22 15:30:00');  -- sala 1  show 1
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('2', '1', '1', '2015-06-22 18:30:00');  --         show 2
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('3', '1', '1', '2015-06-22 21:30:00');  --         show 3
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('4', '2', '2', '2015-06-22 15:30:00');  -- sala 2  show 4
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('5', '2', '2', '2015-06-22 18:30:00');  --         show 5
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('6', '2', '2', '2015-06-22 21:30:00');  --         show 6
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('7', '3', '3', '2015-06-22 15:30:00');  -- sala 3  show 7
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('8', '3', '3', '2015-06-22 18:30:00');  --         show 8
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('9', '3', '3', '2015-06-22 21:30:00');  --         show 9
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('10', '4', '4', '2015-06-22 15:30:00'); -- sala 4  show 10
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('11', '4', '4', '2015-06-22 18:30:00'); --         show 11
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('12', '4', '4', '2015-06-22 21:30:00'); --         show 12
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('13', '7', '3', '2015-06-23 15:30:00'); -- sala 3  show 13
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('14', '7', '3', '2015-06-23 18:30:00'); --         show 14
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('15', '7', '3', '2015-06-23 21:30:00'); --         show 15
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('16', '1', '1', '2015-06-23 15:30:00'); -- sala 1  show 16
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('17', '1', '1', '2015-06-23 18:30:00'); --         show 17
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('18', '1', '1', '2015-06-23 21:30:00'); --         show 18
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('19', '2', '2', '2015-06-23 15:30:00'); -- sala 2  show 19
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('20', '2', '2', '2015-06-23 18:30:00'); --         show 20
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('21', '2', '2', '2015-06-23 21:30:00'); --         show 21
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('22', '4', '4', '2015-06-23 15:30:00'); -- sala 4  show 22
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('23', '4', '4', '2015-06-23 18:30:00'); --         show 23
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('24', '4', '4', '2015-06-23 21:30:00'); --         show 24
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('25', '3', '1', '2015-06-24 15:30:00'); -- sala 1  show 25
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('26', '3', '1', '2015-06-24 18:30:00'); --         show 26
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('27', '3', '1', '2015-06-24 21:30:00'); --         show 27
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('28', '7', '2', '2015-06-24 15:30:00'); -- sala 2  show 28
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('29', '7', '2', '2015-06-24 18:30:00'); --         show 29
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('30', '7', '2', '2015-06-24 21:30:00'); --         show 30
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('31', '5', '3', '2015-06-24 15:30:00'); -- sala 3  show 31
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('32', '5', '3', '2015-06-24 18:30:00'); --         show 32
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('33', '5', '3', '2015-06-24 21:30:00'); --         show 33
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('34', '6', '4', '2015-06-24 15:30:00'); -- sala 4  show 34
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('35', '6', '4', '2015-06-24 18:30:00'); --         show 35
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('36', '6', '4', '2015-06-24 21:30:00'); --         show 36
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('37', '5', '1', '2015-06-25 15:30:00'); -- sala 1  show 37
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('38', '5', '1', '2015-06-25 18:30:00'); --         show 38
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('39', '5', '1', '2015-06-25 21:30:00'); --         show 39
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('40', '6', '2', '2015-06-25 15:30:00'); -- sala 2  show 40
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('41', '6', '2', '2015-06-25 18:30:00'); --         show 41
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('42', '6', '2', '2015-06-25 21:30:00'); --         show 42
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('43', '8', '3', '2015-06-25 15:30:00'); -- sala 3  show 43
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('44', '8', '3', '2015-06-25 18:30:00'); --         show 44
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('45', '10', '3', '2015-06-25 21:30:00');--         show 45
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('46', '9', '4', '2015-06-25 15:30:00'); -- sala 4  show 46
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('47', '9', '4', '2015-06-25 18:30:00'); --         show 47
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('48', '9', '4', '2015-06-25 21:30:00'); --         show 48
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('49', '10', '1', '2015-06-26 15:30:00');-- sala 1  show 49
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('50', '10', '1', '2015-06-26 18:30:00');--         show 50
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('51', '8', '1', '2015-06-26 21:30:00'); --         show 51
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('52', '9', '2', '2015-06-26 15:30:00'); -- sala 2  show 52
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('53', '9', '2', '2015-06-26 18:30:00'); --         show 53
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('54', '9', '2', '2015-06-26 21:30:00'); --         show 54
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('55', '8', '1', '2015-06-27 15:30:00'); -- sala 1  show 55
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('56', '8', '1', '2015-06-27 18:30:00'); --         show 56
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('57', '8', '1', '2015-06-27 21:30:00'); --         show 57
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('58', '10', '2', '2015-06-27 15:30:00');-- sala 2  show 58
+insert into "show" (id, movie_id, theater_id, date_time) VALUES('59', '10', '2', '2015-06-27 21:30:00');--         show 59
 
 
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','24'); --sala 1
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','25');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','26');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','27');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','63'); --sala 2
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','62'); --sala 2
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','63');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','64');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','65');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','66');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','67');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','112'); --sala 3
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','113');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','114');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','112'); --sala 3
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','110'); --sala 3
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','112');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','114');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','116');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','168'); -- sala 4
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','169');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','170');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','171');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','172');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','173');
+
+
 
 
 
