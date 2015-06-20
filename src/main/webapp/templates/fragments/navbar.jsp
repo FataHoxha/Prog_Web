@@ -20,6 +20,9 @@
                 <c:if test="${sessionScope.user.isAuthenticated()}">
                     <li><a href="/utente">Prenotazioni</a></li>
                 </c:if>
+                <%--<c:if test="${sessionScope.user.getIs_admin()}">--%>
+                    <%--<li><a href="/adminarea">Area di amministrazione</a></li>--%>
+                <%--</c:if>--%>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

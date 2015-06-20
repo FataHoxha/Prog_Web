@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 
-@WebFilter(filterName = "AdminFilter", urlPatterns = {"/adminareaa"})
+@WebFilter(filterName = "AdminFilter", urlPatterns = {"/adminarea", "/deletereservation"})
 public class AdminFilter implements Filter {
     public void destroy() {
     }
@@ -31,7 +31,7 @@ public class AdminFilter implements Filter {
 
         }
 
-        String url = request.getServletPath();
+        String url = request.getServletPath() + "?" + request.getQueryString();
         response.sendRedirect("/login?next=" + URLEncoder.encode(url, "UTF-8"));
 
     }
@@ -39,5 +39,4 @@ public class AdminFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
 
     }
-
 }

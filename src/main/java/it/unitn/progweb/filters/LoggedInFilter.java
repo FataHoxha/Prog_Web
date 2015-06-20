@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-@WebFilter(filterName = "LoggedInFilter", urlPatterns = {"/private"})
+@WebFilter(filterName = "LoggedInFilter", urlPatterns = {
+        "/prenota",
+})
 public class LoggedInFilter implements Filter {
     public void destroy() {
     }
@@ -21,7 +23,7 @@ public class LoggedInFilter implements Filter {
         if(u.isAuthenticated()){
             chain.doFilter(req, resp);
         }
-        String url = request.getServletPath();
+        String url = request.getServletPath() + "?" + request.getQueryString();
         response.sendRedirect("/login?next=" + URLEncoder.encode(url, "UTF-8"));
     }
 

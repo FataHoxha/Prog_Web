@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:basepage>
+    <jsp:attribute name="extrahead">
+        <title>SampleText Cinema</title>
+    </jsp:attribute>
+
     <jsp:body>
 
         <div class="row">

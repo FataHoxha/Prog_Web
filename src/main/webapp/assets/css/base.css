@@ -21,3 +21,8 @@ div#body {
 address {
     text-align: center;
 }
+
+.movie-thumbnail {
+    max-width: 200px;
+    max-height: 500px;
+}
