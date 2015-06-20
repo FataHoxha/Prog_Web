@@ -72,12 +72,9 @@ public class PasswordResetServlet extends HttpServlet {
                 stage = 2;
                 request.setAttribute("token", token);
             } else {
-                PrintWriter pw = response.getWriter();
-                pw.println(token);
+                // otherwise 400
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
                 return;
-//                // otherwise 404
-//                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-//                return;
             }
         }
 
