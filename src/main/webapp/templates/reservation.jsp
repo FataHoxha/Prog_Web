@@ -71,7 +71,7 @@
                 $('#done > div').each(function () {
                     var val = {};
                     val["seat_id"] = parseInt($('#' + this.id).data('seatid'));
-                    val["type"] = parseInt($('#' + this.id).data('cat'));
+                    val["price_id"] = parseInt($('#' + this.id).data('cat'));
                     res.push(val);
                     });
                 jsonString = JSON.stringify(res);
