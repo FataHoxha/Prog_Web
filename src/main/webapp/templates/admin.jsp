@@ -245,7 +245,13 @@
                             data: {"id":id.toString()},
                             contentType: "text/html",
                             success: function(data){
-                                console.log(data);
+                                var to_append = '<div id="select_theatre"><div id="row"><table class="table table-hover center-block"><thead><tr><th>Fila</th><th>Posto</th><th>Numero prenotazioni</th></tr></thead><tbody>';
+                                for(var i=0;i<data.length;i++)
+                                {
+                                    to_append += '<tr><td>'+data[i].row+'</td><td>'+data[i].column+'</td><td>'+data[i].count+'</td></tr>';
+                                }
+                                to_append += '</tbody></table><button type="button" class="list-group-item" onclick="selectTheatre();">Torna indietro</button></div></div>';
+                                $('#page5inside').html(to_append);
                             }
                 });
             }
@@ -253,6 +259,11 @@
             function requestDelete(id) {
                 $('#resid' + id).remove();
                 $.post("/deletereservation", {delete: id});
+            }
+
+            function selectTheatre()
+            {
+                $('#page5inside').html(html_code_select_theatre);
             }
         </script>
     </jsp:body>
