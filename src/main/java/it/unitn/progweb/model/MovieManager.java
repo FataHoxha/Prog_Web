@@ -40,8 +40,12 @@ public class MovieManager {
     }
 
     public Integer validateShow(String idString){
+        Integer id = null;
 
-        Integer id = Integer.parseInt(idString);
+        try{ id = Integer.parseInt(idString);}
+        catch (NumberFormatException exc){
+            return null;
+        }
         if(id!=null) {
             String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp";
             Integer result;

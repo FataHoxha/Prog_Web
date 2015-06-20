@@ -3,6 +3,7 @@ package it.unitn.progweb.model;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
+import it.unitn.progweb.lib.Mailer;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 import org.sql2o.Sql2o;
@@ -27,9 +28,11 @@ public class Order {
         this.user = user;
     }
 
-    public String toStringOrderDetails(){
-        //TODO questo dovrebbe restituire informazioni testuali relative all'ordine da inviare via email +:)
-        return "";
+    public void sendReservation(Mailer mailer){
+
+        mailer.sendMailAttachment(this.user.getEmail(),"SampleText cinema tickets","Grazie per l'acquisto " + this.user.getUsername() + " , /n Le alleghiamo i suoi biglietti", this.toPdfOrderDetails());
+
+        return;
     }
 
     public ByteArrayOutputStream toPdfOrderDetails(){
