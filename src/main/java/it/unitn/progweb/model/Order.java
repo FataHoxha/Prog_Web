@@ -30,7 +30,7 @@ public class Order {
 
     public void sendReservation(Mailer mailer){
 
-        mailer.sendMailAttachment(this.user.getEmail(),"SampleText cinema tickets","Grazie per l'acquisto " + this.user.getUsername() + " , /n Le alleghiamo i suoi biglietti", this.toPdfOrderDetails());
+        mailer.sendMailAttachment(this.user.getEmail(), "SampleText cinema tickets","Grazie per l'acquisto " + this.user.getUsername() + ", Le alleghiamo i suoi biglietti", this.toPdfOrderDetails());
 
         return;
     }
