@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-@WebFilter(filterName = "LoggedInFilter", urlPatterns = {"/private"})
+@WebFilter(filterName = "LoggedInFilter", urlPatterns = {
+        "/prenota",
+})
 public class LoggedInFilter implements Filter {
     public void destroy() {
     }
