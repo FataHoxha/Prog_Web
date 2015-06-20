@@ -82,8 +82,10 @@
                     contentType: 'application/json',
                     success: function(data)
                     {
-                        //document.location.href = '/';
-                        console.log(data);
+                        if(data.success == true)
+                        document.location.href = '/';
+                        else
+                        alert(data.message);
                     }
                 });
             }
