@@ -9,11 +9,11 @@
     </jsp:attribute>
 
     <jsp:body>
-        <c:forEach items="${movies}" var="movie">
-            <div class="row">
-                <div class="page-header">
-                    <h1>Programmazione</h1>
-                </div>
+        <div class="page-header">
+            <h1>Programmazione</h1>
+        </div>
+        <div class="row">
+            <c:forEach items="${movies}" var="movie">
                 <div class="panel panel-default">
                     <div class="panel-heading">${movie.title}</div>
                     <div class="panel-body">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
     </jsp:body>
 </t:basepage>
