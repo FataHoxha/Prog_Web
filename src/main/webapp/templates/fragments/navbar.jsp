@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!--    HEADER  -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -24,7 +25,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <c:if test="${sessionScope.user.isAuthenticated()}">
-                    <li><p class="navbar-text">Credito: <strong>${sessionScope.user.getCredit()}</strong> $</p></li>
+                    <li><p class="navbar-text">Credito: <strong> <fmt:formatNumber value="${sessionScope.user.getCredit()}" maxFractionDigits="2" type="currency"/></strong></p></li>
                     <li><p class="navbar-text">Autenticato come <strong>${sessionScope.user.getUsername()}</strong> (<a href="/logout">disconnetti</a>)</p></li>
                 </c:if>
                 <c:if test="${!sessionScope.user.isAuthenticated()}">
