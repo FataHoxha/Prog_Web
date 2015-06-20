@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="page-header">
-                <h1>Una bella home page</h1>
+                <h1>I film di oggi</h1>
             </div>
 
             <c:forEach items="${movieShow}" var="movie">
