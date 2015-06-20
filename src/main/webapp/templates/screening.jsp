@@ -19,7 +19,7 @@
                     <div class="panel-body">
                         <div class="col-sm-6 col-md-8">
                             <div class="col-sm-3 col-md-4">
-                                <img src="${movie.poster_uri}" width="100px">
+                                <img class="movie-thumbnail" src="${movie.poster_uri}">
                             </div>
                             <div class="col-sm-3 col-md-4">
                                 <p>Genere: ${movie.genre}</p>
