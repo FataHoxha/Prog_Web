@@ -1,25 +1,40 @@
 package it.unitn.progweb.controller;
 
-import it.unitn.progweb.model.MovieManager;
-import it.unitn.progweb.model.Price;
-import it.unitn.progweb.model.Seat;
+import it.unitn.progweb.model.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "ReservationServlet",urlPatterns = {"/prenota"})
 public class ReservationServlet extends HttpServlet {
+    private final static Type reservationList = new TypeToken<Collection<Reservation>>(){}.getType();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().write(request.getReader().readLine());
+        User u = (User) request.getSession().getAttribute("user");
+        assert u.getId() != -1: "not authenticated user should not get here";
+        Gson gson = new Gson();
+        List<Reservation> res = gson.fromJson(request.getReader(), reservationList);
+
+        res.stream().forEach(r -> {
+            r.setUser_id(u.getId());
+            r.setShow_id(1);
+        });
+
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
