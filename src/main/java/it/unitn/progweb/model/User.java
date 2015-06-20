@@ -29,6 +29,11 @@ public class User {
 
     public User() {
         this.id = ANONYMOUS_ID;
+        this.is_admin = false;
+        this.credit = new Float(0.0);
+        this.username = "";
+        this.password = "";
+        this.email = "";
     }
 
     public void setAndHashPassword(final String password) {
