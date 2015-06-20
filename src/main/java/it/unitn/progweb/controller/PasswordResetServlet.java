@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "PasswordResetServlet", urlPatterns = {"/resetpassword/*"})
 public class PasswordResetServlet extends HttpServlet {
@@ -21,7 +20,7 @@ public class PasswordResetServlet extends HttpServlet {
     // NOTHING -> form
     // POST::email -> send email
     // GET::token -> recover password
-    // POST:: newpassword
+    // POST::newpassword
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Mailer m = (Mailer) request.getServletContext().getAttribute("email_manager");

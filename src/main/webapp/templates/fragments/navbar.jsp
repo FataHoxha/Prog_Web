@@ -17,16 +17,14 @@
                 <li><a href="/programmazione">Programmazione</a></li>
                 <li><a href="/prices">Prezzi</a></li>
                 <li><a href="/dovesiamo">Dove siamo</a></li>
-                <c:if test="${sessionScope.user.isAuthenticated()}">
-                    <li><a href="/utente">Prenotazioni</a></li>
+                <c:if test="${sessionScope.user.getIs_admin()}">
+                    <li><a href="/adminarea">Area di amministrazione</a></li>
                 </c:if>
-                <%--<c:if test="${sessionScope.user.getIs_admin()}">--%>
-                    <%--<li><a href="/adminarea">Area di amministrazione</a></li>--%>
-                <%--</c:if>--%>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <c:if test="${sessionScope.user.isAuthenticated()}">
+                    <li><p class="navbar-text">Credito: <strong>${sessionScope.user.getCredit()}</strong> $</p></li>
                     <li><p class="navbar-text">Autenticato come <strong>${sessionScope.user.getUsername()}</strong> (<a href="/logout">disconnetti</a>)</p></li>
                 </c:if>
                 <c:if test="${!sessionScope.user.isAuthenticated()}">
