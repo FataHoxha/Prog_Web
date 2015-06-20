@@ -131,7 +131,7 @@
 
                                     <div id="resid${userreservatio.reservation}"><span onclick="requestDelete(${userreservatio.reservation});" style="cursor:pointer;"
                                                            class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                        ${userreservatio.title} posto ${userreservatio.column} fila ${userreservatio.row}
+                                        ${userreservatio.title} - ${userreservatio.data} - posto ${userreservatio.column} fila ${userreservatio.row}
                                     </div>
 
                                 </c:forEach>

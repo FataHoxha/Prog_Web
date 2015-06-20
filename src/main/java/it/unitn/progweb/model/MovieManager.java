@@ -38,4 +38,22 @@ public class MovieManager {
         }
         movie.setShows(shows);
     }
+
+    public Integer validateShow(String idString){
+
+        Integer id = Integer.parseInt(idString);
+        if(id!=null) {
+            String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp";
+            Integer result;
+            try (Connection conn = database.open()) {
+                result = conn.createQuery(sqlShow).addParameter("id", id).executeScalar(Integer.class);
+            } catch (Sql2oException exc) {
+                throw exc;
+            }
+
+            if(result>0) return id;
+        }
+
+        return null;
+    }
 }
