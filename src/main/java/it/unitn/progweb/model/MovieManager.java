@@ -47,7 +47,7 @@ public class MovieManager {
             return null;
         }
         if(id!=null) {
-            String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp ";
+            String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp";
             Integer result;
             try (Connection conn = database.open()) {
                 result = conn.createQuery(sqlShow).addParameter("id", id).executeScalar(Integer.class);
