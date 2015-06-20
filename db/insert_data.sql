@@ -330,16 +330,16 @@ insert into "show" (id, movie_id, theater_id, date_time) VALUES('58', '10', '2',
 insert into "show" (id, movie_id, theater_id, date_time) VALUES('59', '10', '2', '2015-06-27 21:30:00');--         show 59
 
 
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','24'); --sala 1
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','24');   --sala 1
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','25');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','26');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','2','1','27');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','62'); --sala 2
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','62');   --sala 2
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','63');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','64');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','65');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','6','1','66');
-insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','112'); --sala 3
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','112');  --sala 3
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','113');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('5','8','1','114');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','15','1','110'); --sala 3
@@ -351,8 +351,39 @@ insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12'
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','171');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','172');
 insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','12','1','173');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('4','33','1','136'); -- sala 3
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('4','33','1','137');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('4','33','1','138');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','38','1','14');  -- sala 1
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','38','1','15');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','38','1','16');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','38','1','17');
 
-
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','48','1','163'); -- sala 4 -> grease delle 21:30
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','48','1','164');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','48','1','165');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('2','48','1','166');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('6','48','1','183');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('6','48','1','184');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('6','48','1','185');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('6','48','1','186');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('6','48','1','187');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('7','48','1','206');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('7','48','1','207');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('7','48','1','208');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','48','1','190');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('8','48','1','191');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','48','1','211');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','48','1','212');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','48','1','213');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','48','1','214');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('1','48','1','215');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','48','1','169');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','48','1','170');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','48','1','171');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('3','48','1','172');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','48','1','194');
+insert into "reservation" (user_id, show_id, price_id, seat_id) VALUES ('9','48','1','195');
 
 
 

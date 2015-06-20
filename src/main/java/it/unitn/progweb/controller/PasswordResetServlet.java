@@ -31,9 +31,6 @@ public class PasswordResetServlet extends HttpServlet {
         String email = request.getParameter("email");
         String token = request.getParameter("token");
 
-        PrintWriter pw = response.getWriter();
-                pw.println(token);
-
         String password = request.getParameter("password");
 
         if(token != null) {

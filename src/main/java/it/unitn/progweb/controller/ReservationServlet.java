@@ -1,8 +1,7 @@
 package it.unitn.progweb.controller;
 
-import com.google.gson.Gson;
+import it.unitn.progweb.model.MovieManager;
 import it.unitn.progweb.model.Price;
-import it.unitn.progweb.model.Reservation;
 import it.unitn.progweb.model.Seat;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ReservationServlet",urlPatterns = {"/prenota"})
@@ -26,9 +24,13 @@ public class ReservationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Sql2o database = (Sql2o) getServletContext().getAttribute("database");
-        final Integer show_id = Integer.parseInt(request.getParameter("show_id"));
+        MovieManager moviemanager = (MovieManager) getServletContext().getAttribute("movie_manager");
+        Integer show_id = moviemanager.validateShow(request.getParameter("show_id"));
 
-
+        if(show_id==null) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
 
         String showSeats = "select * from \"seat_status\" where show_id=:show_id";
         List<Seat> seats;

@@ -17,13 +17,19 @@
                 <li><a href="/programmazione">Programmazione</a></li>
                 <li><a href="/prices">Prezzi</a></li>
                 <li><a href="/dovesiamo">Dove siamo</a></li>
-                <li><a href="/programmazione">Programmazione</a></li>
+                <c:if test="${sessionScope.user.isAuthenticated()}">
+                    <li><a href="/utente">Prenotazioni</a></li>
+                </c:if>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/utente">NomeUtente</a></li>
-                <li><a href="/registration">Registrati</a></li>
-                <li><a href="/login">Accedi</a></li>
+                <c:if test="${sessionScope.user.isAuthenticated()}">
+                    <li><p class="navbar-text">Autenticato come <strong>${sessionScope.user.getUsername()}</strong> (<a href="/logout">disconnetti</a>)</p></li>
+                </c:if>
+                <c:if test="${!sessionScope.user.isAuthenticated()}">
+                    <li><a href="/registration">Registrati</a></li>
+                    <li><a href="/login">Accedi</a></li>
+                </c:if>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
