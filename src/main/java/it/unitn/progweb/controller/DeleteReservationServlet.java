@@ -16,22 +16,45 @@ import java.io.IOException;
 public class DeleteReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Integer reservation = this.validateReservation(request.getParameter("reservation"));
+        Integer reservation = this.validateReservation(request.getParameter("delete"));
 
         if(reservation!=null){
-
             Sql2o database = (Sql2o) getServletContext().getAttribute("database");
+
+            try(Connection conn = database.beginTransaction()) {
+                String sqlPrice = "SELECT p.amount FROM (reservation r JOIN price p ON r.price_id=p.id) WHERE r.id=:id;";
+                Float price = conn.createQuery(sqlPrice)
+                        .addParameter("id", reservation)
+                        .executeScalar(Float.class);
+
+                String sqlUserId = "SELECT r.user_id FROM reservation r WHERE r.id=:id";
+                Integer userId = conn.createQuery(sqlUserId)
+                        .addParameter("id", reservation)
+                        .executeScalar(Integer.class);
+
+                String sqlcredit = "SELECT credit FROM \"user\" WHERE uid=:id";
+                Float credit = conn.createQuery(sqlcredit)
+                        .addParameter("id", userId)
+                        .executeScalar(Float.class);
+
+                String sqldelete = "UPDATE \"user\" SET credit = :price WHERE uid=:id;";
+                conn.createQuery(sqldelete).addParameter("id", userId).addParameter("price", price+credit).executeUpdate();
+
+                conn.commit();
+
+            } catch (Sql2oException exc) {
+
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                return;
+            }
+
             String sqldelete = "delete from reservation where id=:id";
             try (Connection conn = database.open()) {
                 conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();
             } catch (Sql2oException exc) {
-                throw exc;
+
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                return;
             }
             response.setStatus(200);
 
@@ -41,6 +64,15 @@ public class DeleteReservationServlet extends HttpServlet {
 
         response.sendError(HttpServletResponse.SC_BAD_REQUEST);
         return;
+
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        return;
+
 
 
     }

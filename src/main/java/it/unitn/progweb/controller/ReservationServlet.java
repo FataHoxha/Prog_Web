@@ -1,18 +1,18 @@
 package it.unitn.progweb.controller;
 
 import com.google.common.base.Joiner;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import it.unitn.progweb.lib.Mailer;
 import it.unitn.progweb.model.*;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.sql2o.Connection;
-import org.sql2o.Query;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +22,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "ReservationServlet",urlPatterns = {"/prenota"})
 public class ReservationServlet extends HttpServlet {
@@ -111,7 +109,7 @@ public class ReservationServlet extends HttpServlet {
             return;
         }
 
-        String showSeats = "select * from \"seat_status\" where show_id=:show_id order by \"row\", \"column\"";
+        String showSeats = "select * from \"seat_status\" where show_id=:show_id ORDER BY \"row\", \"column\"";
         List<Seat> seats;
         try(Connection conn = database.open()){
             seats = conn.createQuery(showSeats)
