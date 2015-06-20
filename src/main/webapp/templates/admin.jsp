@@ -105,109 +105,44 @@
                 </div>
 
                 <div id="page4">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading1">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
-                                       aria-expanded="true" aria-controls="collapse1">
-                                        Utente 1
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
-                                 aria-labelledby="heading1">
-                                <div class="panel-body">
+                    <c class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-                                    <div id="resid1"><span onclick="requestDelete(1);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
-                                    <div id="resid2"><span onclick="requestDelete(2);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
-                                    <div id="resid3"><span onclick="requestDelete(3);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
 
 
                         <!-- PER OGNI UTENTE -->
 
+                        <c:forEach items="${userreservations}" var="userreservation">
+
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading2">
+                            <div class="panel-heading" role="tab" id="heading${userreservation.key}">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse${userreservation.key}"
                                        aria-expanded="true" aria-controls="collapse2">
-                                        Utente 2
+                                       ${userreservation.key}
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapse${userreservation.key}" class="panel-collapse collapse" role="tabpanel"
                                  aria-labelledby="heading2">
                                 <div class="panel-body">
 
-                                    <div id="resid4"><span onclick="requestDelete(4);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
+                                <c:forEach items="${userreservation.value}" var="userreservatio">
+
+
+                                    <div id="resid${userreservatio.reservation}"><span onclick="requestDelete(${userreservatio.reservation});" style="cursor:pointer;"
+                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        ${userreservatio.title} posto ${userreservatio.column} fila ${userreservatio.row}
                                     </div>
-                                    <div id="resid5"><span onclick="requestDelete(5);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
-                                    <div id="resid6"><span onclick="requestDelete(6);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
+
+                                </c:forEach>
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading3">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                       href="#collapse3"
-                                       aria-expanded="true" aria-controls="collapse3">
-                                        Utente 3
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
-                                 aria-labelledby="heading3">
-                                <div class="panel-body">
+                        </c:forEach>
 
-                                    <div id="resid7"><span onclick="requestDelete(7);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
-                                    <div id="resid8"><span onclick="requestDelete(8);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
-                                    <div id="resid9"><span onclick="requestDelete(9);" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>King
-                                        kong,
-                                        posto 5 fila 5
-                                    </div>
 
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 

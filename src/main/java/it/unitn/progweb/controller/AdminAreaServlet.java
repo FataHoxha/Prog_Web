@@ -52,34 +52,34 @@ public class AdminAreaServlet extends HttpServlet {
         try (Connection con = database.open()) {
             reportUserRes = con.createQuery(sqlUserRes).executeAndFetchTable().asList();
         }
-
         request.setAttribute("userres", reportUserRes);
 
         Map<String, Object> userreservation = new HashMap<>();
 
         Iterator iterator = reportUserRes.iterator();
         Map<String,Object> temp;
-/*
+
         while (iterator.hasNext()) {
             temp =(Map<String,Object>) iterator.next();
-            userreservation.put(temp.get("username").toString(), new HashMap<String, Object>());
+            userreservation.put(temp.get("username").toString(), new ArrayList<Map>());
         }
 
-        String sqlUserReservation = "select distinct u.uid, u.username,  from ((reservation r join \"user\" u on r.user_id=u.uid) join show s on s.id=r.show_id) join seat st on st.id = s.seat_id   order by u.uid;";
+        String sqlUserReservation = "select distinct u.uid, u.username, m.title, r.id as reservation, s.date_time as data, st.column, st.row  from (((reservation r join \"user\" u on r.user_id=u.uid) join show s on s.id=r.show_id) join seat st on st.id = r.seat_id) join movie m on s.movie_id=m.id order by u.uid;";
         List<Map<String,Object>> reportUserReservation;
         try (Connection con = database.open()) {
             reportUserReservation = con.createQuery(sqlUserReservation).executeAndFetchTable().asList();
         }
 
+        Iterator iteratorlist = reportUserReservation.iterator();
 
-
-        for(Map<String, Object> field: reportUserRes) {
-
-            //reportAllreservation.put(field, );
+        while (iteratorlist.hasNext()) {
+            temp =(Map<String,Object>) iteratorlist.next();
+            ((ArrayList<Map>)userreservation.get(temp.get("username").toString())).add(temp);
         }
-*/
 
-            RequestDispatcher rd = request.getRequestDispatcher("templates/admin.jsp");
+        request.setAttribute("userreservations", userreservation);
+
+        RequestDispatcher rd = request.getRequestDispatcher("templates/admin.jsp");
         rd.forward(request, response);
     }
 
