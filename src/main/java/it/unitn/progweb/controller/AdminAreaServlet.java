@@ -10,12 +10,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 @WebServlet(name = "AdminAreaServlet", urlPatterns = {"/adminarea"})
 public class AdminAreaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String id = request.getParameter("id");
+        Sql2o database = (Sql2o) getServletContext().getAttribute("database");
+        String sqlheat = "WITH q1 AS (SELECT seat_id AS id, COUNT(*) AS num FROM reservation GROUP BY id), q2 AS (SELECT id, \"row\", \"column\" FROM seat WHERE theater_id = 1) SELECT \"row\",\"column\",num FROM (q1 NATURAL JOIN q2)";
+        List<Map<String,Object>> heatStats;
+        try (Connection con = database.open()) {
+            heatStats = con.createQuery(sqlheat).executeAndFetchTable().asList();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        Iterator iterator = heatStats.iterator();
+        Map<String,Object> temp;
+        while(iterator.hasNext())
+        {
+            temp =(Map<String,Object>) iterator.next();
+            sb.append("{row:");
+            sb.append(temp.get("\"row\"")).toString();
+            sb.append(", column:");
+            sb.append(temp.get("\"column\"")).toString();
+            sb.append(", count:");
+            sb.append(temp.get("\"num\"")).toString();
+            sb.append("},");
+        }
+
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        out.print(sb.toString());
+        out.flush();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -90,5 +118,4 @@ public class AdminAreaServlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("templates/admin.jsp");
         rd.forward(request, response);
     }
-
 }

@@ -80,9 +80,10 @@
                     data: jsonString,
                     dataType: 'json',
                     contentType: 'application/json',
-                    success: function()
+                    success: function(data)
                     {
-                        document.location.href = '/';
+                        //document.location.href = '/';
+                        console.log(data);
                     }
                 });
             }
@@ -170,7 +171,7 @@
 
         <h1>Seleziona il posto</h1>
 
-        <div class="container">
+        <div class="">
             <div class="row">
                 <div class="well">
                     <form>

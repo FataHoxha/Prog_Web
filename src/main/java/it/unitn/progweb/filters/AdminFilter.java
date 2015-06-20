@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 
-@WebFilter(filterName = "AdminFilter", urlPatterns = {"/adminarea"})
+@WebFilter(filterName = "AdminFilter", urlPatterns = {"/adminareaa"})
 public class AdminFilter implements Filter {
     public void destroy() {
     }

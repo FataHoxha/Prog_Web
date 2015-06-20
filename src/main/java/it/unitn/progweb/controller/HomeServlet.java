@@ -20,7 +20,7 @@ public class HomeServlet extends HttpServlet {
         Sql2o database = (Sql2o) getServletContext().getAttribute("database");
 
 
-        String movieshow = "SELECT title,poster_uri,plot FROM movie ORDER BY random() LIMIT 3";
+        String movieshow = "SELECT title,poster_uri,plot FROM current_movies ORDER BY random() LIMIT 3";
 
         List<Map<String,Object>> movieShow;
         try (Connection con = database.open()) {
