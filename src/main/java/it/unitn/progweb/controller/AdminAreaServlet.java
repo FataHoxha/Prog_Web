@@ -19,26 +19,32 @@ public class AdminAreaServlet extends HttpServlet {
 
         String id = request.getParameter("id");
         Sql2o database = (Sql2o) getServletContext().getAttribute("database");
-        String sqlheat = "WITH q1 AS (SELECT seat_id AS id, COUNT(*) AS num FROM reservation GROUP BY id), q2 AS (SELECT id, \"row\", \"column\" FROM seat WHERE theater_id = 1) SELECT \"row\",\"column\",num FROM (q1 NATURAL JOIN q2)";
+        String sqlheat = "WITH q1 AS (SELECT seat_id AS id, COUNT(*) AS num FROM reservation GROUP BY id), q2 AS (SELECT id, \"row\", \"column\" FROM seat WHERE theater_id = 1) SELECT \"row\" AS r,\"column\" AS c,num FROM (q1 NATURAL JOIN q2)";
         List<Map<String,Object>> heatStats;
         try (Connection con = database.open()) {
             heatStats = con.createQuery(sqlheat).executeAndFetchTable().asList();
         }
 
         StringBuilder sb = new StringBuilder();
+        sb.append("[");
         Iterator iterator = heatStats.iterator();
         Map<String,Object> temp;
         while(iterator.hasNext())
         {
             temp =(Map<String,Object>) iterator.next();
-            sb.append("{row:");
-            sb.append(temp.get("\"row\"")).toString();
-            sb.append(", column:");
-            sb.append(temp.get("\"column\"")).toString();
-            sb.append(", count:");
-            sb.append(temp.get("\"num\"")).toString();
-            sb.append("},");
+            sb.append("{\"row\":\"");
+            sb.append(temp.get("r")).toString();
+            sb.append("\", \"column\":\"");
+            sb.append(temp.get("c")).toString();
+            sb.append("\", \"count\":\"");
+            sb.append(temp.get("num")).toString();
+            sb.append("\"},");
         }
+        if(heatStats.size()>0)
+        {
+            sb.setLength(sb.length() - 1);
+        }
+        sb.append(']');
 
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
