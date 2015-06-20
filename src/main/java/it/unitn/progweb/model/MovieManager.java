@@ -26,7 +26,7 @@ public class MovieManager {
     }
 
     public void setShows(Movie movie) throws Sql2oException {
-        String showsForMovie = "select * from \"show_theater\" where movie_id=:id and date_time > current_timestamp";
+        String showsForMovie = "select * from \"show_theater\" where movie_id=:id and date_time > current_timestamp order by date_time";
         List<Show> shows;
         try(Connection conn = database.open()){
             shows = conn
@@ -47,7 +47,7 @@ public class MovieManager {
             return null;
         }
         if(id!=null) {
-            String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp";
+            String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp ";
             Integer result;
             try (Connection conn = database.open()) {
                 result = conn.createQuery(sqlShow).addParameter("id", id).executeScalar(Integer.class);
