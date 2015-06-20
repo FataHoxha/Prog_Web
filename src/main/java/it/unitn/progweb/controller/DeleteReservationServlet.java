@@ -43,14 +43,18 @@ public class DeleteReservationServlet extends HttpServlet {
                 conn.commit();
 
             } catch (Sql2oException exc) {
-                throw exc;
+
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                return;
             }
 
             String sqldelete = "delete from reservation where id=:id";
             try (Connection conn = database.open()) {
                 conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();
             } catch (Sql2oException exc) {
-                throw exc;
+
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                return;
             }
             response.setStatus(200);
 
@@ -65,6 +69,9 @@ public class DeleteReservationServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        return;
 
 
 
