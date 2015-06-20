@@ -24,16 +24,13 @@ public class AdminFilter implements Filter {
             if(u.getIs_admin()){
                 chain.doFilter(req, resp);
                 return;
-            }else{
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-                return;
             }
-
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+            return;
         }
 
         String url = request.getServletPath() + "?" + request.getQueryString();
         response.sendRedirect("/login?next=" + URLEncoder.encode(url, "UTF-8"));
-
     }
 
     public void init(FilterConfig config) throws ServletException {

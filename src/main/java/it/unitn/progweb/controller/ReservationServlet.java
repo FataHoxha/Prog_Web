@@ -1,15 +1,16 @@
 package it.unitn.progweb.controller;
 
+import com.google.common.base.Joiner;
 import com.google.gson.JsonObject;
 import it.unitn.progweb.lib.Mailer;
 import it.unitn.progweb.model.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.sql2o.Connection;
+import org.sql2o.Query;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
-import javax.json.Json;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +33,7 @@ public class ReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Sql2o database = (Sql2o) request.getServletContext().getAttribute("database");
         MovieManager manager = (MovieManager) request.getServletContext().getAttribute("movie_manager");
+        Mailer mailer = (Mailer) request.getServletContext().getAttribute("email_manager");
         Integer show_id = manager.validateShow(request.getParameter("show_id"));
         if(show_id == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -52,18 +52,16 @@ public class ReservationServlet extends HttpServlet {
             r.setShow_id(show_id);
             r.setCreated(now);
         });
-//        user_id  | bigint                      | not null
-//        show_id  | bigint                      | not null
-//        price_id | bigint                      | not null
-//        seat_id  | bigint                      | not null
-//        created  | timestamp without time zone | not null default now()
+
+        List<Integer> seats = res.stream().map(Reservation::getSeat_id).collect(Collectors.toList());
+        String seatsStr = "(" + Joiner.on(",").join(seats) + ")";
+
         JsonObject obj = new JsonObject();
         try(Connection conn = database.beginTransaction()) {
-            List<Integer> seats = res.stream().map(Reservation::getSeat_id).collect(Collectors.toList());
-            String occupiedQuery = "select count(id) from \"seat_status\" where show_id=:show_id and status <> 1 and id in :seats";
+            String occupiedQuery = "select count(id) from \"seat_status\" " +
+                    "where show_id=:show_id and status <> 1 and id in " + seatsStr;
             Integer occupied = conn.createQuery(occupiedQuery)
                     .addParameter("show_id", show_id)
-                    .addParameter("seats", seats)
                     .executeScalar(Integer.class);
             if(occupied > 0) {
                 conn.rollback();
@@ -81,6 +79,11 @@ public class ReservationServlet extends HttpServlet {
                 });
 
                 conn.commit();
+
+                res = conn.createQuery("select * from reservation where show_id=:show_id and seat_id in " + seatsStr)
+                        .addParameter("show_id", show_id)
+                        .throwOnMappingFailure(false)
+                        .executeAndFetch(Reservation.class);
                 response.setStatus(HttpServletResponse.SC_OK);
                 obj.addProperty("success", true);
             }
@@ -90,12 +93,12 @@ public class ReservationServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
+
         Order o = new Order(u, res, database);
-        o.sendReservation((Mailer) request.getServletContext().getAttribute("mailer"));
+        o.sendReservation(mailer);
 
         response.setContentType("application/json");
         response.getWriter().write(obj.toString());
-        return;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -108,7 +111,7 @@ public class ReservationServlet extends HttpServlet {
             return;
         }
 
-        String showSeats = "select * from \"seat_status\" where show_id=:show_id";
+        String showSeats = "select * from \"seat_status\" where show_id=:show_id order by \"row\", \"column\"";
         List<Seat> seats;
         try(Connection conn = database.open()){
             seats = conn.createQuery(showSeats)
