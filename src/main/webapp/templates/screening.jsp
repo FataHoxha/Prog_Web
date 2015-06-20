@@ -18,6 +18,7 @@
                                 <p>Genere: ${movie.genre}</p>
                                 <h4>Trama:</h4>
                                 <p>${movie.plot}</p>
+                                <a href="${movie.trailer_url}">Guarda il trailer »</a>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
