@@ -26,6 +26,7 @@ public class User {
     private Float credit;
     private Boolean is_admin;
 
+
     public User() {
         this.id = ANONYMOUS_ID;
     }
@@ -79,7 +80,7 @@ public class User {
         this.credit = credit;
     }
 
-    public Boolean getIs_admin() {
+    public boolean getIs_admin() {
         return is_admin;
     }
 
