@@ -23,7 +23,7 @@ public class LoggedInFilter implements Filter {
         if(u.isAuthenticated()){
             chain.doFilter(req, resp);
         }
-        String url = request.getServletPath();
+        String url = request.getServletPath() + "?" + request.getQueryString();
         response.sendRedirect("/login?next=" + URLEncoder.encode(url, "UTF-8"));
     }
 

@@ -40,14 +40,12 @@
 
             <div id="page-content-wrapper">
                 <div id="page0">
-                    <h1>Benvenuto, nomeutente!</h1>
+                    <h1>Benvenuto, ${sessionScope.user.getUsername()}!</h1>
 
                     <p>Da questa pagina puoi verificare alcuni aspetti amministrativi del sito</p>
 
                     <p>e cancellare le prenotazioni degli utenti</p>
                 </div>
-
-
                 <div id="page1">
                     <h1>Riepilogo</h1>
 
@@ -78,8 +76,6 @@
                         </table>
                     </div>
                 </div>
-
-
                 <div id="page2">
                     <h1>Clienti Top</h1>
 
@@ -89,8 +85,6 @@
                         <canvas id="clientiChart" width="700" height="500" class="center-block"></canvas>
                     </div>
                 </div>
-
-
                 <div id="page3">
                     <h1>Incassi</h1>
 
@@ -103,10 +97,8 @@
                         <canvas id="incassiChart2" width="300" height="300" class="center-block"></canvas>
                     </div>
                 </div>
-
                 <div id="page4">
                     <c class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
 
 
                         <!-- PER OGNI UTENTE -->
@@ -116,9 +108,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading${userreservation.key}">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse${userreservation.key}"
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapse${userreservation.key}"
                                        aria-expanded="true" aria-controls="collapse2">
-                                       ${userreservation.key}
+                                            ${userreservation.key}
                                     </a>
                                 </h4>
                             </div>
@@ -126,15 +119,18 @@
                                  aria-labelledby="heading2">
                                 <div class="panel-body">
 
-                                <c:forEach items="${userreservation.value}" var="userreservatio">
+                                    <c:forEach items="${userreservation.value}" var="userreservatio">
 
 
-                                    <div id="resid${userreservatio.reservation}"><span onclick="requestDelete(${userreservatio.reservation});" style="cursor:pointer;"
-                                                           class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                        ${userreservatio.title} - ${userreservatio.data} - posto ${userreservatio.column} fila ${userreservatio.row}
-                                    </div>
+                                        <div id="resid${userreservatio.reservation}"><span
+                                                onclick="requestDelete(${userreservatio.reservation});"
+                                                style="cursor:pointer;"
+                                                class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                ${userreservatio.title} - ${userreservatio.data} -
+                                            posto ${userreservatio.column} fila ${userreservatio.row}
+                                        </div>
 
-                                </c:forEach>
+                                    </c:forEach>
 
                                 </div>
                             </div>
@@ -143,22 +139,27 @@
                         </c:forEach>
 
 
+                </div>
+                <div id="page5">
+                    <h1> Posti piu' popolari </h1>
+                    <p>Seleziona una sala per vedere l'elenco di posti piu' popolari per ogni sala</p>
+                    <div id="page5inside">
+                        <ul id="select_theatre" class="list-group"><c:forEach items="${theater}" var="theater">
+                            <button type="button" class="list-group-item" onclick="showTheatre(${theater.id});">${theater.description} </button>
+                        </c:forEach>
+                        </ul>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-
         <script>
             var current_page = 0;
             var datac = {
                 labels: [
 
-                <c:forEach items="${topusers}" var="user">
-                        "${user.username}",
-                </c:forEach>
+                    <c:forEach items="${topusers}" var="user">
+                    "${user.username}",
+                    </c:forEach>
                 ],
 
                 datasets: [
@@ -174,7 +175,7 @@
                             ${user.numeroreservation},
                             </c:forEach>
 
-                            ] //inser
+                        ]
                     }
                 ]
             };
@@ -202,12 +203,14 @@
                 ]
             };
 
+            var html_code_select_theatre = $('#page5inside').html();
+
+
             var datap = [];
-            for(var i=0;i<datai.labels.length;i++)
-            {
+            for (var i = 0; i < datai.labels.length; i++) {
                 var obj = {};
                 obj.value = datai.datasets[0].data[i];
-                obj.color = "#"+((1<<24)*Math.random()|0).toString(16);
+                obj.color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
                 obj.highlight = obj.color;
                 obj.label = datai.labels[i];
                 datap.push(obj);
@@ -233,10 +236,14 @@
                 }
             }
 
-            function requestDelete(id)
+            function showTheatre(id)
             {
-                $('#resid'+id).remove();
-                $.post( "/deletereservation", {delete: id});
+                $('#select_theatre').remove();
+            }
+
+            function requestDelete(id) {
+                $('#resid' + id).remove();
+                $.post("/deletereservation", {delete: id});
             }
         </script>
     </jsp:body>

@@ -4,20 +4,28 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <t:basepage>
+    <jsp:attribute name="extrahead">
+        <title>Programmazione</title>
+    </jsp:attribute>
+
     <jsp:body>
-        <c:forEach items="${movies}" var="movie">
-            <div class="row">
+        <div class="page-header">
+            <h1>Programmazione</h1>
+        </div>
+        <div class="row">
+            <c:forEach items="${movies}" var="movie">
                 <div class="panel panel-default">
                     <div class="panel-heading">${movie.title}</div>
                     <div class="panel-body">
                         <div class="col-sm-6 col-md-8">
-                            <div class="thumbnail">
+                            <div class="col-sm-3 col-md-4">
                                 <img src="${movie.poster_uri}" width="100px">
-                                <div class="caption">
-                                    <p>Genere: ${movie.genre}</p>
-                                    <h4>Trama:</h4>
-                                    <p>${movie.plot}</p>
-                                </div>
+                            </div>
+                            <div class="col-sm-3 col-md-4">
+                                <p>Genere: ${movie.genre}</p>
+                                <h4>Trama:</h4>
+                                <p>${movie.plot}</p>
+                                <a href="${movie.trailer_url}">Guarda il trailer »</a>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
@@ -34,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
     </jsp:body>
 </t:basepage>

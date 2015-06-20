@@ -5,7 +5,7 @@
 
 <t:basepage>
     <jsp:attribute name="extrahead">
-        <title>Il mio login</title>
+        <title>Accedi</title>
     </jsp:attribute>
     <jsp:body>
         <div class="col-md-6">
