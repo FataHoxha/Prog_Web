@@ -7,6 +7,9 @@
     <jsp:body>
         <c:forEach items="${movies}" var="movie">
             <div class="row">
+                <div class="page-header">
+                    <h1>Programmazione</h1>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">${movie.title}</div>
                     <div class="panel-body">
