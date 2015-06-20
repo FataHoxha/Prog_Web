@@ -19,11 +19,21 @@ public class AdminFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         User u = (User) request.getSession().getAttribute("user");
+
         if(u.isAuthenticated()){
-            chain.doFilter(req, resp);
+            if(u.getIs_admin()){
+                chain.doFilter(req, resp);
+                return;
+            }else{
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+                return;
+            }
+
         }
+
         String url = request.getServletPath();
         response.sendRedirect("/login?next=" + URLEncoder.encode(url, "UTF-8"));
+
     }
 
     public void init(FilterConfig config) throws ServletException {
