@@ -11,13 +11,13 @@
                     <div class="panel-heading">${movie.title}</div>
                     <div class="panel-body">
                         <div class="col-sm-6 col-md-8">
-                            <div class="thumbnail">
+                            <div class="col-sm-3 col-md-4">
                                 <img src="${movie.poster_uri}" width="100px">
-                                <div class="caption">
-                                    <p>Genere: ${movie.genre}</p>
-                                    <h4>Trama:</h4>
-                                    <p>${movie.plot}</p>
-                                </div>
+                            </div>
+                            <div class="col-sm-3 col-md-4">
+                                <p>Genere: ${movie.genre}</p>
+                                <h4>Trama:</h4>
+                                <p>${movie.plot}</p>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
