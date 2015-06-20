@@ -43,6 +43,15 @@ public class RegistrationServlet extends HttpServlet {
             return;
         }
 
+        if(password.length()<3){
+            errors = new ArrayList<>();
+            errors.add("La password deve essere almeno di 4 caratteri");
+            request.setAttribute("errors", errors);
+            RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
+            rd.forward(request, response);
+            return;
+        }
+
         User u = new User();
         u.setUsername(username);
         u.setAndHashPassword(password);
