@@ -31,9 +31,15 @@ public class TestServlet extends HttpServlet {
 
         Order o =new Order(new User(),reservations, database);
         Mailer m = (Mailer) request.getServletContext().getAttribute("email_manager");
+
+
+
         m.sendMailAttachment("fabiano.zenatti@studenti.unitn.it","tickets","ciao", o.toPdfOrderDetails());
 
+
         m.sendMail("fabiano.zenatti@studenti.unitn.it","test","testssss");
+
+
 
         response.getWriter().write(r.details(database));
     }

@@ -27,7 +27,7 @@
 
 <body>
 <!-- header -->
-<%@ include file="/assets/fragments/header.html"%>
+<%@ include file="/templates/fragments/navbar.jsp"%>
 
 <div class="container" id="body">
     <!-- body -->
@@ -36,7 +36,7 @@
 </div>
 
 <!-- footer -->
-<%@ include file="/assets/fragments/footer.html"%>
+<%@ include file="/templates/fragments/footer.html"%>
 
 </body>
 

@@ -131,7 +131,7 @@
 
                                     <div id="resid${userreservatio.reservation}"><span onclick="requestDelete(${userreservatio.reservation});" style="cursor:pointer;"
                                                            class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                        ${userreservatio.title} posto ${userreservatio.column} fila ${userreservatio.row}
+                                        ${userreservatio.title} - ${userreservatio.data} - posto ${userreservatio.column} fila ${userreservatio.row}
                                     </div>
 
                                 </c:forEach>
@@ -202,32 +202,16 @@
                 ]
             };
 
-            var datap = [
-                {
-                    value: 3245,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "King Kong"
-                },
-                {
-                    value: 5567,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Cars"
-                },
-                {
-                    value: 8235,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
-                    label: "Jurassic World"
-                },
-                {
-                    value: 4789,
-                    color: "#F7364A",
-                    highlight: "#FF3A5E",
-                    label: "American Sniper"
-                }
-            ];
+            var datap = [];
+            for(var i=0;i<datai.labels.length;i++)
+            {
+                var obj = {};
+                obj.value = datai.datasets[0].data[i];
+                obj.color = "#"+((1<<24)*Math.random()|0).toString(16);
+                obj.highlight = obj.color;
+                obj.label = datai.labels[i];
+                datap.push(obj);
+            }
 
             function show(id) {
                 $('#page' + current_page).hide();

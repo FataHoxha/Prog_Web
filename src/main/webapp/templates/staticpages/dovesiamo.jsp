@@ -59,7 +59,7 @@
                 <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Email</h2><br>
-                        <a href="mailto:#">first.last@cinema.com</a>
+                        <a href="mailto:first.last@cinema.com">first.last@cinema.com</a>
                     </address>
                 </div>
                 <!-- Optional: clear the XS cols if their content doesn't match in height -->

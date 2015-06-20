@@ -10,6 +10,7 @@
     <absolute-ordering>
         <name>UserSessionFilter</name>
         <name>LoggedInFilter</name>
+        <name>AdminFilter</name>
     </absolute-ordering>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
