@@ -4,6 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <t:basepage>
+    <jsp:attribute name="extrahead">
+        <title>Programmazione</title>
+    </jsp:attribute>
+
     <jsp:body>
         <c:forEach items="${movies}" var="movie">
             <div class="row">

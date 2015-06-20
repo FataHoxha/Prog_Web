@@ -4,7 +4,7 @@
 
 <t:basepage>
     <jsp:attribute name="extrahead">
-        <title>Reset password</title>
+        <title>Ripristino password</title>
     </jsp:attribute>
 
     <jsp:body>
