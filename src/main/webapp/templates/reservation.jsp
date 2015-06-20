@@ -69,13 +69,22 @@
                 $('#pay').hide();
                 var res = [];
                 $('#done > div').each(function () {
-                    res.push({
-                        seat_id: parseInt($('#' + this.id).data('seatid')),
-                        type: parseInt($('#' + this.id).data('cat'))
+                    var val = {};
+                    val["seat_id"] = parseInt($('#' + this.id).data('seatid'));
+                    val["type"] = parseInt($('#' + this.id).data('cat'));
+                    res.push(val);
                     });
+                jsonString = JSON.stringify(res);
+                $.ajax({
+                    type: "POST",
+                    data: jsonString,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function()
+                    {
+                        document.location.href = '/';
+                    }
                 });
-                console.log(res);
-                return res;
             }
         </script>
         <style>
@@ -154,8 +163,8 @@
                         <input type="text">
                         </div>
                     </div>
+                    </form>
                     <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
-                </form>
             </div>
         </div>
 
