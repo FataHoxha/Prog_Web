@@ -11,7 +11,7 @@ public class UserManager {
 
     private Sql2o database;
 
-    private final String userQuery = "select uid,username,email,password from \"user\" where email=:email";
+    private final String userQuery = "select * from \"user\" where email=:email";
     private final String resetTokenValid = "select count(*) from \"user\" where password_reset_token=:token and current_timestamp < token_expiration";
     private final String setResetToken = "update \"user\" set password_reset_token=:token, token_expiration=current_timestamp + interval '1 day' where email=:email";
     private final String getUserByToken = "select uid,username,email,password from \"user\" where password_reset_token=:token and current_timestamp - token_expiration < interval '1 day'";
@@ -29,6 +29,7 @@ public class UserManager {
             u = conn.createQuery(userQuery)
                     .addParameter("email", email)
                     .addColumnMapping("uid", "id")
+                    .throwOnMappingFailure(false)
                     .executeAndFetchFirst(User.class);
         }
         if(u == null){
