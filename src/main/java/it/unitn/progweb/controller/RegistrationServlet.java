@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 public class RegistrationServlet extends HttpServlet {
     private static final String newUserQuery =
             "insert into \"user\"(username, email, password) values (:username, :email, :password)";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final String username = request.getParameter("username");
         final String password = request.getParameter("password");
@@ -34,7 +35,7 @@ public class RegistrationServlet extends HttpServlet {
         final String email = request.getParameter("email");
         List<String> errors;
 
-        if(!password.equals(passwordcheck)) {
+        if (!password.equals(passwordcheck)) {
             errors = new ArrayList<>();
             errors.add("Le password non corrispondono");
             request.setAttribute("errors", errors);
@@ -43,7 +44,7 @@ public class RegistrationServlet extends HttpServlet {
             return;
         }
 
-        if(password.length()<3){
+        if (password.length() < 3) {
             errors = new ArrayList<>();
             errors.add("La password deve essere almeno di 4 caratteri");
             request.setAttribute("errors", errors);
@@ -61,7 +62,7 @@ public class RegistrationServlet extends HttpServlet {
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<User>> violations = validator.validate(u);
         errors = violations.stream().map(v -> v.getPropertyPath() + " è errata.").collect(Collectors.toList());
-        if(errors.size() > 0) {
+        if (errors.size() > 0) {
             request.setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);

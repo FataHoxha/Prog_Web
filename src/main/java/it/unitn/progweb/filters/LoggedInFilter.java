@@ -20,7 +20,7 @@ public class LoggedInFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         User u = (User) request.getSession().getAttribute("user");
-        if(u.isAuthenticated()){
+        if (u.isAuthenticated()) {
             chain.doFilter(req, resp);
             return;
         }

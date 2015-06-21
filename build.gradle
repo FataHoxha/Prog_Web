@@ -15,7 +15,7 @@ dependencies {
     // random stuff
     compile group: 'com.google.guava', name: 'guava', version: '18.0'
     // database stuff
-    compile group: 'org.sql2o', name: 'sql2o', version:'1.5.4'
+    compile group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1201-jdbc41'
     // jsp stuff
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
@@ -25,9 +25,9 @@ dependencies {
     runtime group: 'com.sun.mail', name: 'javax.mail', version: '1.5.2'
     runtime group: 'javax.activation', name: 'activation', version: '1.1.1'
     //QRcode
-    compile group: 'net.glxn', name:'qrgen', version: '1.4'
+    compile group: 'net.glxn', name: 'qrgen', version: '1.4'
     //pdf
-    compile group: 'com.lowagie', name:'itext', version:'4.2.1'
+    compile group: 'com.lowagie', name: 'itext', version: '4.2.1'
 
     //validator
     compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.1.3.Final'

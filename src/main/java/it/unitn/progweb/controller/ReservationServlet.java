@@ -23,23 +23,24 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet(name = "ReservationServlet",urlPatterns = {"/prenota"})
+@WebServlet(name = "ReservationServlet", urlPatterns = {"/prenota"})
 public class ReservationServlet extends HttpServlet {
 
-    private final static Type reservationList = new TypeToken<Collection<Reservation>>(){}.getType();
+    private final static Type reservationList = new TypeToken<Collection<Reservation>>() {
+    }.getType();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Sql2o database = (Sql2o) request.getServletContext().getAttribute("database");
         MovieManager manager = (MovieManager) request.getServletContext().getAttribute("movie_manager");
         Mailer mailer = (Mailer) request.getServletContext().getAttribute("email_manager");
         Integer show_id = manager.validateShow(request.getParameter("show_id"));
-        if(show_id == null) {
+        if (show_id == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
         User u = (User) request.getSession().getAttribute("user");
-        assert u.getId() != -1: "not authenticated user should not get here";
+        assert u.getId() != -1 : "not authenticated user should not get here";
 
         Gson gson = new Gson();
         List<Reservation> res = gson.fromJson(request.getReader(), reservationList);
@@ -55,13 +56,13 @@ public class ReservationServlet extends HttpServlet {
         String seatsStr = "(" + Joiner.on(",").join(seats) + ")";
 
         JsonObject obj = new JsonObject();
-        try(Connection conn = database.beginTransaction()) {
+        try (Connection conn = database.beginTransaction()) {
             String occupiedQuery = "select count(id) from \"seat_status\" " +
                     "where show_id=:show_id and status <> 1 and id in " + seatsStr;
             Integer occupied = conn.createQuery(occupiedQuery)
                     .addParameter("show_id", show_id)
                     .executeScalar(Integer.class);
-            if(occupied > 0) {
+            if (occupied > 0) {
                 conn.rollback();
                 obj.addProperty("success", false);
                 obj.addProperty("message", "Alcuni posti sono già stati riservati");
@@ -104,14 +105,14 @@ public class ReservationServlet extends HttpServlet {
         MovieManager moviemanager = (MovieManager) getServletContext().getAttribute("movie_manager");
         Integer show_id = moviemanager.validateShow(request.getParameter("show_id"));
 
-        if(show_id==null) {
+        if (show_id == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
 
         String showSeats = "select * from \"seat_status\" where show_id=:show_id ORDER BY \"row\", \"column\"";
         List<Seat> seats;
-        try(Connection conn = database.open()){
+        try (Connection conn = database.open()) {
             seats = conn.createQuery(showSeats)
                     .addParameter("show_id", show_id)
                     .throwOnMappingFailure(false)
@@ -121,7 +122,7 @@ public class ReservationServlet extends HttpServlet {
         }
 
         List<Price> prices;
-        try(Connection conn = database.open()){
+        try (Connection conn = database.open()) {
             prices = conn.createQuery("select * from price;").executeAndFetch(Price.class);
         } catch (Sql2oException exc) {
             throw exc;

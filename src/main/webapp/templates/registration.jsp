@@ -32,7 +32,8 @@
                 </div>
                 <div class="form-group">
                     <label for="passwordcheck">Confirm password</label>
-                    <input type="password" class="form-control" id="passwordcheck" placeholder="Confirm password" name="passwordcheck">
+                    <input type="password" class="form-control" id="passwordcheck" placeholder="Confirm password"
+                           name="passwordcheck">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

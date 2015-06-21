@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name="StaticPageServlet", urlPatterns = {"/dovesiamo", "/prices"})
+@WebServlet(name = "StaticPageServlet", urlPatterns = {"/dovesiamo", "/prices"})
 public class StaticPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = request.getServletPath();

@@ -1,7 +1,7 @@
 package it.unitn.progweb.model;
 
 public class Seat {
-    
+
     private Integer id;
     private Integer row;
     private Integer column;

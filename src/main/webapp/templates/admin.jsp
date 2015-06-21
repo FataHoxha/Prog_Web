@@ -40,231 +40,266 @@
 
             <div id="page-content-wrapper">
                 <div id="page0">
-                    <h1>Benvenuto, ${sessionScope.user.getUsername()}!</h1>
+                    <h1>Benvenuto, ${sessionScope.u
 
-                    <p>Da questa pagina puoi verificare alcuni aspetti amministrativi del sito</p>
+                    1>
 
-                    <p>e cancellare le prenotazioni degli utenti</p>
-                </div>
-                <div id="page1">
-                    <h1>Riepilogo</h1>
+                     p>Da quest  pagin  puoi v rificare alcun  as etti amm
 
-                    <p>Riepilogo di ogni proiezione, con numero di posti venduto e prezzo</p>
+                    p>
 
-                    <div id="row">
-                        <table class="table table-hover center-block">
-                            <thead>
-                            <tr>
-                                <th>Film</th>
-                                <th>Ora</th>
-                                <th>Posti venduti</th>
-                                <th>Incasso totale</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <c:forEach items="${showstats}" var="showstat">
-                                <tr>
-                                    <td>${showstat.title}</td>
-                                    <td>${showstat.data}</td>
-                                    <td>${showstat.postivenduti}</td>
-                                    <td>${showstat.amount}</td>
-                                </tr>
-                            </c:forEach>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div id="page2">
-                    <h1>Clienti Top</h1>
-
-                    <p> Numero biglietti acquistati dai clienti nelle ultime n settimane </p>
-
-                    <div class="row">
-                        <canvas id="clientiChart" width="700" height="500" class="center-block"></canvas>
-                    </div>
-                </div>
-                <div id="page3">
-                    <h1>Incassi</h1>
-
-                    <p> Incassi per ogni film nelle ultime n settimane</p>
-
-                    <div class="row">
-                        <canvas id="incassiChart" width="700" height="500" class="center-block"></canvas>
-                    </div>
-                    <div class="row">
-                        <canvas id="incassiChart2" width="300" height="300" class="center-block"></canvas>
-                    </div>
-                </div>
-                <div id="page4">
-                    <c class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <p>e ca cella e le prenonti</p
+                 </d v>
+        1">
 
 
-                        <!-- PER OGNI UTENTE -->
+                    1>
 
-                        <c:forEach items="${userreservations}" var="userreservation">
+                    <p>Riepi ogo di ogn  p oiezi ne, con n mero di po
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading${userreservation.key}">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                       href="#collapse${userreservation.key}"
-                                       aria-expanded="true" aria-controls="collapse2">
-                                            ${userreservation.key}
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse${userreservation.key}" class="panel-collapse collapse" role="tabpanel"
-                                 aria-labelledby="heading2">
-                                <div class="panel-body">
-
-                                    <c:forEach items="${userreservation.value}" var="userreservatio">
+                    p>
 
 
-                                        <div id="resid${userreservatio.reservation}"><span
-                                                onclick="requestDelete(${userreservatio.reservation});"
-                                                style="cursor:pointer;"
-                                                class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                                ${userreservatio.title} - ${userreservatio.data} -
-                                            posto ${userreservatio.column} fila ${userreservatio.row}
-                                        </div>
-
-                                    </c:forEach>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        </c:forEach>
+                                                <table class="table ta
 
 
-                </div>
-                <div id="page5">
-                    <h1> Posti piu' popolari </h1>
-                    <p>Seleziona una sala per vedere l'elenco di posti piu' popolari per ogni sala</p>
-                    <div id="page5inside">
-                        <ul id="select_theatre" class="list-group"><c:forEach items="${theater}" var="theater">
-                            <button type="button" class="list-group-item" onclick="showTheatre(${theater.id});">${theater.description} </button>
-                        </c:forEach>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
+
+
+
+
+
+
+
+                            <c:forEach items="${sho
+
+                                                        <t
+                                                        <
+                                     <td>${sho
+                                                        <td
+
+
+
+
+
+                    le>
+
+                 </div
+                 </d v>
+        2">
+
+
+                    1>
+
+                                            <p> Num ro  igliett  acqu stati  a  clienti  elle
+
+                    p>
+
+
+                                                < anvas id="c ientiChart"  idth="700" height="500" class=
+                    as>
+
+                 </div
+                 </d v>
+        3">
+
+
+                    1>
+
+                                            < > Inc ssi pe   gni film nell
+
+                    p>
+
+
+                                                < anvas id="i cassiChart"  idth="700" height="500" class=
+                    as>
+
+                    iv>
+
+                                                <c nvas id="in assiChart2"  idth="300" height="300" class=
+                    as>
+
+                 </div
+                 </d v>
+
+                    4"
+                    <c class="pan l-group" id="a cordion" role="tablist" aria
+
+
+
+
+                        <c:forEach items="${userreservations}
+
+                                                <div clas
+                                                    <d v class="p nel-heading" role="tab" id="heading
+
+                                                            <a role="button  data-toggle="collapse"
+                                                               href="#collaps
+                                                               aria-expanded="true" ar
+
+
+
+
+                                                    <div id="collaps ${userreservation.key}" class=" anel-collapse c
+                                                         ari
+
+
+                                    <c:forEach items="${userreservation.value
+
+
+                                                            <div id="resid${userreserv
+                                                                    onclick="requestDelete(${userre
+
+                                                                    class="gly hicon glyphicon-remove" ar
+                                                                $ userreservatio.title}
+                                              posto {use reservatio.column} fi
+
+
+
+
+
+
+
+
+
+                Each>
+
+
+                 </d v>
+        5">
+                     h1> P
+
+                    h1>
+                    < >Selez ona una  al  per  eder  l'elenc  di post  piu' po
+
+                    /p>
+
+                                                <ul id="select_theatre" class="list-group">
+                            <c:forEach items="${
+                                                    <button type="button"
+                                    class="list-group-item" onclick="showTheatre(${theater.id}); >${theate
+
+
+                    ul>
+
+                 </div
+                 <
+
+           </div>
         </div>
         <script>
-            var current_page = 0;
-            var datac = {
-                labels: [
+        var current_page = 0;
+        var datac = {
+        labels: [
 
-                    <c:forEach items="${topusers}" var="user">
-                    "${user.username}",
-                    </c:forEach>
-                ],
+        <c:forEach items="${topusers}" var="user">
+            "${user.username}",
+        </c:forEach>
+        ],
 
-                datasets: [
-                    {
-                        label: "Acquisti",
-                        fillColor: "rgba(220,220,220,0.5)",
-                        strokeColor: "rgba(220,220,220,0.8)",
-                        highlightFill: "rgba(220,220,220,0.75)",
-                        highlightStroke: "rgba(220,220,220,1)",
-                        data: [
+        datasets: [
+        {
+        label: "Acquisti",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data: [
 
-                            <c:forEach items="${topusers}" var="user">
-                            ${user.numeroreservation},
-                            </c:forEach>
+        <c:forEach items="${topusers}" var="user">
+            ${user.numeroreservation},
+        </c:forEach>
 
-                        ]
-                    }
-                ]
-            };
+        ]
+        }
+        ]
+        };
 
-            var datai = {
-                labels: [
-                    <c:forEach items="${topmovie}" var="movie">
-                    "${movie.title}",
-                    </c:forEach>
-                ],
+        var datai = {
+        labels: [
+        <c:forEach items="${topmovie}" var="movie">
+            "${movie.title}",
+        </c:forEach>
+        ],
 
-                datasets: [
-                    {
-                        label: "Vendite",
-                        fillColor: "rgba(220,220,220,0.5)",
-                        strokeColor: "rgba(220,220,220,0.8)",
-                        highlightFill: "rgba(220,220,220,0.75)",
-                        highlightStroke: "rgba(220,220,220,1)",
-                        data: [
-                            <c:forEach items="${topmovie}" var="movie">
-                            ${movie.incasso},
-                            </c:forEach>
-                        ]
-                    }
-                ]
-            };
+        datasets: [
+        {
+        label: "Vendite",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data: [
+        <c:forEach items="${topmovie}" var="movie">
+            ${movie.incasso},
+        </c:forEach>
+        ]
+        }
+        ]
+        };
 
-            var html_code_select_theatre = $('#page5inside').html();
+        var html_code_select_theatre = $('#page5inside').html();
 
 
-            var datap = [];
-            for (var i = 0; i < datai.labels.length; i++) {
-                var obj = {};
-                obj.value = datai.datasets[0].data[i];
-                obj.color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-                obj.highlight = obj.color;
-                obj.label = datai.labels[i];
-                datap.push(obj);
-            }
+        var datap = [];
+        for (var i = 0; i < datai.labels.length; i++) {
+        var obj = {};
+        obj.value = datai.datasets[0].data[i];
+        obj.color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+        obj.highlight = obj.color;
+        obj.label = datai.labels[i];
+        datap.push(obj);
+        }
 
-            function show(id) {
-                $('#page' + current_page).hide();
-                current_page = id;
-                $('#page' + current_page).fadeIn();
-                switch (id) {
-                    case(2):
-                        var ctx = $("#clientiChart").get(0).getContext("2d");
-                        var myNewChart = new Chart(ctx).Bar(datac);
-                        break;
-                    case(3):
-                        var ctx = $("#incassiChart").get(0).getContext("2d");
-                        var myNewChart = new Chart(ctx).Bar(datai);
-                        ctx = $("#incassiChart2").get(0).getContext("2d");
-                        myNewChart = new Chart(ctx).Doughnut(datap);
-                        break;
-                    default:
-                        break;
-                }
-            }
+        function show(id) {
+        $('#page' + current_page).hide();
+        current_page = id;
+        $('#page' + current_page).fadeIn();
+        switch (id) {
+        case(2):
+        var ctx = $("#clientiChart").get(0).getContext("2d");
+        var myNewChart = new Chart(ctx).Bar(datac);
+        break;
+        case(3):
+        var ctx = $("#incassiChart").get(0).getContext("2d");
+        var myNewChart = new Chart(ctx).Bar(datai);
+        ctx = $("#incassiChart2").get(0).getContext("2d");
+        myNewChart = new Chart(ctx).Doughnut(datap);
+        break;
+        default:
+        break;
+        }
+        }
 
-            function showTheatre(id)
-            {
-                $('#select_theatre').remove();
-                $.ajax({
-                            type: "POST",
-                            url: '',
-                            data: {"id":id.toString()},
-                            contentType: "text/html",
-                            success: function(data){
-                                var to_append = '<div id="select_theatre"><div id="row"><table class="table table-hover center-block"><thead><tr><th>Fila</th><th>Posto</th><th>Numero prenotazioni</th></tr></thead><tbody>';
-                                for(var i=0;i<data.length;i++)
-                                {
-                                    to_append += '<tr><td>'+data[i].row+'</td><td>'+data[i].column+'</td><td>'+data[i].count+'</td></tr>';
-                                }
-                                to_append += '</tbody></table><button type="button" class="list-group-item" onclick="selectTheatre();">Torna indietro</button></div></div>';
-                                $('#page5inside').html(to_append);
-                            }
-                });
-            }
+        function showTheatre(id)
+        {
+        $('#select_theatre').remove();
+        $.ajax({
+        type: "POST",
+        url: '',
+        data: {"id":id.toString()},
+        contentType: "text/html",
+        success: function(data){
+        var to_append = '<div id="select_theatre"><div id="row"><table class="table table-hover center-block"><thead><tr><th>Fila</th><th>Posto</th><th>Numero prenotazioni</th></tr></thead><tbody>';
+        for(var i=0;i<data.length;i++)
+        {
+        to_append += '<tr><td>'+data[i].row+'</td><td>'+data[i].column+'</td><td>'+data[i].count+'</td></tr>';
+        }
+        to_append += '</tbody></table><button type="button" class="list-group-item" onclick="selectTheatre();">Torna indietro</button></div></div>';
+        $('#page5inside').html(to_append);
+        }
+        });
+        }
 
-            function requestDelete(id) {
-                $('#resid' + id).remove();
-                $.post("/deletereservation", {delete: id});
-            }
+        function requestDelete(id) {
+        $('#resid' + id).remove();
+        $.post("/deletereservation", {delete: id});
+        }
 
-            function selectTheatre()
-            {
-                $('#page5inside').html(html_code_select_theatre);
-            }
+        function selectTheatre()
+        {
+        $('#page5inside').html(html_code_select_theatre);
+        }
         </script>
     </jsp:body>
 </t:basepage>

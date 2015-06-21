@@ -10,22 +10,15 @@ import java.io.ByteArrayOutputStream;
 import java.util.Properties;
 
 /**
- * uso:
- * Regola 1: non farti domande su come è implementato... è grezzissimo ma funziona ;)
- *
- * //beccati il mailer dal context della servlet
- * Mailer m = (Mailer) request.getServletContext().getAttribute("email_manager");
- *
- * //invia una semplice email
- * m.sendMail("destinatario","oggetto","messaggio");
- *
- * //invia una mail con allegato
- * m.sendMailAttachment("destinatario","oggetto","messaggio", ByteArrayOutputStream --orrido ma lasciatelo così--);
- *
+ * Invio di email semplici e email con allegato
  */
 
-
 public class Mailer {
+
+
+    /**
+     * Parametri accesso alla casella email di gmail
+     */
 
     final String username = "movieswebprog2015@gmail.com";
     final String password = "birdwatching";
@@ -35,8 +28,6 @@ public class Mailer {
 
 
     public Mailer() {
-
-
         this.props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -49,14 +40,18 @@ public class Mailer {
                         return new PasswordAuthentication(username, password);
                     }
                 });
-
-
     }
 
+    /**
+     * Invia una semplice email testuale
+     *
+     * @param recipient   destinatario della email
+     * @param subject     oggetto della email
+     * @param messageText testo della email
+     */
 
-    public void sendMail(String recipient, String subject, String messageText){
 
-
+    public void sendMail(String recipient, String subject, String messageText) {
         try {
             Message message = new MimeMessage(this.mailsession);
             message.setFrom(new InternetAddress(this.sender));
@@ -71,12 +66,19 @@ public class Mailer {
             throw new RuntimeException(e);
 
         }
-
-        return;
-
     }
 
-    public void sendMailAttachment(String recipient, String subject, String messageText, ByteArrayOutputStream file){
+
+    /**
+     * Invia una semplice email testuale
+     *
+     * @param recipient   destinatario della email
+     * @param subject     oggetto della email
+     * @param messageText testo della email
+     * @param file        file da allegare alla email di tipo ByteArrayOutputStream
+     */
+
+    public void sendMailAttachment(String recipient, String subject, String messageText, ByteArrayOutputStream file) {
 
 
         try {
@@ -99,8 +101,8 @@ public class Mailer {
             messageBodyPart2.setDataHandler(new DataHandler(file.toByteArray(), "application/pdf"));
             messageBodyPart2.setFileName("Tickets.pdf");
             //Add the parts to the Multipart message
-            multipart.addBodyPart(messageBodyPart1 );
-            multipart.addBodyPart( messageBodyPart2 );
+            multipart.addBodyPart(messageBodyPart1);
+            multipart.addBodyPart(messageBodyPart2);
             message.setContent(multipart);
 
             Transport.send(message);

@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet che permette all'amministratore di cancellare le prenotazioni
+ * e accreditare l'80% sul credito dell'utente
+ *
+ */
 
 @WebServlet(name = "DeleteReservationServlet", urlPatterns = {"/deletereservation"})
 public class DeleteReservationServlet extends HttpServlet {
@@ -18,10 +23,10 @@ public class DeleteReservationServlet extends HttpServlet {
 
         Integer reservation = this.validateReservation(request.getParameter("delete"));
 
-        if(reservation!=null){
+        if (reservation != null) {
             Sql2o database = (Sql2o) getServletContext().getAttribute("database");
 
-            try(Connection conn = database.beginTransaction()) {
+            try (Connection conn = database.beginTransaction()) {
                 String sqlPrice = "SELECT p.amount FROM (reservation r JOIN price p ON r.price_id=p.id) WHERE r.id=:id;";
                 Float price = conn.createQuery(sqlPrice)
                         .addParameter("id", reservation)
@@ -37,8 +42,11 @@ public class DeleteReservationServlet extends HttpServlet {
                         .addParameter("id", userId)
                         .executeScalar(Float.class);
 
-                String sqldelete = "UPDATE \"user\" SET credit = :price WHERE uid=:id;";
-                conn.createQuery(sqldelete).addParameter("id", userId).addParameter("price", price+credit).executeUpdate();
+                String sqlaccredita = "UPDATE \"user\" SET credit = :price WHERE uid=:id;";
+                conn.createQuery(sqlaccredita).addParameter("id", userId).addParameter("price", (price*0.8) + credit).executeUpdate();
+
+                String sqldelete = "delete from reservation where id=:id";
+                conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();
 
                 conn.commit();
 
@@ -48,16 +56,7 @@ public class DeleteReservationServlet extends HttpServlet {
                 return;
             }
 
-            String sqldelete = "delete from reservation where id=:id";
-            try (Connection conn = database.open()) {
-                conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();
-            } catch (Sql2oException exc) {
-
-                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-                return;
-            }
             response.setStatus(200);
-
             return;
 
         }
@@ -74,18 +73,18 @@ public class DeleteReservationServlet extends HttpServlet {
         return;
 
 
-
     }
 
-    public Integer validateReservation(String idString){
+    public Integer validateReservation(String idString) {
 
         Integer id = null;
 
-        try{ id = Integer.parseInt(idString);}
-        catch (NumberFormatException exc){
+        try {
+            id = Integer.parseInt(idString);
+        } catch (NumberFormatException exc) {
             return null;
         }
-        if(id!=null) {
+        if (id != null) {
 
             Sql2o database = (Sql2o) getServletContext().getAttribute("database");
             String sqlShow = "select count(*) from (\"reservation\" r join \"show\" s on s.id=r.show_id) where r.id=:id and date_time > current_timestamp";
@@ -96,7 +95,7 @@ public class DeleteReservationServlet extends HttpServlet {
                 throw exc;
             }
 
-            if(result>0) return id;
+            if (result > 0) return id;
         }
 
         return null;

@@ -26,21 +26,23 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         User u = (User) session.getAttribute("user");
         // User is already authenticated, redirect to home
-        assert u != null: "user should never be null";
-        if(u.isAuthenticated()) {
+        assert u != null : "user should never be null";
+        if (u.isAuthenticated()) {
             response.sendRedirect(getNext(request));
             return;
         }
         String next = this.getNext(request);
-        if(!next.equals("/")) request.setAttribute("next", "?next="+this.getNext(request));
+        if (!next.equals("/")) request.setAttribute("next", "?next=" + this.getNext(request));
 
         RequestDispatcher rd = request.getRequestDispatcher("templates/login.jsp");
         rd.forward(request, response);
     }
 
-    private @NotNull String getNext(HttpServletRequest request){
+    private
+    @NotNull
+    String getNext(HttpServletRequest request) {
         String next = request.getParameter("next");
-        if(next == null){
+        if (next == null) {
             next = "/";
         }
         return next;
@@ -58,20 +60,20 @@ public class LoginServlet extends HttpServlet {
 
         User u = (User) session.getAttribute("user");
         // User is already authenticated, redirect to home
-        assert u != null: "user should never be null";
-        if(u.isAuthenticated()) {
+        assert u != null : "user should never be null";
+        if (u.isAuthenticated()) {
             response.sendRedirect(getNext(request));
             return;
         }
 
         u = manager.authenticateUser(email, password);
 
-        if(!u.isAuthenticated()){
+        if (!u.isAuthenticated()) {
             errors = new ArrayList<>();
             errors.add("Login fallito");
             request.setAttribute("errors", errors);
             String next = this.getNext(request);
-            if(!next.equals("/")) request.setAttribute("next", "?next="+this.getNext(request));
+            if (!next.equals("/")) request.setAttribute("next", "?next=" + this.getNext(request));
 
             RequestDispatcher rd = request.getRequestDispatcher("templates/login.jsp");
 

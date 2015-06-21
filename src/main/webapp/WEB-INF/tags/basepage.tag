@@ -1,5 +1,4 @@
 <%@tag description="Overall Page template" pageEncoding="UTF-8" %>
-<%@tag import="it.unitn.progweb.model.User" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@attribute name="extrahead" fragment="true" %>
 
@@ -27,7 +26,7 @@
 
 <body>
 <!-- header -->
-<%@ include file="/templates/fragments/navbar.jsp"%>
+<%@ include file="/templates/fragments/navbar.jsp" %>
 
 <div class="container" id="body">
     <!-- body -->
@@ -36,7 +35,7 @@
 </div>
 
 <!-- footer -->
-<%@ include file="/templates/fragments/footer.html"%>
+<%@ include file="/templates/fragments/footer.html" %>
 
 </body>
 

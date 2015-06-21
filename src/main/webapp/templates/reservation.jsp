@@ -11,15 +11,14 @@
             var max_row = 0;
 
             var a = [
-            <c:forEach items="${seats}" var="seat">
-                { seatid:${seat.id}, row:${seat.row},column:${seat.column},status:${seat.status}},
-            </c:forEach>
-                ];
+                <c:forEach items="${seats}" var="seat">
+                {seatid:${seat.id}, row:${seat.row}, column:${seat.column}, status:${seat.status}},
+                </c:forEach>
+            ];
 
-            for(var i=0;i< a.length;i++)
-            {
-                if(a[i].column>max_col) max_col = a[i].column;
-                if(a[i].row>max_row) max_row = a[i].row;
+            for (var i = 0; i < a.length; i++) {
+                if (a[i].column > max_col) max_col = a[i].column;
+                if (a[i].row > max_row) max_row = a[i].row;
             }
 
             $(document).ready(function () {
@@ -27,10 +26,10 @@
                     var pid = "p" + pad(a[i].row, 2) + pad(a[i].column, 2);
                     var pclass = (a[i].status == 1) ? "available" : (a[i].status == 0) ? "disabled" : "unavailable";
                     pclass += " cell";
-                    $('#board').append('<div data-seatid="'+a[i].seatid+'" id="' + pid + '"class="' + pclass + '" onclick="process(\'' + pid + '\');"></div>');
+                    $('#board').append('<div data-seatid="' + a[i].seatid + '" id="' + pid + '"class="' + pclass + '" onclick="process(\'' + pid + '\');"></div>');
                 }
 
-                $('head').append('<style>#theatre-screen{width:'+29 * max_col + 'px;margin-bottom: 25px;border:2px dotted slategray;text-align:center;}' +
+                $('head').append('<style>#theatre-screen{width:' + 29 * max_col + 'px;margin-bottom: 25px;border:2px dotted slategray;text-align:center;}' +
                         '.board{width:' + 29 * max_col + 'px;height:' + 32 * max_row + 'px;display:inline-block;margin:auto;}</style>');
             });
 
@@ -48,7 +47,7 @@
 
                     var did = pid.substr(1, 4);
                     var value;
-                    $('#done').append('<div id="d' + did + '" data-seatid="'+$('#'+pid).data('seatid')+'" data-cat="' + $('#category_selector').val() + '">Fila ' +
+                    $('#done').append('<div id="d' + did + '" data-seatid="' + $('#' + pid).data('seatid') + '" data-cat="' + $('#category_selector').val() + '">Fila ' +
                             pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text() + ' <span onclick ="deleteReservation(\'' + did + '\');" style="cursor:pointer;"' +
                             ' class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>');
                 }
@@ -76,25 +75,30 @@
                     val["seat_id"] = parseInt($('#' + this.id).data('seatid'));
                     val["price_id"] = parseInt($('#' + this.id).data('cat'));
                     res.push(val);
-                    });
+                });
                 jsonString = JSON.stringify(res);
                 $.ajax({
                     type: "POST",
                     data: jsonString,
                     dataType: 'json',
                     contentType: 'application/json',
-                    success: function(data)
-                    {
-                        if(data.success == true){
-                        //document.location.href = '/';
+                    success: function (data) {
+                        if (data.success == true) {
+                            //document.location.href = '/';
+                            $('#dimmer').hide();
+                            $('#waiting').hide();
+                            $('#dimmer').show();
+                            $('#confirmation').show();
+                        }
+                        else
+                            alert(data.message);
+                    },
+                    error: function () {
                         $('#dimmer').hide();
                         $('#waiting').hide();
                         $('#dimmer').show();
-                        $('#confirmation').show();
-                        }
-                        else
-                        alert(data.message);
-                    }
+                        $('#errorres').show();
+                    },
                 });
             }
         </script>
@@ -105,7 +109,7 @@
                 border-radius: 3px;
                 height: 25px;
                 width: 25px;
-                margin:2px;
+                margin: 2px;
                 padding-bottom: 25px;
                 border: 1px dashed slategray;
                 border-sizing: border-box;
@@ -118,7 +122,7 @@
 
             .disabled {
                 background-color: white;
-                border:none;
+                border: none;
                 cursor: auto;
             }
 
@@ -131,11 +135,10 @@
                 background-color: lightslategray;
             }
 
-            .checked
-            {
+            .checked {
                 background-color: crimson;
-                border:1px solid transparent;
-                cursor:auto;
+                border: 1px solid transparent;
+                cursor: auto;
             }
 
             #dimmer {
@@ -171,6 +174,17 @@
                 z-index: 1501;
             }
 
+            #errorres {
+                position: fixed;
+                display: none;
+                top: 35%;
+                left: 35%;
+                width: 300px;
+                height: 200px;
+                background-color: white;
+                z-index: 1501;
+            }
+
             #waiting {
                 position: fixed;
                 display: none;
@@ -187,7 +201,6 @@
     <jsp:body>
 
 
-
         <div id="dimmer"></div>
 
         <div id="pay" class="panel panel-default">
@@ -198,6 +211,7 @@
                 <form>
                     <div class="form-group">
                         <label>Inserisci il numero della carta di credito:</label>
+
                         <div>
                             <input type="text">
                         </div>
@@ -230,6 +244,17 @@
         </div>
 
 
+        <div id="errorres" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="color: #a40600;">Errore!</h3>
+            </div>
+            <div class="panel-body">
+                <p>Errore durante la fase di acquisto, nessun importo le è stato addebitato. Si prega di ripetere la
+                    procedura.</p>
+                <button class="btn btn-default" type="submit" onclick="document.location.href='/';">Chiudi</button>
+
+            </div>
+        </div>
 
 
         <h1>Seleziona il posto</h1>
