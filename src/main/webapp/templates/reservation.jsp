@@ -94,7 +94,13 @@
                         }
                         else
                         alert(data.message);
-                    }
+                    },
+                    error: function () {
+                        $('#dimmer').hide();
+                        $('#waiting').hide();
+                        $('#dimmer').show();
+                        $('#errorres').show();
+                    },
                 });
             }
         </script>
@@ -171,6 +177,17 @@
                 z-index: 1501;
             }
 
+            #errorres {
+                position: fixed;
+                display: none;
+                top: 35%;
+                left: 35%;
+                width: 300px;
+                height: 200px;
+                background-color: white;
+                z-index: 1501;
+            }
+
             #waiting {
                 position: fixed;
                 display: none;
@@ -224,6 +241,18 @@
             </div>
             <div class="panel-body">
                 <p>Grazie Per l'acquisto, a breve riceverà una email di conferma dell'ordine</p>
+                <button class="btn btn-default" type="submit" onclick="document.location.href='/';">Chiudi</button>
+
+            </div>
+        </div>
+
+
+        <div id="errorres" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="color: #a40600;">Errore!</h3>
+            </div>
+            <div class="panel-body">
+                <p>Errore durante la fase di acquisto, nessun importo le è stato addebitato. Si prega di ripetere la procedura.</p>
                 <button class="btn btn-default" type="submit" onclick="document.location.href='/';">Chiudi</button>
 
             </div>

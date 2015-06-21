@@ -37,8 +37,11 @@ public class DeleteReservationServlet extends HttpServlet {
                         .addParameter("id", userId)
                         .executeScalar(Float.class);
 
-                String sqldelete = "UPDATE \"user\" SET credit = :price WHERE uid=:id;";
-                conn.createQuery(sqldelete).addParameter("id", userId).addParameter("price", price+credit).executeUpdate();
+                String sqlaccredita = "UPDATE \"user\" SET credit = :price WHERE uid=:id;";
+                conn.createQuery(sqlaccredita).addParameter("id", userId).addParameter("price", price+credit).executeUpdate();
+
+                String sqldelete = "delete from reservation where id=:id";
+                conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();
 
                 conn.commit();
 
@@ -48,16 +51,7 @@ public class DeleteReservationServlet extends HttpServlet {
                 return;
             }
 
-            String sqldelete = "delete from reservation where id=:id";
-            try (Connection conn = database.open()) {
-                conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();
-            } catch (Sql2oException exc) {
-
-                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-                return;
-            }
             response.setStatus(200);
-
             return;
 
         }
