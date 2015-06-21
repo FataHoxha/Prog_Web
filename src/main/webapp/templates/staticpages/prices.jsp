@@ -1,12 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
+<%-- visualizza tabella dei prezzi in modo statico --%>
 <t:basepage>
     <jsp:attribute name="extrahead">
         <title>Prezzi</title>
     </jsp:attribute>
 
-    <!-- visualizza tabella dei prezzi in modo statico-->
     <jsp:body>
         <div class="page-header">
             <h1 class="center">Listino Prezzi</h1>

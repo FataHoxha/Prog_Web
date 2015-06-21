@@ -11,10 +11,10 @@
         <div class="row">
 
             <c:choose>
-                <!--variable used only for testing with TestServlet-->
-                <!--@elvariable id="stage" type=""-->
+                <%-- variable used only for testing with TestServlet --%>
+                <%-- @elvariable id="stage" type="" --%>
                 <c:when test="${stage==0}">
-                    <!-- show 'insert email' form -->
+                    <%-- show 'insert email' form --%>
 
                     <div class="col-md-6">
                         <div class="page-header">
@@ -34,9 +34,9 @@
                 </c:when>
 
                 <c:when test="${stage==1}">
-                    <!-- confirm that mail has been sent -->
-                    <!-- note that we should ALWAYS confirm that a mail has been sent,
-                         even if the user does not exist, for security reasons. -->
+                    <%-- confirm that mail has been sent --%>
+                    <%-- note that we should ALWAYS confirm that a mail has been sent,
+                         even if the user does not exist, for security reasons. --%>
                     <div class="alert alert-success" role="alert">
                         <strong>Fatto!</strong>
                         Se la mail inserita è corretta, riceverai una mail con le istruzioni per reimpostare la tua
@@ -47,7 +47,7 @@
                 </c:when>
 
                 <c:when test="${stage==2}">
-                    <!-- show reset password form -->
+                    <%-- show reset password form --%>
                     <form action="/resetpassword" method="post">
                         <div class="form-group">
                             <label for="password">New password</label>
