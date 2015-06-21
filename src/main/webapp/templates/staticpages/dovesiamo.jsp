@@ -38,17 +38,14 @@
 
     <jsp:body>
         <div class="row">
-
-            <div class="page-header">
-                <h1>Dove puoi trovarci</h1>
-            </div>
-
-            <div class="jumbotron" id="map">
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-md-12">
+
+                <div class="page-header">
+                    <h1>Dove puoi trovarci</h1>
+                </div>
+
+                <div class="jumbotron" id="map">
+                </div>
                 <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Inidirizzo</h2><br>
