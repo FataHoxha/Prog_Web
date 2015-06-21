@@ -86,8 +86,13 @@ while(1):
 		idposto = idposto + 106
 	if(sala == 4):
 		idposto = idposto + 159
-	strtmp = "insert into \"reservation\" (user_id, show_id, price_id, seat_id) VALUES ('"+str(user)+"','"+str(show)+"','"+str(price)+"','"+str(idposto)+"');\n"
+	strtmp = "select exist from seat where id = "+str(idposto)
 	cur.execute(strtmp)
+	x = cur.fetchone()
+	
+	if(x[0] == True):
+		strtmp = "insert into \"reservation\" (user_id, show_id, price_id, seat_id) VALUES ('"+str(user)+"','"+str(show)+"','"+str(price)+"','"+str(idposto)+"');\n"
+		cur.execute(strtmp)
 	user = randint(1,15)
 	giro+=1
 	#10 reservations? -> reset
