@@ -89,7 +89,6 @@ public class RegistrationServlet extends HttpServlet {
         session.setAttribute("user", u);
 
         response.sendRedirect("/");
-        return;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
