@@ -13,6 +13,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ * Servlet che serve la homepage del sito
+ */
+
 @WebServlet(name = "HomeServlet", urlPatterns = {"/"})
 public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
