@@ -4,6 +4,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Logger;
 
+/**
+ * classe per fare l'hash di una password
+ */
 public class Utils {
     final private static Logger logger = Logger.getLogger(Utils.class.getName());
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();

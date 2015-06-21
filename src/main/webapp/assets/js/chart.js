@@ -7,6 +7,11 @@
  * Released under the MIT license
  * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
  */
+
+/*
+* JS per la gestione dei grafici e statistiche utili nell'area dell'amministratore.
+* */
+
 (function () {
     "use strict";
     var t = this, i = t.Chart, e = function (t) {

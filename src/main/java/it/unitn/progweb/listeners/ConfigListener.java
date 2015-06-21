@@ -16,7 +16,10 @@ public class ConfigListener implements ServletContextListener {
     private Logger logger = Logger.getLogger(getClass().getName());
     private Sql2o database;
 
-
+/**
+ * requisiti che devono essere eseguiti prima che l'applicazione venga avviata
+ *
+ */
     public void contextInitialized(ServletContextEvent sce) {
         try {
             Class.forName("org.postgresql.Driver");

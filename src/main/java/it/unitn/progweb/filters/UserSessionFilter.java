@@ -9,8 +9,13 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * Filtro per gestire le sessioni dell'utente
+ */
+
 @WebFilter(filterName = "Filter", urlPatterns = {"/*"})
 public class UserSessionFilter implements Filter {
+
     public void destroy() {
     }
 

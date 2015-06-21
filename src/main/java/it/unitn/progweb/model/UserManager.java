@@ -21,6 +21,7 @@ public class UserManager {
         this.database = database;
     }
 
+//autenticazione dell'utente
     public
     @NotNull
     User authenticateUser(final @NotNull String email, final @NotNull String password) {
@@ -44,6 +45,7 @@ public class UserManager {
         return anonymousUser;
     }
 
+    //controllo che la password sia valida
     public
     @NotNull
     Boolean isValidResetPasswordToken(final @NotNull String token) {
@@ -58,6 +60,8 @@ public class UserManager {
         return Boolean.FALSE;
     }
 
+
+    //recupero della password via mail
     public
     @NotNull
     String generateResetPasswordToken(final @NotNull String email) {
@@ -72,6 +76,7 @@ public class UserManager {
         return token;
     }
 
+    //reset della password tramite link
     public void resetPassword(String token, String password) {
         User u;
         try (Connection conn = database.open()) {
@@ -84,6 +89,7 @@ public class UserManager {
             u.setAndHashPassword(password);
             String hashed_password = u.getPassword();
 
+//aggiorna la nuova password inserita dall'utente
             try (Connection conn = database.open()) {
                 conn.createQuery(updatePassword)
                         .addParameter("id", u.getId())

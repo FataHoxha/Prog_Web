@@ -26,7 +26,7 @@ public class MovieManager {
         }
         return result;
     }
-
+//seleziono spettacoli disponibili
     public void setShows(Movie movie) throws Sql2oException {
         String showsForMovie = "select * from \"show_theater\" where movie_id=:id and date_time > current_timestamp order by date_time";
         List<Show> shows;
@@ -50,6 +50,8 @@ public class MovieManager {
             return null;
         }
         if (id != null) {
+
+            //query per ottenere gli show validi(-> prenotabili prima dell'inizio dello show)
             String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp";
             Integer result;
             try (Connection conn = database.open()) {

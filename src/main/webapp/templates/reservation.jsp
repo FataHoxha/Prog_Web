@@ -6,6 +6,7 @@
     <jsp:attribute name="extrahead">
         <title>Seleziona posto</title>
 
+        <!-- Javascript per creare la griglia di posti a sedere, in modo dinamico-->
         <script text="javascript">
             var max_col = 0;
             var max_row = 0;
@@ -51,7 +52,7 @@
                             pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text() + ' <span onclick ="deleteReservation(\'' + did + '\');" style="cursor:pointer;"' +
                             ' class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>');
                 }
-            }
+            }c
 
             function pad(num, size) {
                 var s = "000000000" + num;
@@ -102,6 +103,8 @@
                 });
             }
         </script>
+
+        <!-- parte si style che deve ASSOLUTAMENTE SPARIRE DA QUI-->
         <style>
 
             .cell {
@@ -201,6 +204,7 @@
     <jsp:body>
 
 
+<!--popup per procedere con il pagamento e inserire numero carta di credito -->
         <div id="dimmer"></div>
 
         <div id="pay" class="panel panel-default">

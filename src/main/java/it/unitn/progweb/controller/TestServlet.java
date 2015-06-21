@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Servlet utilizzata per il testing
+ */
 
 @WebServlet(name = "TestServlet", urlPatterns = {"/test"})
 public class TestServlet extends HttpServlet {
