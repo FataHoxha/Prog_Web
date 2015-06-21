@@ -135,7 +135,7 @@ public class AdminAreaServlet extends HttpServlet {
             userreservation.put(temp.get("username").toString(), new ArrayList<Map>());
         }
 
-        String sqlUserReservation = "SELECT DISTINCT u.uid, u.username, m.title, r.id AS reservation, s.date_time AS data, st.column, st.row  FROM (((reservation r join \"user\" u ON r.user_id=u.uid) JOIN show s ON s.id=r.show_id) JOIN seat st ON st.id = r.seat_id) JOIN movie m ON s.movie_id=m.id ORDER BY u.uid;";
+        String sqlUserReservation = "SELECT DISTINCT u.uid, u.username, m.title, r.id AS reservation, s.date_time AS data, st.column, st.row  FROM (((reservation r join \"user\" u ON r.user_id=u.uid) JOIN show s ON s.id=r.show_id) JOIN seat st ON st.id = r.seat_id) JOIN movie m ON s.movie_id=m.id WHERE s.date_time > current_timestamp ORDER BY u.uid;";
         List<Map<String, Object>> reportUserReservation;
         try (Connection con = database.open()) {
             reportUserReservation = con.createQuery(sqlUserReservation).executeAndFetchTable().asList();
