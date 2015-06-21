@@ -13,7 +13,7 @@
             <div class="page-header">
                 <h1>I film di oggi</h1>
             </div>
-
+<!--  -->
             <c:forEach items="${movieShow}" var="movie">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
