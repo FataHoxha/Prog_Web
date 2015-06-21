@@ -5,106 +5,22 @@
 <t:basepage>
     <jsp:attribute name="extrahead">
         <title>Seleziona posto</title>
-
         <link rel="stylesheet" href="../assets/css/reservation.css">
 
-        <!-- Javascript per creare la griglia di posti a sedere, in modo dinamico-->
+        <!-- Javascript creato dalla pagina JSP che crea un array contenente tutti i posti e il loro status -->
         <script text="javascript">
-            var max_col = 0;
-            var max_row = 0;
-
             var a = [
                 <c:forEach items="${seats}" var="seat">
                 {seatid:${seat.id}, row:${seat.row}, column:${seat.column}, status:${seat.status}},
                 </c:forEach>
             ];
-
-            for (var i = 0; i < a.length; i++) {
-                if (a[i].column > max_col) max_col = a[i].column;
-                if (a[i].row > max_row) max_row = a[i].row;
-            }
-
-            $(document).ready(function () {
-                for (var i = 0; i < a.length; i++) {
-                    var pid = "p" + pad(a[i].row, 2) + pad(a[i].column, 2);
-                    var pclass = (a[i].status == 1) ? "available" : (a[i].status == 0) ? "disabled" : "unavailable";
-                    pclass += " cell";
-                    $('#board').append('<div data-seatid="' + a[i].seatid + '" id="' + pid + '"class="' + pclass + '" onclick="process(\'' + pid + '\');"></div>');
-                }
-
-                $('head').append('<style>#theatre-screen{width:' + 29 * max_col + 'px;margin-bottom: 25px;border:2px dotted slategray;text-align:center;}' +
-                        '.board{width:' + 29 * max_col + 'px;height:' + 32 * max_row + 'px;display:inline-block;margin:auto;}</style>');
-            });
-
-            function deleteReservation(id) {
-                $('#d' + id).remove();
-                $('#p' + id).removeClass('checked');
-                $('#p' + id).addClass('available');
-            }
-
-            function process(pid) {
-
-                if ($('#' + pid).hasClass('available')) {
-                    $('#' + pid).removeClass('available');
-                    $('#' + pid).addClass('checked');
-
-                    var did = pid.substr(1, 4);
-                    var value;
-                    $('#done').append('<div id="d' + did + '" data-seatid="' + $('#' + pid).data('seatid') + '" data-cat="' + $('#category_selector').val() + '">Fila ' +
-                            pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text() + ' <span onclick ="deleteReservation(\'' + did + '\');" style="cursor:pointer;"' +
-                            ' class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>');
-                }
-            }c
-
-            function pad(num, size) {
-                var s = "000000000" + num;
-                return s.substr(s.length - size);
-            }
-
-            function submit() {
-                $('#dimmer').show();
-                $('#pay').show();
-            }
-
-            function sendJson() {
-                $('#dimmer').hide();
-                $('#pay').hide();
-                $('#dimmer').show();
-                $('#waiting').show();
-
-                var res = [];
-                $('#done > div').each(function () {
-                    var val = {};
-                    val["seat_id"] = parseInt($('#' + this.id).data('seatid'));
-                    val["price_id"] = parseInt($('#' + this.id).data('cat'));
-                    res.push(val);
-                });
-                jsonString = JSON.stringify(res);
-                $.ajax({
-                    type: "POST",
-                    data: jsonString,
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    success: function (data) {
-                        if (data.success == true) {
-                            //document.location.href = '/';
-                            $('#dimmer').hide();
-                            $('#waiting').hide();
-                            $('#dimmer').show();
-                            $('#confirmation').show();
-                        }
-                        else
-                            alert(data.message);
-                    },
-                    error: function () {
-                        $('#dimmer').hide();
-                        $('#waiting').hide();
-                        $('#dimmer').show();
-                        $('#errorres').show();
-                    },
-                });
-            }
         </script>
+
+        <!-- Javascript contentente tutta la logica per far funzionare la pagina come single page application.
+            Si occupa di stampare i posti contenuti nel precedente array del colore giusto e nella griglia giusta,
+            cambia il colore dei suddetti posti una volta cliccato, fa richieste asincrone quando si sceglie di pagare
+            e in caso il pagamento sia andato a buon fine redirecta alla homepage -->
+        <script src="../assets/js/reservation.js"></script>
 
     </jsp:attribute>
     <jsp:body>
@@ -171,6 +87,8 @@
 
         <div class="">
             <div class="row">
+
+                <!-- form in cui si seleziona il tipo di biglietto desiderato -->
                 <div class="well">
                     <form>
                         <label>Seleziona la tua categoria:</label>
@@ -184,11 +102,18 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-sm-8">
                     <div id="theatre-screen">Schermo</div>
+
+                    <!-- div in cui il javascript stampera' la rappresentazione grafica del teatro -->
                     <div id="board" class="board">
                     </div>
+
                 </div>
+
+                <!-- div in cui apparira' una lista riassuntiva dei posti selezionati, con annesso bottone "Paga" per
+                    effettuare l'acquisto -->
                 <div id="done" class="col-sm-4">
                     <br>
                     <button class="btn btn-default" type="submit" onclick="submit();">Paga</button>

@@ -5,7 +5,12 @@
 <t:basepage>
     <jsp:attribute name="extrahead">
         <link rel="stylesheet" href="../assets/css/admin.css">
+
+        <!-- libreria per gestire i grafici -->
         <script src="../assets/js/chart.js"></script>
+
+        <!-- javascript che si occupa di gestire la logica della pagina -->
+        <script src="../assets/js/admin.js"></script>
         <title>Amministrazione</title>
     </jsp:attribute>
 
@@ -47,6 +52,7 @@
 
                     <p>e cancellare le prenotazioni degli utenti</p>
                 </div>
+
                 <div id="page1">
                     <h1>Riepilogo</h1>
 
@@ -143,10 +149,13 @@
                 </div>
                 <div id="page5">
                     <h1> Posti piu' popolari </h1>
+
                     <p>Seleziona una sala per vedere l'elenco di posti piu' popolari per ogni sala</p>
+
                     <div id="page5inside">
                         <ul id="select_theatre" class="list-group"><c:forEach items="${theater}" var="theater">
-                            <button type="button" class="list-group-item" onclick="showTheatre(${theater.id});">${theater.description} </button>
+                            <button type="button" class="list-group-item"
+                                    onclick="showTheatre(${theater.id});">${theater.description} </button>
                         </c:forEach>
                         </ul>
                     </div>
@@ -155,7 +164,9 @@
 
         </div>
         <script>
-            var current_page = 0;
+            //stampo i dataset per i vari grafici
+
+            //dataset per il grafico dei migliori utenti
             var datac = {
                 labels: [
 
@@ -182,6 +193,7 @@
                 ]
             };
 
+            //dataset per il grafico a barre dei migliori film
             var datai = {
                 labels: [
                     <c:forEach items="${topmovie}" var="movie">
@@ -205,9 +217,8 @@
                 ]
             };
 
-            var html_code_select_theatre = $('#page5inside').html();
-
-
+            //dataset per il grafico a torta dei migliori film. Non era necessario lasciarlo in questa pagina, visto che
+            //che e' javascript puro, ma e' rimasto qui per non avere i dataset sparsi a caso in giro
             var datap = [];
             for (var i = 0; i < datai.labels.length; i++) {
                 var obj = {};
@@ -216,56 +227,6 @@
                 obj.highlight = obj.color;
                 obj.label = datai.labels[i];
                 datap.push(obj);
-            }
-
-            function show(id) {
-                $('#page' + current_page).hide();
-                current_page = id;
-                $('#page' + current_page).fadeIn();
-                switch (id) {
-                    case(2):
-                        var ctx = $("#clientiChart").get(0).getContext("2d");
-                        var myNewChart = new Chart(ctx).Bar(datac);
-                        break;
-                    case(3):
-                        var ctx = $("#incassiChart").get(0).getContext("2d");
-                        var myNewChart = new Chart(ctx).Bar(datai);
-                        ctx = $("#incassiChart2").get(0).getContext("2d");
-                        myNewChart = new Chart(ctx).Doughnut(datap);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            function showTheatre(id)
-            {
-                $('#select_theatre').remove();
-                $.ajax({
-                            type: "POST",
-                            url: '',
-                            data: {"id":id.toString()},
-                            contentType: "text/html",
-                            success: function(data){
-                                var to_append = '<div id="select_theatre"><div id="row"><table class="table table-hover center-block"><thead><tr><th>Fila</th><th>Posto</th><th>Numero prenotazioni</th></tr></thead><tbody>';
-                                for(var i=0;i<data.length;i++)
-                                {
-                                    to_append += '<tr><td>'+data[i].row+'</td><td>'+data[i].column+'</td><td>'+data[i].count+'</td></tr>';
-                                }
-                                to_append += '</tbody></table><button type="button" class="list-group-item" onclick="selectTheatre();">Torna indietro</button></div></div>';
-                                $('#page5inside').html(to_append);
-                            }
-                });
-            }
-
-            function requestDelete(id) {
-                $('#resid' + id).remove();
-                $.post("/deletereservation", {delete: id});
-            }
-
-            function selectTheatre()
-            {
-                $('#page5inside').html(html_code_select_theatre);
             }
         </script>
     </jsp:body>
