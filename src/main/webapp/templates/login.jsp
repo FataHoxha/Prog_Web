@@ -9,7 +9,7 @@
     </jsp:attribute>
     <jsp:body>
         <div class="col-md-6">
-
+<!-- visualizza gli errori che si possono verificare nel login, segnalati dalla LoginServlet -->
             <c:forEach items="${errors}" var="error">
                 <div class="alert alert-danger">${error}</div>
             </c:forEach>
@@ -17,7 +17,7 @@
             <div class="page-header">
                 <h1>Accedi</h1>
             </div>
-
+            <!-- parametri di login passati tramite metodo post -->
             <form action="/login${next}" method="post">
 
                 <div class="form-group">

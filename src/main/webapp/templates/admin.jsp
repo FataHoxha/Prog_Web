@@ -116,8 +116,7 @@
 
                     iv>
 
-                                                <c nvas id="in assiChart2"  idth="300" height="300" class=
-                    as>
+                                                <c nvas id="in assiChart2"  idth="300" height="300" class=as>
 
                  </div
                  </d v>
