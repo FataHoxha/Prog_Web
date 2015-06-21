@@ -13,12 +13,20 @@ import java.io.IOException;
 
 /**
  * Servlet che permette all'amministratore di cancellare le prenotazioni
- * e accreditare l'80% sul credito dell'utente
+ * e accreditare l'80% del prezzo pagato sul credito dell'utente
  *
  */
 
 @WebServlet(name = "DeleteReservationServlet", urlPatterns = {"/deletereservation"})
 public class DeleteReservationServlet extends HttpServlet {
+
+    /**
+     * Questa dopost raccoglie le richieste dell'amministratore di eliminare una prenotazione
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Integer reservation = this.validateReservation(request.getParameter("delete"));
@@ -75,6 +83,13 @@ public class DeleteReservationServlet extends HttpServlet {
 
     }
 
+
+    /**
+     * verifica se il parametro passato è uno show valido e cancellabile dall'amministratore ovvero se non
+     * è ancora andato in proiezione.
+     * @param idString stringa contenente l'id dello show
+     * @return intero contenente l'id dello show se lo show è valido, null altrimenti
+     */
     public Integer validateReservation(String idString) {
 
         Integer id = null;

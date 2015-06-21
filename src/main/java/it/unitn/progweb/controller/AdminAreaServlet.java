@@ -80,7 +80,7 @@ public class AdminAreaServlet extends HttpServlet {
 
 
         // statistiche posti venduti
-        String sqlshow = "WITH showprice AS (SELECT s.id, COUNT(r.id) AS postivenduti, SUM(p.amount) AS amount FROM ((reservation r JOIN show s on s.id = r.show_id) JOIN price p ON r.price_id=p.id) GROUP BY s.id) SELECT sp.postivenduti AS postivenduti, sp.amount, m.title, s.date_time AS data FROM ((showprice sp JOIN show s ON sp.id= s.id) JOIN movie m ON m.id=s.movie_id);";
+        String sqlshow = "WITH showprice AS (SELECT s.id, COUNT(r.id) AS postivenduti, SUM(p.amount) AS amount FROM ((reservation r JOIN show s on s.id = r.show_id) JOIN price p ON r.price_id=p.id) GROUP BY s.id) SELECT sp.postivenduti AS postivenduti, sp.amount, m.title, s.date_time AS data FROM ((showprice sp JOIN show s ON sp.id= s.id) JOIN movie m ON m.id=s.movie_id) ORDER BY sp.postivenduti DESC;";
 
         List<Map<String, Object>> reportsShowStats;
         try (Connection con = database.open()) {

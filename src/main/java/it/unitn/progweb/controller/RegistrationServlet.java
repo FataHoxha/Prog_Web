@@ -23,6 +23,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Servlet per la registrazione dell'utente
+ *
+ */
 @WebServlet(name = "RegistrationServlet", urlPatterns = {"/registration"})
 public class RegistrationServlet extends HttpServlet {
     private static final String newUserQuery =
