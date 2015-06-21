@@ -67,6 +67,9 @@
             function sendJson() {
                 $('#dimmer').hide();
                 $('#pay').hide();
+                $('#dimmer').show();
+                $('#waiting').show();
+
                 var res = [];
                 $('#done > div').each(function () {
                     var val = {};
@@ -82,8 +85,13 @@
                     contentType: 'application/json',
                     success: function(data)
                     {
-                        if(data.success == true)
-                        document.location.href = '/';
+                        if(data.success == true){
+                        //document.location.href = '/';
+                        $('#dimmer').hide();
+                        $('#waiting').hide();
+                        $('#dimmer').show();
+                        $('#confirmation').show();
+                        }
                         else
                         alert(data.message);
                     }
@@ -151,25 +159,78 @@
                 background-color: white;
                 z-index: 1501;
             }
+
+            #confirmation {
+                position: fixed;
+                display: none;
+                top: 35%;
+                left: 35%;
+                width: 300px;
+                height: 200px;
+                background-color: white;
+                z-index: 1501;
+            }
+
+            #waiting {
+                position: fixed;
+                display: none;
+                top: 35%;
+                left: 35%;
+                width: 300px;
+                height: 200px;
+                background-color: white;
+                z-index: 1501;
+            }
         </style>
 
     </jsp:attribute>
     <jsp:body>
 
+
+
         <div id="dimmer"></div>
-        <div id="pay">
-            <div class="container">
+
+        <div id="pay" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Informazioni di Pagamento</h3>
+            </div>
+            <div class="panel-body">
                 <form>
                     <div class="form-group">
                         <label>Inserisci il numero della carta di credito:</label>
                         <div>
-                        <input type="text">
+                            <input type="text">
                         </div>
                     </div>
-                    </form>
-                    <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
+                </form>
+                <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
             </div>
         </div>
+
+
+        <div id="waiting" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Attendere...</h3>
+            </div>
+            <div class="panel-body">
+                <p>Attendere il completamento dell'ordine...</p>
+            </div>
+        </div>
+
+
+        <div id="confirmation" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Ordine completato</h3>
+            </div>
+            <div class="panel-body">
+                <p>Grazie Per l'acquisto, a breve riceverà una email di conferma dell'ordine</p>
+                <button class="btn btn-default" type="submit" onclick="document.location.href='/';">Chiudi</button>
+
+            </div>
+        </div>
+
+
+
 
         <h1>Seleziona il posto</h1>
 

@@ -22,6 +22,7 @@ public class LoggedInFilter implements Filter {
         User u = (User) request.getSession().getAttribute("user");
         if(u.isAuthenticated()){
             chain.doFilter(req, resp);
+            return;
         }
         String url = request.getServletPath() + "?" + request.getQueryString();
         response.sendRedirect("/login?next=" + URLEncoder.encode(url, "UTF-8"));

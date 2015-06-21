@@ -1,6 +1,7 @@
 package it.unitn.progweb.controller;
 
 import it.unitn.progweb.model.User;
+import it.unitn.progweb.model.UserManager;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -35,6 +37,15 @@ public class RegistrationServlet extends HttpServlet {
         if(!password.equals(passwordcheck)) {
             errors = new ArrayList<>();
             errors.add("Le password non corrispondono");
+            request.setAttribute("errors", errors);
+            RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
+            rd.forward(request, response);
+            return;
+        }
+
+        if(password.length()<3){
+            errors = new ArrayList<>();
+            errors.add("La password deve essere almeno di 4 caratteri");
             request.setAttribute("errors", errors);
             RequestDispatcher rd = request.getRequestDispatcher("templates/registration.jsp");
             rd.forward(request, response);
@@ -71,8 +82,13 @@ public class RegistrationServlet extends HttpServlet {
             return;
         }
 
+        UserManager manager = (UserManager) request.getServletContext().getAttribute("user_manager");
+        u = manager.authenticateUser(email, password);
+
+        HttpSession session = request.getSession(true);
+        session.setAttribute("user", u);
+
         response.sendRedirect("/");
-        return;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

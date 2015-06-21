@@ -26,7 +26,7 @@ public class MovieManager {
     }
 
     public void setShows(Movie movie) throws Sql2oException {
-        String showsForMovie = "select * from \"show_theater\" where movie_id=:id and date_time > current_timestamp";
+        String showsForMovie = "select * from \"show_theater\" where movie_id=:id and date_time > current_timestamp order by date_time";
         List<Show> shows;
         try(Connection conn = database.open()){
             shows = conn
