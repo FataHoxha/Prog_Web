@@ -4,6 +4,7 @@ import it.unitn.progweb.lib.Mailer;
 import it.unitn.progweb.model.MovieManager;
 import it.unitn.progweb.model.UserManager;
 import org.sql2o.Sql2o;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -17,7 +18,7 @@ public class ConfigListener implements ServletContextListener {
 
 
     public void contextInitialized(ServletContextEvent sce) {
-        try{
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException exc) {
             logger.severe(exc.getMessage());

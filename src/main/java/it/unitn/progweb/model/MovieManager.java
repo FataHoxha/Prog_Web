@@ -14,10 +14,12 @@ public class MovieManager {
         this.database = database;
     }
 
-    public @NotNull List<Movie> currentMovies() throws Sql2oException {
+    public
+    @NotNull
+    List<Movie> currentMovies() throws Sql2oException {
         String currentMovies = "select * from \"current_movies\"";
         List<Movie> result;
-        try(Connection conn = database.open()){
+        try (Connection conn = database.open()) {
             result = conn.createQuery(currentMovies).executeAndFetch(Movie.class);
         } catch (Sql2oException exc) {
             throw exc;
@@ -28,7 +30,7 @@ public class MovieManager {
     public void setShows(Movie movie) throws Sql2oException {
         String showsForMovie = "select * from \"show_theater\" where movie_id=:id and date_time > current_timestamp order by date_time";
         List<Show> shows;
-        try(Connection conn = database.open()){
+        try (Connection conn = database.open()) {
             shows = conn
                     .createQuery(showsForMovie)
                     .bind(movie)
@@ -39,14 +41,15 @@ public class MovieManager {
         movie.setShows(shows);
     }
 
-    public Integer validateShow(String idString){
+    public Integer validateShow(String idString) {
         Integer id = null;
 
-        try{ id = Integer.parseInt(idString);}
-        catch (NumberFormatException exc){
+        try {
+            id = Integer.parseInt(idString);
+        } catch (NumberFormatException exc) {
             return null;
         }
-        if(id!=null) {
+        if (id != null) {
             String sqlShow = "select count(*) from \"show\" where id=:id and date_time > current_timestamp";
             Integer result;
             try (Connection conn = database.open()) {
@@ -55,7 +58,7 @@ public class MovieManager {
                 throw exc;
             }
 
-            if(result>0) return id;
+            if (result > 0) return id;
         }
 
         return null;

@@ -13,17 +13,9 @@ import java.util.Map;
 
 public class Reservation {
 
-    private Integer id;
-    private Integer user_id;
-    private Integer show_id;
-    private Integer price_id;
-    private Integer seat_id;
-    private Date created; // TIMESTAMP
-
     private static final List<String> order = ImmutableList.of(
             "username", "email", "title", "date_time", "kind", "amount", "description", "row", "column"
     );
-
     private static final Map<String, String> mapping = new ImmutableMap.Builder<String, String>()
             .put("username", "Nome utente")
             .put("email", "Email")
@@ -35,21 +27,27 @@ public class Reservation {
             .put("row", "Fila")
             .put("column", "Posto")
             .build();
+    private Integer id;
+    private Integer user_id;
+    private Integer show_id;
+    private Integer price_id;
+    private Integer seat_id;
+    private Date created; // TIMESTAMP
 
-    public String details(Sql2o database){
+    public String details(Sql2o database) {
         ArrayList<String> frags = new ArrayList<>();
-        List<Map<String,Object>> reports;
+        List<Map<String, Object>> reports;
         String sql = "select * from reservation_complete where id=:id";
 
         try (Connection con = database.open()) {
             reports = con.createQuery(sql).addParameter("id", id).executeAndFetchTable().asList();
         }
-        for(Map<String, Object> report: reports) {
-            for(String field: order) {
+        for (Map<String, Object> report : reports) {
+            for (String field : order) {
                 String readable = mapping.get(field);
-                assert report.containsKey(field): "the row from database should contain " + field + " but it doesnt";
+                assert report.containsKey(field) : "the row from database should contain " + field + " but it doesnt";
                 Object value = report.get(field);
-                frags.add(readable + ": " + (value == null? "": value.toString()));
+                frags.add(readable + ": " + (value == null ? "" : value.toString()));
             }
         }
 

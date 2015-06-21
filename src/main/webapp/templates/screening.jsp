@@ -24,6 +24,7 @@
                             <div class="col-sm-3 col-md-4">
                                 <p>Genere: ${movie.genre}</p>
                                 <h4>Trama:</h4>
+
                                 <p>${movie.plot}</p>
                                 <a href="${movie.trailer_url}">Guarda il trailer »</a>
                             </div>
@@ -34,7 +35,9 @@
                                     <fmt:formatDate var="date" value="${show.date_time}" pattern="H:m d/M/y"/>
                                     <a href="/prenota?show_id=${show.id}" class="list-group-item">
                                         <h4 class="list-group-item-heading">Sala ${show.theater}</h4>
+
                                         <p class="list-group-item-text">${date}</p>
+
                                         <p class="list-group-item-text">Durata: ${movie.duration} minuti</p>
                                     </a>
                                 </c:forEach>

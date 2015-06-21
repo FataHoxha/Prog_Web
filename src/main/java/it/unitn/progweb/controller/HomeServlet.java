@@ -22,7 +22,7 @@ public class HomeServlet extends HttpServlet {
 
         String movieshow = "SELECT title,poster_uri,plot FROM current_movies ORDER BY random() LIMIT 3";
 
-        List<Map<String,Object>> movieShow;
+        List<Map<String, Object>> movieShow;
         try (Connection con = database.open()) {
             movieShow = con.createQuery(movieshow).executeAndFetchTable().asList();
         }

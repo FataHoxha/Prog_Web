@@ -21,7 +21,7 @@ public class ScreeningServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MovieManager manager = (MovieManager) request.getServletContext().getAttribute("movie_manager");
         List<Movie> movies = manager.currentMovies();
-        for(Movie m: movies) {
+        for (Movie m : movies) {
             manager.setShows(m);
         }
 

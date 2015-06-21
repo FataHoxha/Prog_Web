@@ -29,13 +29,13 @@ public class TestServlet extends HttpServlet {
         reservations.add(r);
         reservations.add(r2);
 
-        User uss=new User();
+        User uss = new User();
         uss.setEmail("fz@fabianozenatti.it");
         uss.setUsername("faby");
         uss.setPassword("fabyqwer");
         uss.setId(2);
 
-        Order o =new Order(uss ,reservations, database);
+        Order o = new Order(uss, reservations, database);
         o.sendReservation((Mailer) request.getServletContext().getAttribute("email_manager"));
 
 

@@ -7,7 +7,8 @@ public class Price {
     private String kind;
     private float amount;
 
-    public Price(){}
+    public Price() {
+    }
 
     public Integer getId() {
         return id;
@@ -21,7 +22,9 @@ public class Price {
         return this.kind;
     }
 
-    public void setKind(String kind) { this.kind = kind; }
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
 
     public float getAmount() {
         return this.amount;

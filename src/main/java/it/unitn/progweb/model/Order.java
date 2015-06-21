@@ -22,20 +22,20 @@ public class Order {
     private List<Reservation> reservations;
     private User user;
 
-    public Order(User user, List<Reservation> reservations, Sql2o database){
+    public Order(User user, List<Reservation> reservations, Sql2o database) {
         this.database = database;
         this.reservations = reservations;
         this.user = user;
     }
 
-    public void sendReservation(Mailer mailer){
+    public void sendReservation(Mailer mailer) {
 
-        mailer.sendMailAttachment(this.user.getEmail(), "SampleText cinema tickets","Grazie per l'acquisto " + this.user.getUsername() + ", Le alleghiamo i suoi biglietti", this.toPdfOrderDetails());
+        mailer.sendMailAttachment(this.user.getEmail(), "SampleText cinema tickets", "Grazie per l'acquisto " + this.user.getUsername() + ", Le alleghiamo i suoi biglietti", this.toPdfOrderDetails());
 
         return;
     }
 
-    public ByteArrayOutputStream toPdfOrderDetails(){
+    public ByteArrayOutputStream toPdfOrderDetails() {
         //TODO questo deve restituire il pdf con le info dell'ordine +:)
 
         Document document = new Document();
@@ -64,11 +64,9 @@ public class Order {
                 document.add(new Paragraph(reservationDetails, font));
                 document.newPage();
             }
-        }
-        catch(DocumentException de) {
+        } catch (DocumentException de) {
             System.err.println(de.getMessage());
-        }
-        catch(IOException ioe) {
+        } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
 

@@ -6,7 +6,7 @@
         <title>Dove siamo</title>
 
         <!-- Leaflet stuff -->
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css"/>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 
         <style type="text/css">
@@ -19,7 +19,7 @@
         </style>
 
         <script type="application/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 // create a map in the "map" div, set the view to a given place and zoom
                 var map = L.map('map').setView([46.067019, 11.150361], 17);
 
@@ -49,7 +49,9 @@
                 <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Inidirizzo</h2><br>
+
                         <p>Via Sommarive n 5</p>
+
                         <p>Trento, TN 94107</p>
                     </address>
                 </div>
@@ -63,6 +65,7 @@
                 <div class="col-xs-12 col-sm-4">
                     <address>
                         <h2>Telefono</h2><br>
+
                         <p>0464 654312</p>
                     </address>
 

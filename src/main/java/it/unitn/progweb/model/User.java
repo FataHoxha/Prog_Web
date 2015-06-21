@@ -13,7 +13,7 @@ public class User {
 
     @NotNull
     @Pattern(regexp = "[A-Za-z][A-Za-z0-9]+")
-    @Size(min=2, max=100)
+    @Size(min = 2, max = 100)
     private String username;
 
     @NotNull

@@ -20,8 +20,8 @@ public class AdminFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         User u = (User) request.getSession().getAttribute("user");
 
-        if(u.isAuthenticated()){
-            if(u.getIs_admin()){
+        if (u.isAuthenticated()) {
+            if (u.getIs_admin()) {
                 chain.doFilter(req, resp);
                 return;
             }

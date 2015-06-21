@@ -32,11 +32,10 @@ public class PasswordResetServlet extends HttpServlet {
 
         String password = request.getParameter("password");
 
-        if(token != null) {
+        if (token != null) {
             stage = 3; // set new password
             um.resetPassword(token, password);
-        }
-        else {
+        } else {
             if (email == null) {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST);
                 return;
@@ -58,11 +57,10 @@ public class PasswordResetServlet extends HttpServlet {
         String token = request.getParameter("t");
         int stage;
 
-        if(token == null || token.isEmpty()) {
+        if (token == null || token.isEmpty()) {
             // show the email form
             stage = 0;
-        }
-        else {
+        } else {
             // if token is valid, show reset form
             if (um.isValidResetPasswordToken(token)) {
                 stage = 2;

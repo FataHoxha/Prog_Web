@@ -17,11 +17,11 @@ public class UserSessionFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         User u = (User) request.getSession(true).getAttribute("user");
-        if(u == null){
+        if (u == null) {
             request.getSession(true).setAttribute("user", new User());
         } else {
             Sql2o db = (Sql2o) request.getServletContext().getAttribute("database");
-            try(Connection c = db.open()) {
+            try (Connection c = db.open()) {
                 u = c.createQuery("select uid, is_admin, credit, username, password, email from \"user\" where uid=:id")
                         .bind(u)
                         .addColumnMapping("uid", "id")
@@ -29,7 +29,7 @@ public class UserSessionFilter implements Filter {
                 request.getSession().removeAttribute("user");
                 request.getSession().setAttribute("user", u);
             }
-            if(u == null) {
+            if (u == null) {
                 request.getSession(true).setAttribute("user", new User());
             }
         }
