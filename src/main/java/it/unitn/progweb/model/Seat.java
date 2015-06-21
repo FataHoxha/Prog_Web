@@ -15,6 +15,8 @@ public class Seat {
         this.id = id;
     }
 
+    //riga riferita alla sala del cinema
+
     public Integer getRow() {
         return row;
     }
@@ -23,6 +25,8 @@ public class Seat {
         this.row = row;
     }
 
+    //colonna riferita alla sala del cinema
+
     public Integer getColumn() {
         return column;
     }
@@ -30,6 +34,8 @@ public class Seat {
     public void setColumn(Integer column) {
         this.column = column;
     }
+
+    //stato dei posti a sedere (liberi o occupati)
 
     public Integer getStatus() {
         return status;

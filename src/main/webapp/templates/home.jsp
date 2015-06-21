@@ -18,7 +18,7 @@
             <c:forEach items="${movieShow}" var="movie">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="${movie.poster_uri}">
+                        <img width="214" height="339" src="${movie.poster_uri}">
 
                         <div class="caption">
                             <h3>${movie.title}</h3>

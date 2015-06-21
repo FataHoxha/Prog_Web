@@ -6,6 +6,9 @@
     <jsp:attribute name="extrahead">
         <title>Seleziona posto</title>
 
+        <link rel="stylesheet" href="../assets/css/reservation.css">
+
+        <!-- Javascript per creare la griglia di posti a sedere, in modo dinamico-->
         <script text="javascript">
             var max_col = 0;
             var max_row = 0;
@@ -51,7 +54,7 @@
                             pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text() + ' <span onclick ="deleteReservation(\'' + did + '\');" style="cursor:pointer;"' +
                             ' class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>');
                 }
-            }
+            }c
 
             function pad(num, size) {
                 var s = "000000000" + num;
@@ -102,105 +105,12 @@
                 });
             }
         </script>
-        <style>
-
-            .cell {
-                float: left;
-                border-radius: 3px;
-                height: 25px;
-                width: 25px;
-                margin: 2px;
-                padding-bottom: 25px;
-                border: 1px dashed slategray;
-                border-sizing: border-box;
-                cursor: pointer;
-            }
-
-            .available:hover {
-                border: 1px solid midnightblue;
-            }
-
-            .disabled {
-                background-color: white;
-                border: none;
-                cursor: auto;
-            }
-
-            .available {
-                background-color: whitesmoke;
-            }
-
-            .unavailable {
-                cursor: auto;
-                background-color: lightslategray;
-            }
-
-            .checked {
-                background-color: crimson;
-                border: 1px solid transparent;
-                cursor: auto;
-            }
-
-            #dimmer {
-                position: fixed;
-                display: none;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-                z-index: 1500;
-            }
-
-            #pay {
-                position: fixed;
-                display: none;
-                top: 35%;
-                left: 35%;
-                width: 300px;
-                height: 200px;
-                background-color: white;
-                z-index: 1501;
-            }
-
-            #confirmation {
-                position: fixed;
-                display: none;
-                top: 35%;
-                left: 35%;
-                width: 300px;
-                height: 200px;
-                background-color: white;
-                z-index: 1501;
-            }
-
-            #errorres {
-                position: fixed;
-                display: none;
-                top: 35%;
-                left: 35%;
-                width: 300px;
-                height: 200px;
-                background-color: white;
-                z-index: 1501;
-            }
-
-            #waiting {
-                position: fixed;
-                display: none;
-                top: 35%;
-                left: 35%;
-                width: 300px;
-                height: 200px;
-                background-color: white;
-                z-index: 1501;
-            }
-        </style>
 
     </jsp:attribute>
     <jsp:body>
 
 
+<!--popup per procedere con il pagamento e inserire numero carta di credito -->
         <div id="dimmer"></div>
 
         <div id="pay" class="panel panel-default">

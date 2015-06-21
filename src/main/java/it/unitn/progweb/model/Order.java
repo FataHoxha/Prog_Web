@@ -14,6 +14,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * Invio della prenotazione via mail
+ * PDf contente QR code e le prenotazioni
+ *
  * An Order is a list of reservations linked to a User
  */
 public class Order {
@@ -36,7 +39,7 @@ public class Order {
     }
 
     public ByteArrayOutputStream toPdfOrderDetails() {
-        //TODO questo deve restituire il pdf con le info dell'ordine +:)
+        // deve restituire il pdf con le info dell'ordine +:)
 
         Document document = new Document();
         ByteArrayOutputStream fileBiteArray = new ByteArrayOutputStream();

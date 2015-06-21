@@ -6,6 +6,7 @@
         <title>Prezzi</title>
     </jsp:attribute>
 
+    <!-- visualizza tabella dei prezzi in modo statico-->
     <jsp:body>
         <div class="page-header">
             <h1 class="center">Listino Prezzi</h1>
