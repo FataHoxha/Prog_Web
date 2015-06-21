@@ -14,6 +14,19 @@
                 {seatid:${seat.id}, row:${seat.row}, column:${seat.column}, status:${seat.status}},
                 </c:forEach>
             ];
+
+
+            var amounts = {
+
+                <c:forEach items="${prices}" var="price">
+                     ${price.id}: ${price.amount} ,
+                </c:forEach>
+
+            };
+
+            var total=0.0;
+
+
         </script>
 
         <!-- Javascript contentente tutta la logica per far funzionare la pagina come single page application.
@@ -36,6 +49,7 @@
             <div class="panel-body">
                 <form>
                     <div class="form-group">
+                        <label id="totalamount"></label>
                         <label>Inserisci il numero della carta di credito:</label>
 
                         <div>
@@ -44,6 +58,8 @@
                     </div>
                 </form>
                 <button class="btn btn-default" type="submit" onclick="sendJson();">Paga</button>
+                <button class="btn btn-default" type="submit" onclick=" $('#dimmer').hide();
+    $('#pay').hide(); ">Modifica</button>
             </div>
         </div>
 

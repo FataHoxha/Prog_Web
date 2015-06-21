@@ -22,10 +22,13 @@ $(document).ready(function () {
 });
 
 //elimina dalla lista delle prenotazioni una prenotazione
-function deleteReservation(id) {
+function deleteReservation(id, amount) {
     $('#d' + id).remove();
     $('#p' + id).removeClass('checked');
     $('#p' + id).addClass('available');
+
+    total-=amount;
+    $('#totalamount').html('totale: '+total+'$');
 }
 
 
@@ -38,8 +41,10 @@ function process(pid) {
 
         var did = pid.substr(1, 4);
         var value;
+        total+=amounts[$('#category_selector option:selected').val()];
+        $('#totalamount').html('totale: '+total+'$');
         $('#done').append('<div id="d' + did + '" data-seatid="' + $('#' + pid).data('seatid') + '" data-cat="' + $('#category_selector').val() + '">Fila ' +
-            pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text() + ' <span onclick ="deleteReservation(\'' + did + '\');" style="cursor:pointer;"' +
+            pid.substr(1, 2) + ', Posto ' + pid.substr(3, 4) + ' ~ ' + $('#category_selector option:selected').text()+ ' - ' + amounts[$('#category_selector option:selected').val()] + '$ <span onclick ="deleteReservation(\'' + did + '\', \'' + amounts[$('#category_selector option:selected').val()] + '\');" style="cursor:pointer;"' +
             ' class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>');
     }
 }
