@@ -14,6 +14,7 @@ INSERT INTO "user" (username, email, password, credit) VALUES ('UtontoStd', 'uto
 INSERT INTO "user" (username, email, password, credit) VALUES ('fhahthbhahrhdhah', 'fatbardha.Hoxha@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980', '85.0' );
 INSERT INTO "user" (username, email, password, credit) VALUES ('TheKing', 'tullo_ostilio@fabianozenatti.it', 'b35469cfbe220e8f5a663c14b6fdea99bacab80cab74eb809761ab7e2a2eb6642e57693d638a21cdbf7e07cb76d3441647dc68689502d4a0398d8009f7ed9980', '31.0' );
 
+
 INSERT INTO "genre" (description) VALUES ('Action');
 INSERT INTO "genre" (description) VALUES ('Adventure');
 INSERT INTO "genre" (description) VALUES ('Animation');

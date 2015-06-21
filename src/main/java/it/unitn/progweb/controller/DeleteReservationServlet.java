@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet che permette all'amministratore di cancellare le prenotazioni
+ * e accreditare l'80% sul credito dell'utente
+ *
+ */
 
 @WebServlet(name = "DeleteReservationServlet", urlPatterns = {"/deletereservation"})
 public class DeleteReservationServlet extends HttpServlet {
@@ -38,7 +43,7 @@ public class DeleteReservationServlet extends HttpServlet {
                         .executeScalar(Float.class);
 
                 String sqlaccredita = "UPDATE \"user\" SET credit = :price WHERE uid=:id;";
-                conn.createQuery(sqlaccredita).addParameter("id", userId).addParameter("price", price + credit).executeUpdate();
+                conn.createQuery(sqlaccredita).addParameter("id", userId).addParameter("price", (price*0.8) + credit).executeUpdate();
 
                 String sqldelete = "delete from reservation where id=:id";
                 conn.createQuery(sqldelete).addParameter("id", reservation).executeUpdate();

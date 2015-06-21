@@ -13,7 +13,8 @@
             <div class="page-header">
                 <h1>I film di oggi</h1>
             </div>
-
+<!-- home page
+    tag foreach per iterare sui 3 film presenti in hompage, servita dalla classe Movie-->
             <c:forEach items="${movieShow}" var="movie">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">

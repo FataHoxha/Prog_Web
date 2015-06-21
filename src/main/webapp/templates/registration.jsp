@@ -9,6 +9,8 @@
 
     <jsp:body>
         <div class="col-md-6">
+
+            <!--visualizza eventuali errori di registrazione segnalati dalla RegistrationServlet-->
             <c:forEach items="${errors}" var="error">
                 <div class="alert alert-danger">${error}</div>
             </c:forEach>
@@ -16,7 +18,7 @@
             <div class="page-header">
                 <h1>Registrati</h1>
             </div>
-
+            <!--form di registrazione, dati inviati tramite metodo post-->
             <form action="/registration" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>

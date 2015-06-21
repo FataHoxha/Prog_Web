@@ -13,6 +13,7 @@
             <h1>Programmazione</h1>
         </div>
         <div class="row">
+            <!-- visualizza le informazioni principali del film, gestiti dalla ScreeningServlet -->
             <c:forEach items="${movies}" var="movie">
                 <div class="panel panel-default">
                     <div class="panel-heading">${movie.title}</div>
@@ -31,6 +32,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="list-group">
+                                <!-- visualizza gli orari e la durata dei film, gestiti dalla ScreeningServlet -->
                                 <c:forEach items="${movie.shows}" var="show">
                                     <fmt:formatDate var="date" value="${show.date_time}" pattern="H:m d/M/y"/>
                                     <a href="/prenota?show_id=${show.id}" class="list-group-item">
