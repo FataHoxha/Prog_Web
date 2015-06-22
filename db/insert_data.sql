@@ -1,18 +1,6 @@
-insert into "user"(username, email, password) values ('fabiano', 'fz@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f');
-INSERT INTO "user" (username, email, password, credit) VALUES ('mario', 'mario.rossi@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '10.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('luca', 'luca@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '15.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('roby', 'roberto@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '20.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('dallag', 'marco@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '5.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('David93', 'davide.pizzolotto@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '7.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('erFabyTunz', 'faby.zen@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '150.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('Matteo', 'Matteo.martella@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '35.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('Dante99', 'Alighieri.dante@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '1.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('Serious', 'serious.sam@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '47.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('Menethil', 'Arthas@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '250.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('pippiZ', 'pippicalzelunghe@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '15.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('UtontoStd', 'utonto@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '16.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('fhahthbhahrhdhah', 'fatbardha.Hoxha@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '85.0' );
-INSERT INTO "user" (username, email, password, credit) VALUES ('TheKing', 'tullo_ostilio@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', '31.0' );
+insert into "user"(username, email, password, is_admin) values ('fabiano', 'fz@fabianozenatti.it', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', 'f');
+insert into "user"(username, email, password, is_admin) values ('marco', 'dallamarco93@gmail.com', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', 't');
+insert into "user"(username, email, password, is_admin) values ('roberto', 'bampi.roberto@gmail.com', 'd8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f73aa0d0ebff19ee333368f0164b6419a96da49e3e481753e7e96b716bdccb6f', 't');
 
 INSERT INTO "genre" (description) VALUES ('Action');
 INSERT INTO "genre" (description) VALUES ('Adventure');
@@ -26,10 +14,10 @@ INSERT INTO "genre" (description) VALUES ('Science Fiction');
 INSERT INTO "genre" (description) VALUES ('War');
 INSERT INTO "genre" (description) VALUES ('Western');
 
-INSERT INTO "price" (kind, amount) VALUES ('3D','10.0');
-INSERT INTO "price" (kind, amount) VALUES ('2D','8.0');
+INSERT INTO "price" (kind, amount) VALUES ('Normale','10.0');
+INSERT INTO "price" (kind, amount) VALUES ('Ridotto','8.0');
+INSERT INTO "price" (kind, amount) VALUES ('Militare','5.0');
 INSERT INTO "price" (kind, amount) VALUES ('Disabile','5.0');
-INSERT INTO "price" (kind, amount) VALUES ('Reduce','5.0');
 
 INSERT INTO "theater" (id, description) VALUES ('1','Blu');
 INSERT INTO "theater" (id, description) VALUES ('2','Verde');

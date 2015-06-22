@@ -33,7 +33,7 @@ public class AdminAreaServlet extends HttpServlet {
 
         String id = request.getParameter("id");
         Sql2o database = (Sql2o) getServletContext().getAttribute("database");
-        String sqlheat = "WITH q1 AS (SELECT seat_id AS id, COUNT(*) AS num FROM reservation GROUP BY id), q2 AS (SELECT id, \"row\", \"column\" FROM seat WHERE theater_id = 1) SELECT \"row\" AS r,\"column\" AS c,num FROM (q1 NATURAL JOIN q2)";
+        String sqlheat = "WITH q1 AS (SELECT seat_id AS id, COUNT(*) AS num FROM reservation GROUP BY id), q2 AS (SELECT id, \"row\", \"column\" FROM seat WHERE theater_id = 1) SELECT \"row\" AS r,\"column\" AS c,num FROM (q1 NATURAL JOIN q2) order by num limit 10;";
         List<Map<String, Object>> heatStats;
         try (Connection con = database.open()) {
             heatStats = con.createQuery(sqlheat).executeAndFetchTable().asList();

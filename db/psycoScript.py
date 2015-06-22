@@ -12,6 +12,9 @@ ts = time.time()
 date = datetime.datetime.now()
 date_orig = date
 
+if len(sys.argv) != 3:
+    print "usage: {} [intervallo] [numero_prog]".format(sys.argv[0])
+    sys.exit(1)
 #args
 intervallo = sys.argv[1]
 numProg = sys.argv[2]
@@ -55,7 +58,7 @@ conn.commit()
 MAXSHOW = 30* string.atoi(numProg)
 
 #choosing random user
-user = randint(1,15)
+user = randint(1,3)
 #db parameters
 price = 1
 show = 1
@@ -93,11 +96,11 @@ while(1):
 	if(x[0] == True):
 		strtmp = "insert into \"reservation\" (user_id, show_id, price_id, seat_id) VALUES ('"+str(user)+"','"+str(show)+"','"+str(price)+"','"+str(idposto)+"');\n"
 		cur.execute(strtmp)
-	user = randint(1,15)
+	user = randint(1,3)
 	giro+=1
 	#10 reservations? -> reset
 	if(giro == 10):
-		giro == 1
+		giro = 1
 		show += 1
 		if( (sala+1)%5 == 0):
 			sala = 1
