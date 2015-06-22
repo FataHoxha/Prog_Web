@@ -47,8 +47,17 @@ function showTheatre(id) {
 
 //richiede di cancellare una prenotazione
 function requestDelete(id) {
-    $('#resid' + id).remove();
-    $.post("/deletereservation", {delete: id});
+    $.ajax({
+        type: "POST",
+        url: "/deletereservation",
+        data: {delete: id},
+        success: function(data) {
+            $('#resid' + id).remove();
+        },
+        error: function(data) {
+            alert("Cancellazione prenotazione fallita");
+        }
+    })
 }
 
 //torna indietro dai posti piu' popolari di una sala alla selezione di quale sala visualizzare
