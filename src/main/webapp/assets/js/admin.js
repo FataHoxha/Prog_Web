@@ -1,8 +1,10 @@
 //tiene traccia della scheda attualmente selezionata
 var current_page = 0;
-
-//codice di selezione della sala per cui vedere i posti piu' popolari
-var html_code_select_theatre = $('#page5inside').html();
+var html_code_select_theatre;
+$(document).ready(function(){
+    //codice di selezione della sala per cui vedere i posti piu' popolari
+    html_code_select_theatre = $('#page5inside').html();
+})
 
 
 //mostra la scheda contrassegnata da id. Nel caso abbia grafici li genera
