@@ -133,7 +133,7 @@
                                                 onclick="requestDelete(${userreservatio.reservation});"
                                                 style="cursor:pointer;"
                                                 class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                                ${userreservatio.title} - ${userreservatio.data} -
+                                                ${userreservatio.title} - ${userreservatio.data} - ${userreservatio.sala} -
                                             posto ${userreservatio.column} fila ${userreservatio.row}
                                         </div>
 
